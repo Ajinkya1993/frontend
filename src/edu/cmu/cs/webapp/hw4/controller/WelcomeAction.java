@@ -20,8 +20,6 @@ public class WelcomeAction extends Action {
 
     @Override
     public String perform(HttpServletRequest request) {
-
-        return "index.jsp";
+        return "dashboard.jsp";
     }
-
 }
