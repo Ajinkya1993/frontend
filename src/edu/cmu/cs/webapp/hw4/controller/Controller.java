@@ -29,6 +29,7 @@ public class Controller extends HttpServlet {
         Action.add(new UpdateAction(model));
         */
         Action.add(new WelcomeAction());
+        Action.add(new CaregiverLandingAction());
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
