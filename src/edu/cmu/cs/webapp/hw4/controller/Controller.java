@@ -31,6 +31,8 @@ public class Controller extends HttpServlet {
         Action.add(new LoginAction());
         Action.add(new CaregiverLandingAction());
         Action.add(new SeniorHousingOverviewAction());
+        Action.add(new CareteamDashboard());
+        Action.add(new PersonalDashboard());
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)

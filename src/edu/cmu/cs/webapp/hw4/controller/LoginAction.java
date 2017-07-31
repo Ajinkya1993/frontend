@@ -1,6 +1,5 @@
 // Name: Namita Sibal Date: 12/14/16 Course Number: 08672
 package edu.cmu.cs.webapp.hw4.controller;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,7 +22,6 @@ public class LoginAction extends Action {
     private FormBeanFactory<LoginForm> formBeanFactory = FormBeanFactory.getInstance(LoginForm.class);
 
     public LoginAction() {
-        
     }
 
     public String getName() {
