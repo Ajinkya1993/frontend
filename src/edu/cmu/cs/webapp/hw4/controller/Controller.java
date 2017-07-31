@@ -30,6 +30,7 @@ public class Controller extends HttpServlet {
         */
         Action.add(new WelcomeAction());
         Action.add(new CaregiverLandingAction());
+        Action.add(new SeniorHousingOverviewAction());
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
