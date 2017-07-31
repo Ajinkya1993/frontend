@@ -1,28 +1,28 @@
 // Name: Namita Sibal Date: 12/14/16 Course Number: 08672
 package edu.cmu.cs.webapp.hw4.controller;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import org.genericdao.RollbackException;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
-
-import edu.cmu.cs.webapp.hw4.databean.UserBean;
 import edu.cmu.cs.webapp.hw4.formbean.RegisterForm;
-import edu.cmu.cs.webapp.hw4.model.Model;
-import edu.cmu.cs.webapp.hw4.model.UserDAO;
+import org.json.*;
 
 
 public class RegisterAction extends Action {
     private FormBeanFactory<RegisterForm> formBeanFactory = FormBeanFactory.getInstance(RegisterForm.class);
 
-    private UserDAO userDAO;
-
-    public RegisterAction(Model model) {
-        userDAO = model.getUserDAO();
+    public RegisterAction() {
     }
 
     public String getName() {
@@ -33,17 +33,11 @@ public class RegisterAction extends Action {
         HttpSession session = request.getSession();
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
-
-        try {
-        	request.setAttribute("userlist", userDAO.getUsers());
-        } catch (RollbackException e) {
-        	errors.add(e.getMessage());
-        }
-
+        JSONObject responseObj = new JSONObject();
         // If user is already logged in, redirect to todolist.do
-        if (session.getAttribute("user") != null) {
-            return "todolist.do";
-        }
+        /*if (session.getAttribute("user") != null) {
+            return "welcome.do";
+        }*/
 
         try {
             RegisterForm form = formBeanFactory.create(request);
@@ -62,20 +56,89 @@ public class RegisterAction extends Action {
             }
 
             if (form.getAction().equals("Register")) {
-                UserBean newUser = new UserBean();
-                newUser.setEmailaddress(form.getEmailaddress());
-                newUser.setFirstname(form.getFirstname());
-				newUser.setLastname(form.getLastname());
-                newUser.setPassword(form.getPassword());
-                userDAO.create(newUser);
-                session.setAttribute("user", newUser);
-                return "todolist.do";
+            	  String query = "http://localhost:8080/CurantisBackendService/curantis/register";
+	        	  JSONObject json = new JSONObject();
+	        	  
+	              try {
+	            	  json.put("email", form.getEmail());
+		              json.put("password", form.getPassword());
+		              json.put("firstName", form.getFirstName());
+		              json.put("middleName",form.getMiddleName());
+		              json.put("lastName", form.getLastName());
+		              json.put("address", form.getAddressLine1() + ">"+ form.getAddressLine2() + ">"+ form.getCity() +">"+ form.getState() + ">"+ form.getCountry());
+		              json.put("phoneNo", form.getPhoneNumber());
+				} catch (JSONException e1) {
+					e1.printStackTrace();
+				}
+                try {
+	                URL url = new URL(query);
+	                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	                conn.setConnectTimeout(5000);
+	                conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+	                conn.setDoOutput(true);
+	                conn.setDoInput(true);
+	                conn.setRequestMethod("POST");
+	                OutputStream os = conn.getOutputStream();
+	                os.write(json.toString().getBytes("UTF-8"));
+	                os.close();
+	                // read the response
+	                if (conn.getResponseCode() != 200) {
+	                    throw new RuntimeException("Failed : HTTP error code : "
+	                        + conn.getResponseCode());
+	                }
+	
+	                BufferedReader br = new BufferedReader(new InputStreamReader(
+	                        (conn.getInputStream())));
+	
+	                String output;
+	                System.out.println("Output from Server .... \n");
+	                
+	                while ((output = br.readLine()) != null) {
+	                	try {
+						responseObj = new JSONObject(output);
+							Boolean success = responseObj.getBoolean("success");
+							String message = responseObj.getString("message");
+							if(success != true) {
+								if(message.equals("Missing email or password!")) {
+									errors.add("Missing email or password!");
+									return "register.jsp";
+									
+								} else if(message.equals("Account already exist!")) {
+									errors.add("Account already exist!");
+									return "register.jsp";
+								}
+							}
+							
+						} catch (JSONException e) {
+							e.printStackTrace();
+						}
+	                    System.out.println(output);
+	                }
+	
+	                conn.disconnect();
+	
+	              } catch (MalformedURLException e) {
+	
+	                e.printStackTrace();
+	
+	              } catch (IOException e) {
+	
+	                e.printStackTrace();
+	
+	             }
+                String firstName = new String();
+                String lastName = new String();
+				try {
+					firstName = responseObj.getString("firstName");
+					 lastName = responseObj.getString("lastName");
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				session.setAttribute("user", firstName+" "+lastName);
+                return "welcome.do";
             } else {
             	return "register.jsp";
             }
-        } catch (RollbackException e) {
-            errors.add(e.getMessage());
-            return "register.jsp";
         } catch (FormBeanException e) {
             errors.add(e.getMessage());
             return "register.jsp";

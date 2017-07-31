@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.cmu.cs.webapp.hw4.model.Model;
-
 public class Controller extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -29,6 +27,8 @@ public class Controller extends HttpServlet {
         Action.add(new UpdateAction(model));
         */
         Action.add(new WelcomeAction());
+        Action.add(new RegisterAction());
+        Action.add(new LoginAction());
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)

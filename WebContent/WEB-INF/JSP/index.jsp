@@ -57,9 +57,9 @@
 								</a></li>
 								
 								<li><i class="fa fa-phone"></i> Call Us: 1-800-123-4567</li>
-								<li> <a href="#"><font color = "blue"><b>Login</b></font></a>
+								<li> <a href="login.do"><font color = "blue"><b>Login</b></font></a>
 								</li>
-								<li> <a href="#"><font color = "blue"><b>Register</b></font></a>
+								<li> <a href="register.do"><font color = "blue"><b>Register</b></font></a>
 								</li>
 								
 							</ul>
