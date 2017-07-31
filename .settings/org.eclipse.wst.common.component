@@ -5,6 +5,9 @@
         <dependent-module archiveName="java-json.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/namitasibal/Downloads/java-json.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="java-json.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/varunpant/Downloads/java-json.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/CurantisFrontend/build/classes"/>
         <property name="context-root" value="CurantisFrontend"/>
     </wb-module>

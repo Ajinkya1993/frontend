@@ -1,4 +1,3 @@
-
 package edu.cmu.cs.webapp.hw4.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +19,6 @@ public class WelcomeAction extends Action {
 
     @Override
     public String perform(HttpServletRequest request) {
-        return "index.jsp";
+        return "CareteamDashboard.jsp";
     }
 }
