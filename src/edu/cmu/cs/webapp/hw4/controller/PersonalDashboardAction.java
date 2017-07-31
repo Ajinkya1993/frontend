@@ -2,12 +2,12 @@ package edu.cmu.cs.webapp.hw4.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class PersonalDashboard extends Action {
+public class PersonalDashboardAction extends Action {
 
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return "PersonalDashboard.do";
+		return "personalDashboard.do";
 	}
 
 	@Override
@@ -15,5 +15,4 @@ public class PersonalDashboard extends Action {
 		// TODO Auto-generated method stub
 		return "PersonalDashboard.jsp";
 	}
-
 }

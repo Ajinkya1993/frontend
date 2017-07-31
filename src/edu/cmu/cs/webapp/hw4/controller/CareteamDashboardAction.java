@@ -2,12 +2,12 @@ package edu.cmu.cs.webapp.hw4.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class CareteamDashboard extends Action {
+public class CareteamDashboardAction extends Action {
 
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return "CareteamDashboard.do";
+		return "careteamDashboard.do";
 	}
 
 	@Override
