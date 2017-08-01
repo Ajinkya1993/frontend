@@ -19,6 +19,7 @@ public class WelcomeAction extends Action {
 
     @Override
     public String perform(HttpServletRequest request) {
-        return "index.jsp";
+        //return "index.jsp";
+        return "CreateCaregiverTeam.jsp";
     }
 }
