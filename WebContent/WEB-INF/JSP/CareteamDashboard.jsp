@@ -37,7 +37,7 @@
 <body>
 
 	<div class="wrapper">
-		<div class="sidebar" data-color="purple"
+		<div class="sidebar" data-color="blue"
 			data-image="assets/img/sidebar-5.jpg">
 
 			<!--
@@ -164,54 +164,57 @@
 									<div class="card">
 										<div class="header">
 											<h4 class="title">Team Members</h4>
-											<p class="category">The team members of this caregiver
-												circle are:</p>
+											<p class="category">The team members are:</p>
 										</div>
 										<div class="content">
-											<table>
-						<style>
-* { 
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
-	box-sizing: border-box; 
+											<table class="new">
+<style>												
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 table {
-  border-collapse: separate;
-  background:#fff;
+	border-collapse: separate;
+	background: #fff;
 }
 
 tbody tr td {
-  font-family: 'Open Sans', sans-serif;
-  font-weight:400;
-  color:#5f6062;
-  font-size:13px;
-  padding:20px 20px 20px 20px;
-  border-bottom:1px solid #e0e0e0;
-  
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	color: #5f6062;
+	font-size: 13px;
+	padding: 20px 20px 20px 20px;
+	border-bottom: 1px solid #e0e0e0;
 }
 
-tbody tr:nth-child(2n) {
-  background:#f0f3f5;
+.new tbody tr:nth-child(2n) {
+	background: #f0f3f5;
 }
 
-tbody tr:last-child td {
-  border-bottom:none;
-  &:first-child {
-    @include border-bottom-left-radius(5px);
-  }
-  &:last-child {
-    @include border-bottom-right-radius(5px);
-  }
+.new tbody tr:last-child td {
+	border-bottom: none;
+	&:
+	first-child
+	{
+	@include
+	border-bottom-left-radius(5px);
 }
 
-tbody:hover > tr:hover td {
-  @include text-shadow(none);
-  color:#2d2d2d;
-  @include opacity(1.0);
+&
+:last-child { @include border-bottom-right-radius(5px);
+	
 }
 
-											</style>
+}
+.new tbody:hover>tr:hover td { @include text-shadow(none);
+	color: #2d2d2d;
+	@
+	include
+	opacity(1.0);
+}
+</style>
 												<tr>
 													<td style="padding-right: 15px"><img
 														src="images/default-avatar.png" alt="" width="30" /></td>
@@ -240,7 +243,7 @@ tbody:hover > tr:hover td {
 													<td style="padding-right: 15px">joy@gmail.com</td>
 													<td style="padding-right: 15px">3124563232</td>
 												</tr>
-												<tr> * : Primary Caregiver</tr>
+												<tr>* : Primary Caregiver</tr>
 											</table>
 										</div>
 									</div>
@@ -249,53 +252,73 @@ tbody:hover > tr:hover td {
 
 
 
-
-
 							<div class="col-md-6">
 								<div class="card">
 									<div class="header">
 										<h4 class="title">Active Services</h4>
 										<p class="category">List of services active for this
-											circle</p>
+											team</p>
 									</div>
 									<div class="content">
 										<div class="nav3">
-											<a href="https://www.google.com" class="icons"><img
-												src="images/vendor_mgmt.png" width="160"></a> <a
-												href="https://www.google.com" class="icons"><img
-												src="images/ancillary.png" width="160"></a> <a
-												href="https://www.google.com" class="icons"><img
-												src="images/Housingservices.png" width="160" height="162"></a>
-										</div>
-										<div class="footer">
 
-											<hr>
-											<div class="stats">
-												<i class="fa fa-history"></i> Updated 3 minutes ago
+											<div class="photo">
+												<style>
+												.photo img {
+												width: 100px;
+												height: 100px;
+												background-color: grey;
+												}
+												</style>
+												<table>
+													<tr>
+														<td><a href="https://www.google.com" class="icons">
+																<img src="images/ServiceIcons/senior-housing.png"
+																width="160">
+														</a></td>
+														<td><a href="https://www.google.com" class="icons">
+																<img src="images/ServiceIcons/in-home-care.png"
+																width="160">
+														</a></td>
+														<td><a href="https://www.google.com" class="icons">
+																<img src="images/ServiceIcons/vendor-service.png"
+																width="160">
+														</a></td>
+													</tr>
+												</table>
+
 											</div>
+										</div>
+									</div>
+									<div class="footer">
+
+										<hr>
+										<div class="stats">
+											<i class="fa fa-history"></i> Updated 3 minutes ago
 										</div>
 									</div>
 								</div>
 							</div>
-
-
-
 						</div>
+
+
+
 					</div>
 				</div>
 			</div>
-
-
-
-			<footer class="footer">
-				<div class="container-fluid">
-					<p class="copyright pull-right">
-						&copy; 2017 <a href=#>Curantis Solution</a>
-					</p>
-				</div>
-			</footer>
-
 		</div>
+
+
+
+		<footer class="footer">
+			<div class="container-fluid">
+				<p class="copyright pull-right">
+					&copy; 2017 <a href=#>Curantis Solution</a>
+				</p>
+			</div>
+		</footer>
+
+	</div>
 	</div>
 
 
@@ -324,20 +347,20 @@ tbody:hover > tr:hover td {
 <script src="assets/js/demo.js"></script>
 
 <script type="text/javascript">
-    	$(document).ready(function(){
+	$(document).ready(function() {
 
-        	demo.initChartist();
+		demo.initChartist();
 
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "Welcome to <b>John Doe's</b> care team's dashboard"
+		$.notify({
+			icon : 'pe-7s-gift',
+			message : "Welcome to <b>John Doe's</b> care team's dashboard"
 
-            },{
-                type: 'info',
-                timer: 4000
-            });
+		}, {
+			type : 'info',
+			timer : 4000
+		});
 
-    	});
-	</script>
+	});
+</script>
 
 </html>
