@@ -119,7 +119,7 @@ public class LoginAction extends Action {
 	              } catch (MalformedURLException e) {
 	
 	                e.printStackTrace();
-	
+	  
 	              } catch (IOException e) {
 	
 	                e.printStackTrace();
@@ -135,7 +135,7 @@ public class LoginAction extends Action {
 				}
 			session.setAttribute("user", firstName+" "+lastName);
           }
-          return "welcome.do";
+          return "personalDashboard.do";
         }catch (FormBeanException e) {
             errors.add(e.getMessage());
             return "error.jsp";

@@ -59,9 +59,9 @@
 								</a></li>
 								
 								<li><i class="fa fa-phone"></i> Call Us: 1-800-123-4567</li>
-								<li> <a href="#"><font color = "#009bdb"><b>Login</b></font></a>
+								<li> <a href="login.do"><font color = "#009bdb"><b>Login</b></font></a>
 								</li>
-								<li> <a href="#"><font color = "#009bdb"><b>Register</b></font></a>
+								<li> <a href="register.do"><font color = "#009bdb"><b>Register</b></font></a>
 								</li>
 								
 							</ul>
@@ -93,8 +93,8 @@
 					<!-- Navbar Collapse Starts -->
 						<div class="navbar-collapse collapse">
 							<ul class="nav navbar-nav navbar-right">
-								<li class="active"><a href="index.html">Home</a></li>
-								<li><a href="about.html">About</a></li>
+								<li class="active"><a href="welcome.do">Home</a></li>
+								<li><a href="#">About</a></li>
 								
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">

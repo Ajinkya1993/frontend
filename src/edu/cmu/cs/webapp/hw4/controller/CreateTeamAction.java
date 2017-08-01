@@ -31,6 +31,7 @@ public class CreateTeamAction extends Action {
 	}
 
 	public String perform(HttpServletRequest request) {
+	
 		HttpSession session = request.getSession();
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);

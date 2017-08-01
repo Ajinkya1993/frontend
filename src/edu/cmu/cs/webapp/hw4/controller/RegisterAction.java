@@ -136,7 +136,7 @@ public class RegisterAction extends Action {
 					e.printStackTrace();
 				}
 				session.setAttribute("user", firstName+" "+lastName);
-                return "welcome.do";
+                return "personalDashboard.do";
             } else {
             	return "register.jsp";
             }

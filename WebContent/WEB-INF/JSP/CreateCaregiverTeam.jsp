@@ -45,7 +45,7 @@
 <body>
 
 	<div class="wrapper">
-		<div class="sidebar" data-color="purple"
+		<div class="sidebar" data-color="blue"
 			data-image="assets/img/sidebar-5.jpg">
 			<!--
 			Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
@@ -58,7 +58,7 @@
 					<h5 class="centered">Marcel Newman</h5>
 				</div>
 				<ul class="nav">
-					<li class="active"><a href="dashboard.html"> <i
+					<li class="active"><a href="personalDashboard.do"> <i
 							class="pe-7s-graph"></i>
 							<p>My Dashboard</p>
 					</a></li>

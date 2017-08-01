@@ -30,7 +30,7 @@
 						<p>
 							No matter the level of care, we'll help connect you with a skilled, compassionate provider for a better quality of life for you or your loved one.
 						</p>
-						<a href="services.html" class="btn btn-secondary">View Services</a>
+						<a href="#" class="btn btn-secondary">View Services</a>
 					</div>
 					
 				</div>
@@ -72,7 +72,7 @@
 						<p>
 							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
 						</p>
-						<a href="#" class="btn btn-transparent">Read More</a>
+						<a href="seniorHousingOverview.do" class="btn btn-transparent">Read More</a>
 					</div>
 				</div>
 			<!-- Box #1 Ends -->
@@ -179,7 +179,8 @@ At Curantis, you are our focus--so we look out for your best interests. We do no
 					</div>
 					
 					<div class="col-md-6 col-xs-12">
-					<iframe width="500" height="300" src="https://www.youtube.com/embed/lp-EO5I60KA?list=RDJGwWNGJdvx8?ecver=1" frameborder="10"></iframe>
+					<iframe width="500" height="300" src="https://www.youtube.com/embed/jhcBdZBh-Bs?ecver=1" frameborder="10"></iframe>
+					
 						<!--  <img src="images/homepage/whatarewe.jpg" alt="image" class="img-responsive img-style1"> -->
 					</div>
 				</div>

@@ -39,7 +39,7 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
 
     <!--
 
@@ -56,13 +56,13 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="dashboard.html">
+                    <a href="personalDashboard.do">
                         <i class="pe-7s-graph"></i>
                         <p>My Dashboard</p>
                     </a>
                 </li>
                 <li>
-                    <a href="user.html">
+                    <a href="#">
                         <i class="pe-7s-user"></i>
                         <p>CareTeams</p>
                     </a>
@@ -114,7 +114,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                           <a href="">
+                           <a href="welcome.do">
                                Home
                             </a>
                         </li>
@@ -165,12 +165,12 @@
 					<div class="box">
 						<a href><img src="images/circle-of-people.png" alt="Create Circle" height="70" width="70"></a>
 					
-						<h4><a href>Create CareTeam</a></h4>
+						<h4><a href="createteam.do">Create CareTeam</a></h4>
 						<p>
 							You can create a care team to ensure that your loved one's information is shared with everyone in the care team.
 						</p>
 					
-						<a href="#" class="btn btn-transparent">Read More</a>
+						<a href="#" class="btn btn-primary-outline" style="color:white">Read More</a>
 					</div>
 				</div>
 				</div>
@@ -187,25 +187,25 @@
         <td style="padding-right: 15px">
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
-        <td style="padding-right: 30px"><a href>John Weinstein Care Team</a></td>
+        <td style="padding-right: 30px"><a href="careteamDashboard.do">John Weinstein Care Team</a></td>
     </tr>
     <tr>
         <td>
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
-        <td style="padding-right: 15px"><a href>Hannah Montana Care Team</a></td>
+        <td style="padding-right: 15px"><a href="careteamDashboard.do">Hannah Montana Care Team</a></td>
     </tr>
     <tr>
         <td>
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
-        <td style="padding-right: 15px"><a href>Harvey Spectre Care Team</a></td>
+        <td style="padding-right: 15px"><a href="careteamDashboard.do">Harvey Spectre Care Team</a></td>
     </tr>
     <tr>
         <td>
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
-        <td style="padding-right: 15px"><a href>Vincent Chase Care Team</a></td>
+        <td style="padding-right: 15px"><a href="careteamDashboard.do">Vincent Chase Care Team</a></td>
     </tr>
 </table>
                             </div>
@@ -278,7 +278,7 @@
 						<p>
 							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
 						</p>
-						<a href="#" class="btn btn-transparent">Read More</a>
+						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
 					</div>
 				</div>
 			<!-- Box #1 Ends -->
@@ -290,7 +290,7 @@
 						<p>
 							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
 						</p>
-						<a href="#" class="btn btn-transparent">Read More</a>
+						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
 					</div>
 				</div>
 			<!-- Box #2 Ends -->
@@ -302,7 +302,7 @@
 						<p>
 							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
 						</p>
-						<a href="#" class="btn btn-transparent">Read More</a>
+						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
 					</div>
 				</div>
 			<!-- Box #3 Ends -->
@@ -314,7 +314,7 @@
 						<p>
 							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
 						</p>
-						<a href="#" class="btn btn-transparent">Read More</a>
+						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
 					</div>
 				</div>
 			<!-- Box #4 Ends -->
@@ -328,7 +328,7 @@
 						<p>
 							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
 						</p>
-						<a href="#" class="btn btn-transparent">Read More</a>
+						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
 					</div>
 				</div>
 			<!-- Box #1 Ends -->
@@ -340,7 +340,7 @@
 						<p>
 							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
 						</p>
-						<a href="#" class="btn btn-transparent">Read More</a>
+						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
 					</div>
 				</div>
 			<!-- Box #2 Ends -->
@@ -352,7 +352,7 @@
 						<p>
 							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
 						</p>
-						<a href="#" class="btn btn-transparent">Read More</a>
+						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
 					</div>
 				</div>
 			<!-- Box #3 Ends -->
@@ -364,7 +364,7 @@
 						<p>
 							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
 						</p>
-						<a href="#" class="btn btn-transparent">Read More</a>
+						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
 					</div>
 				</div>
 			<!-- Box #4 Ends -->
@@ -459,21 +459,5 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
 
-	<script type="text/javascript">
-    	$(document).ready(function(){
-
-        	demo.initChartist();
-
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "<b>Michael Phelps</b> - Welcome to your dashboard!"
-
-            },{
-                type: 'info',
-                timer: 4000
-            });
-
-    	});
-	</script>
-
+	
 </html>
