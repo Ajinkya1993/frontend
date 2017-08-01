@@ -19,10 +19,8 @@
 						
 					</div>
 					<div class="inner">
-						<form method="POST" action="caregiverLanding.do">
-							<input type="hidden" name="caregiverType" value = "1"/>
-							<button type="submit" class="btn btn-info">I Just Realized I'm a </br> Family Caregiver Now</button>
-						</form>
+						
+						<h5><a href="caregiverLanding.do?caregiverType=1">I Just Realized I'm a Family Caregiver Now</a></h5>
 						<br>							
 						<p>
 						<font size = "3">
