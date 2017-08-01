@@ -112,7 +112,7 @@ public class LoginAction extends Action {
 						} catch (JSONException e) {
 							e.printStackTrace();
 						}
-	                    System.out.println(output);
+	                    //System.out.println(output);
 	                }
 	                conn.disconnect();
 	
