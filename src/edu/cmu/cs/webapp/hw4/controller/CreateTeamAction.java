@@ -22,10 +22,8 @@ import org.json.*;
 
 public class CreateTeamAction extends Action {
 	private FormBeanFactory<CreateCircleForm> formBeanFactory = FormBeanFactory.getInstance(CreateCircleForm.class);
-//	private UserDAO userDAO;
 	
-	public CreateTeamAction(Model model) {
-		//userDAO = model.getUserDAO();
+	public CreateTeamAction() {
 	}
 
 	public String getName() {
@@ -58,7 +56,6 @@ public class CreateTeamAction extends Action {
 			if (form.getAction().equals("CreateCaregiverTeam")) {
 				String query = "http://localhost:8080/CurantisBackendService/curantis/createcircle";
 				JSONObject json = new JSONObject();
-
 				try {
 					//?????
 					json.put("teamname", form.getTeamname());
@@ -97,12 +94,14 @@ public class CreateTeamAction extends Action {
 							Boolean success = responseObj.getBoolean("success");
 							String message = responseObj.getString("message");
 							if (success != true) {
-								if (message.equals("Missing email or password!")) {
-									errors.add("Missing email or password!");
+								if (message.equals("Missing circle name or email!")) {
+									errors.add("Missing circle name or email!");
 									return "CreateCaregiverTeam.jsp";
-
-								} else if (message.equals("Account already exist!")) {
-									errors.add("Account already exist!");
+								} else if (message.equals("Circle name exists!")) {
+									errors.add("Circle name exists!");
+									return "CreateCaregiverTeam.jsp";
+								} else if (message.equals("Creating circle failed!")) {
+									errors.add("Creating circle failed!");
 									return "CreateCaregiverTeam.jsp";
 								}
 							}
@@ -124,15 +123,23 @@ public class CreateTeamAction extends Action {
 					e.printStackTrace();
 
 				}
-				String firstName = new String();
-				String lastName = new String();
+				String teamname = new String();
+				String lovename = new String();
+				String loveaddress = new String();
+				String relation = new String();
+				String georelation = new String();
+				String event = new String();
 				try {
-					firstName = responseObj.getString("firstName");
-					lastName = responseObj.getString("lastName");
+					teamname = responseObj.getString("teamname");
+					lovename = responseObj.getString("lovename");
+					loveaddress = responseObj.getString("loveaddress");
+					relation = responseObj.getString("relation");
+					georelation = responseObj.getString("georelation");
+					event = responseObj.getString("event");
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				session.setAttribute("user", firstName + " " + lastName);
+				//session.setAttribute("user", teamname );
 				return "mydashboard.do";
 			} else {
 				return "createteam.do";
