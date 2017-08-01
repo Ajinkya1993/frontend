@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -183,6 +186,19 @@
                             </div>
                             <div class="content">
                                 <table>
+                                <c:choose>
+    <c:when test="${errors != null}">
+    <tr>
+    <td style="padding-right: 30px; color:red; style:italic;"> You have no careteams at present.
+    Please create a careteam!</td>
+    </tr>
+    </c:when>
+    <c:otherwise>
+    <tr>
+    <td style="padding-right: 15px">
+     <c:out value = "${errors}"/>
+     </td>
+     </tr>
     <tr>
         <td style="padding-right: 15px">
             <img src="images/default-avatar.png" alt="" width="30" />
@@ -207,6 +223,8 @@
         </td>
         <td style="padding-right: 15px"><a href="careteamDashboard.do">Vincent Chase Care Team</a></td>
     </tr>
+    </c:otherwise>
+     </c:choose>
 </table>
                             </div>
                         </div>
