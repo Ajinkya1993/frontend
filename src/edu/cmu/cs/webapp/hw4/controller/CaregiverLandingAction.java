@@ -13,6 +13,7 @@ public class CaregiverLandingAction extends Action {
 	@Override
 	public String perform(HttpServletRequest request) {
 		// TODO Auto-generated method stub
+		System.out.println(request.getParameter("caregiverType"));
 		return "caregiverLanding.jsp";
 	}
 
