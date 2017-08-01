@@ -54,6 +54,21 @@
 				</div>
 			</section>
 		</div>
+		<script type="text/javascript">
+			function myFunction() {
+				var y = document.getElementById("guide");
+			    var x = document.getElementsByName("services");
+			    var i;
+			    for (i = 0; i < x.length; i++) {
+			        if (y.checked && x[i].type == "checkbox") {
+			            x[i].disabled = true;
+			            x[i].checked = false;
+			        } else if (!y.checked && x[i].type == "checkbox") {
+			            x[i].disabled = false;
+			        }
+			    }
+			}
+		</script>
 		<section class="footer-top-bar">
 			<div class="contact-content">
 				<div class="row">
@@ -67,7 +82,7 @@
 							<!-- Message Field Starts -->
 								<div class="col-xs-12">
 									<div class="form-group">
-										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" name="getGuide" value="">I need a comprehensive guide to the Caregiving process</label>
+										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" id="guide" name="getGuide" value="" onclick="myFunction()">I need a comprehensive guide to the Caregiving process</label>
 									</div>
 								</div>
 								<div class="col-xs-12">
