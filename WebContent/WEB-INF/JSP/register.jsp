@@ -15,44 +15,44 @@
 					<div class="col-sm-12">
 					<div class="form-group">
 								<label>Email Address</label>
-								<input type="text" placeholder="Enter Email Address.." class="form-control">
+								<input type="text" name="email" value="${form.email}" placeholder="Enter Email Address.." class="form-control">
 							</div>
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>Password</label>
-								<input type="password" placeholder="Enter Password.." class="form-control">
+								<input type="password" name="password" placeholder="Enter Password.." class="form-control">
 							</div>
 							<div class="col-sm-6 form-group">
 								<label>Confirm Password</label>
-								<input type="password" placeholder="Re-enter Password.." class="form-control">
+								<input type="password" name="confirmPassword" placeholder="Re-enter Password.." class="form-control">
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>First Name</label>
-								<input type="text" placeholder="Enter First Name.." class="form-control">
+								<input type="text" name="firstName" value="${form.firstName}" placeholder="Enter First Name.." class="form-control">
 							</div>
 							<div class="col-sm-6 form-group">
 								<label>Last Name</label>
-								<input type="text" placeholder="Enter Last Name.." class="form-control">
+								<input type="text" name="lastName" value="${form.lastName}" placeholder="Enter Last Name.." class="form-control">
 							</div>
 						</div>					
 						<div class="form-group">
 							<label>Address</label>
-							<textarea placeholder="Enter Address.." rows="3" class="form-control"></textarea>
+							<input type="text" name="address" value="${form.address}" placeholder="Enter Address.." class="form-control">
 						</div>
 						<div class="form-group">
 							<label>Phone Number</label>
-							<input type="text" placeholder="Enter Phone Number Here.." class="form-control">
+							<input type="text" name="phoneNumber" value="${form.phoneNumber}" placeholder="Enter Phone Number Here.." class="form-control">
 					    </div>	
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>City</label>
-								<input type="text" placeholder="Enter City Name.." class="form-control">
+								<input type="text" name="city" value="${form.city}" placeholder="Enter City Name.." class="form-control">
 							</div>
 							<div class="col-sm-6 form-group">
 								<label>Zip Code</label>
-								<input type="text" placeholder="Enter Zip Code.." class="form-control">
+								<input type="text" name="zip" value="${form.zip}" placeholder="Enter Zip Code.." class="form-control">
 							</div>
 						</div>
 						<div class="row">

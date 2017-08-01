@@ -16,11 +16,11 @@
 					<div class="col-sm-12">
 							<div class="form-group">
 								<label>Email Address</label>
-								<input type="text" placeholder="Enter Email Address.." class="form-control">
+								<input type="text" name="email" value="${form.email}" placeholder="Enter Email Address.." class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Password</label>
-								<input type="password" placeholder="Enter Password.." class="form-control">
+								<input type="password" name="password" placeholder="Enter Password.." class="form-control">
 							</div>
 								<input type="submit" name="action" class="btn btn-lg btn-info" value="Login" />			
 					</div>
