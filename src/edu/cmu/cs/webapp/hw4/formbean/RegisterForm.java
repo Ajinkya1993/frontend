@@ -13,8 +13,7 @@ public class RegisterForm extends FormBean{
     private String lastName;
     private String password;
     private String confirmPassword;
-    private String addressLine1;
-    private String addressLine2;
+    private String address;
     private String city;
     private String state;
     private String zip;
@@ -26,6 +25,7 @@ public class RegisterForm extends FormBean{
     public String getFirstName()  { return firstName; }
     public String getMiddleName()  { return middleName; }
     public String getLastName()  { return lastName; }
+    public String getAddress()  { return address; }
     public String getPassword()  { return password; }
     public String getPhoneNo()  { return phoneNumber; }
     public String getAction()    { return action; }
@@ -46,18 +46,8 @@ public class RegisterForm extends FormBean{
     public void setPassword(String s)  { password = s.trim(); }
     public void setConfirmPassword(String s)  { confirmPassword = s.trim(); }
     public void setAction(String s)    { action   = s;        }
-    
-	public String getAddressLine1() {
-		return addressLine1;
-	}
-	public void setAddressLine1(String addressLine1) {
-		this.addressLine1 = addressLine1;
-	}
-	public String getAddressLine2() {
-		return addressLine2;
-	}
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String getCity() {
 		return city;

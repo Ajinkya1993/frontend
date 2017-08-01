@@ -31,6 +31,7 @@ public class RegisterAction extends Action {
 
     public String perform(HttpServletRequest request) {
         HttpSession session = request.getSession();
+        
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
         JSONObject responseObj = new JSONObject();
@@ -65,7 +66,7 @@ public class RegisterAction extends Action {
 		              json.put("firstName", form.getFirstName());
 		              json.put("middleName",form.getMiddleName());
 		              json.put("lastName", form.getLastName());
-		              json.put("address", form.getAddressLine1() + ">"+ form.getAddressLine2() + ">"+ form.getCity() +">"+ form.getState() + ">"+ form.getCountry());
+		              json.put("address", form.getAddress() + ">"+ form.getCity() +">"+ form.getState() + ">"+ form.getCountry());
 		              json.put("phoneNo", form.getPhoneNumber());
 				} catch (JSONException e1) {
 					e1.printStackTrace();
