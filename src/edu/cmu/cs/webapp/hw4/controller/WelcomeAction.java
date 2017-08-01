@@ -19,6 +19,6 @@ public class WelcomeAction extends Action {
 
     @Override
     public String perform(HttpServletRequest request) {
-        return "CareteamDashboard.jsp";
+        return "PersonalDashboard.jsp";
     }
 }
