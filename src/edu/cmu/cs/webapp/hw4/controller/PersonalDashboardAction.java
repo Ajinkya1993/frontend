@@ -31,11 +31,11 @@ public class PersonalDashboardAction extends Action {
 	        request.setAttribute("errors", errors);
 	        //Boolean success = false;
 	        try { 
-	          	  String query = "http://localhost:8080/CurantisBackendService/curantis/getusersofacircle";
+	          	  String query = "http://localhost:8080/CurantisBackendService/curantis/getcirclesofauser";
 		        	  JSONObject json = new JSONObject();
 		              try {
 		            	  System.out.println("Here");
-		            	  String email = "varunp@andrew.cmu.edu";
+		            	  String email = "junyi@gmail.com";
 		            	  json.put("email", email);
 					} catch (JSONException e1) {
 						e1.printStackTrace();
@@ -80,6 +80,7 @@ public class PersonalDashboardAction extends Action {
 										return "PersonalDashboard.jsp";
 									}
 								}
+								
 								
 							} catch (JSONException e) {
 								e.printStackTrace();

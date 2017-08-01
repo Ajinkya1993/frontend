@@ -187,18 +187,13 @@
                             <div class="content">
                                 <table>
                                 <c:choose>
-    <c:when test="${errors != null}">
+    <c:when test="${!empty errors}">
     <tr>
     <td style="padding-right: 30px; color:red; style:italic;"> You have no careteams at present.
     Please create a careteam!</td>
     </tr>
     </c:when>
     <c:otherwise>
-    <tr>
-    <td style="padding-right: 15px">
-     <c:out value = "${errors}"/>
-     </td>
-     </tr>
     <tr>
         <td style="padding-right: 15px">
             <img src="images/default-avatar.png" alt="" width="30" />
