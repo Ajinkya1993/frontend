@@ -28,6 +28,7 @@
 						<h3 class="main-heading2">
 							What You Need &amp; Can Do with CURANTIS
 						</h3>
+						<p>Caregiver Type: ${caregiverType}</p>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat rutrum eros amet sollicitudin interdum. Suspendisse pulvinar, velit nec pharetra interdum, ante tellus ornare mi, et mollis tellus neque vitae elit. Mauris adipiscing mauris fringilla turpis interdum sed pulvinar nisi malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						</p>
@@ -61,63 +62,64 @@
 					<div class="col-sm-10 col-xs-12">
 						<h3>Get Your Customized Caregivning Guide by Registering Now</h3>
 						<div class="status alert alert-success contact-status"></div>
-						<form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php" role="form">
+						<form id="main-contact-form" name="contact-form" method="POST" action="caregiverLanding.do">
 							<div class="row">
 							<!-- Message Field Starts -->
 								<div class="col-xs-12">
 									<div class="form-group">
-										<label class="checkbox-inline"><input type="checkbox" value="">I need a comprehensive guide to the Caregiving process</label>
+										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" name="getGuide" value="">I need a comprehensive guide to the Caregiving process</label>
 									</div>
 								</div>
 								<div class="col-xs-12">
-									<label>Instead, I'd like to design my plan around specific Caregiving activities</label>
+									<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase">Instead, I'd like to design my plan around specific Caregiving activities</label>
 								</div>
 							<!-- Message Field Ends -->
 								<div class="col-md-3">
 									<div class="form-group">
-										<label class="checkbox-inline"><input type="checkbox" value="">Senior Housing</label>
+										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" name="services" value="senior housing">Senior Housing</label>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<label class="checkbox-inline"><input type="checkbox" value="">In-home Care</label>
+										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" name="services" value="in-home care">In-home Care</label>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<label class="checkbox-inline"><input type="checkbox" value="">Vendor Management</label>
+										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" name="services" value="vendor management">Vendor Management</label>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<label class="checkbox-inline"><input type="checkbox" value="">Legal</label>
+										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" name="services" value="legal">Legal</label>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<label class="checkbox-inline"><input type="checkbox" value="">Estate Planning</label>
+										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" name="services" value="estate planning">Estate Planning</label>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<label class="checkbox-inline"><input type="checkbox" value="">Taxation</label>
+										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" name="services" value="taxation">Taxation</label>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<label class="checkbox-inline"><input type="checkbox" value="">Financial Planning</label>
+										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" name="services" value="financial planning">Financial Planning</label>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<label class="checkbox-inline"><input type="checkbox" value="">Insurance</label>
+										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" name="services" value="insurance">Insurance</label>
 									</div>
+								</div>
+								<br>
+								<div class="container clearfix text-center-sm text-center-xs col-md-12">
+									<input type="text" name="email" class="input-lg pull-left" size="65" placeholder="Email Address">
 								</div>
 								<div class="container clearfix text-center-sm text-center-xs col-md-12">
-									<input type="text" class="input-lg pull-left" size="65" placeholder="Email Address">
-								</div>
-								<div class="container clearfix text-center-sm text-center-xs col-md-12">
-									<input type="submit" class="btn btn-black text-uppercase pull-right" value="Register">
+									<input type="submit" name="register" class="btn btn-black text-uppercase pull-right" value="Register">
 								</div>
 							</div>
 						</form>

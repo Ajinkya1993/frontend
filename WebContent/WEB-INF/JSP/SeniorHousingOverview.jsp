@@ -22,11 +22,19 @@
 						<h2 class="main-heading1 lite">We Offer Reliable Service for</h2>
 						<h2 class="main-heading2">Senior Housing</h2>
 						<p>
-							It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using content.
+							Senior living options for aging loved ones are varied, which can make the process of finding the right home for a loved one challenging. Assessment of senior living alternatives requires careful consideration of many factors, including the amount of independence a loved one desires, the level of care needed and the cost implications.
 						</p>
 						<p>
-							Making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+							Caregivers need to have a good understanding of the different types of senior living facilities when considering the best living arrangement for a loved one. Senior living alternatives includes:
 						</p>
+						<ul>
+							<li>Independent Living Communities</li>
+							<li>Continuum of Care Community</li>
+							<li>Assisted Living</li>
+							<li>Nursing Homes or Skilled Care Facilities</li>
+							<li>Memory Care</li>
+							<li>Aging In-Home</li>
+						</ul>
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<img src="images/image1.jpg" alt="image" class="img-responsive img-style1">
