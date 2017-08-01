@@ -50,7 +50,7 @@
 					</div>
 					<div class="inner">
 						
-						<h5><a href="caregiverLanding.do">I Have Been a Family Caregiver For Years</a></h5>
+						<h5><a href="caregiverLanding.do?caregiverType=2">I Have Been a Family Caregiver For Years</a></h5>
 						<br>							
 						<p>
 						<font size = "3">
@@ -78,7 +78,7 @@
 					</div>
 					<div class="inner">
 						
-						<h5><a href="caregiverLanding.do">I Don't Live By My Family But I'm A Caregiver</a></h5>
+						<h5><a href="caregiverLanding.do?caregiverType=3">I Don't Live By My Family But I'm A Caregiver</a></h5>
 						<br>							
 						<p>
 						<font size = "3">
@@ -106,7 +106,7 @@
 					</div>
 					<div class="inner">
 						
-						<h5><a href="caregiverLanding.do">I Have a Job And I'm The Caregiver For My Loved One</a></h5>
+						<h5><a href="caregiverLanding.do?caregiverType=4">I Have a Job And I'm The Caregiver For My Loved One</a></h5>
 						<br>							
 						<p>
 						<font size = "3">
