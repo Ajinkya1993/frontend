@@ -165,7 +165,7 @@ public class PersonalDashboardAction extends Action {
 						JSONArray recs = responseObj.getJSONArray("list");
 						for (int i = 0; i < recs.length(); ++i) {
 						    JSONObject rec = recs.getJSONObject(i);
-						    String response = rec.getString("circleName");
+						    String response = rec.getString("circleName"); 
 						    careteam.add(response);
 						}    
 					} catch (JSONException e) {
