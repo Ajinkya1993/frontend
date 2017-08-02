@@ -125,23 +125,16 @@ public class CreateTeamAction extends Action {
 
 				}
 				String teamname = new String();
-				String lovename = new String();
-				String loveaddress = new String();
-				String relation = new String();
-				String georelation = new String();
-				String event = new String();
+				Long circleId = new Long(50);
 				try {
 					teamname = responseObj.getString("teamname");
-					lovename = responseObj.getString("lovename");
-					loveaddress = responseObj.getString("loveaddress");
-					relation = responseObj.getString("relation");
-					georelation = responseObj.getString("georelation");
-					event = responseObj.getString("event");
+					circleId = responseObj.getLong("circleId");
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				//session.setAttribute("user", teamname );
-				return "mydashboard.do";
+				session.setAttribute("teamname", teamname);
+				session.setAttribute("circleId", circleId);
+				return "careteamDashboard.do";
 			} else {
 				return "createteam.do";
 			}
