@@ -259,10 +259,9 @@
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
         <td style="padding-right: 15px"><a href><c:out value="${inelement}"/> Care Team</a></td>
-         <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Accept" id="Accept">Accept</label></td>	
-        <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Decline" id="Decline">Decline</label></td>
-		<td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
-		<td style="padding-right: 15px"><input type="submit" value="Submit" class = "myButton"></td>
+         <td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton" button onclick="window.location.href='welcome.do'"></td>
+         <td style="padding-right: 15px;"><input type="submit" value="Accept" class = "myButton" button onclick= <% String nm = (String)pageContext.getAttribute("inelement"); session.setAttribute("careteam",nm);%>"window.location.href='addCareteamAction.do'"></td>	
+        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton"  button onclick= <% String nam = (String)pageContext.getAttribute("inelement"); session.setAttribute("careteam",nam);%>"window.location.href='personalDashboard.do'"></td>
     </tr>
     </c:forEach>
     <tr class="spaceUnder">
@@ -270,30 +269,27 @@
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
         <td style="padding-right: 15px"><a href>Michael Jordan Care Team</a></td>
-         <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Accept" id="Accept">Accept</label></td>	
-        <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Decline" id="Decline">Decline</label></td>
-		<td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
-		<td style="padding-right: 15px"><input type="submit" value="Submit" class = "myButton"></td>
+         <td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
+         <td style="padding-right: 15px;"><input type="submit" value="Accept" class = "myButton"></td>	
+        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton"></td>
     </tr>
     <tr class="spaceUnder">
         <td>
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
         <td style="padding-right: 15px"><a href>Stephen Curry Care Team</a></td>
-         <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Accept" id="Accept">Accept</label></td>	
-        <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Decline" id="Decline">Decline</label></td>
-		<td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
-		<td style="padding-right: 15px"><input type="submit" value="Submit" class = "myButton"></td>
+         <td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
+         <td style="padding-right: 15px;"><input type="submit" value="Accept" class = "myButton"></td>	
+        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton"></td>
     </tr>
     <tr class="spaceUnder">
         <td>
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
         <td style="padding-right: 15px"><a href>Lebron James Care Team</a></td>
-         <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Accept" id="Accept">Accept</label></td>	
-        <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Decline" id="Decline">Decline</label></td>
-		<td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
-		<td style="padding-right: 15px"><input type="submit" value="Submit" class = "myButton"></td>
+         <td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
+         <td style="padding-right: 15px;"><input type="submit" value="Accept" class = "myButton"></td>	
+        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton"></td>
     </tr>
    </c:otherwise>
      </c:choose>

@@ -17,7 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class PersonalDashboardAction extends Action {
+public class CareteamInfoAction extends Action {
 	
 		@Override
 		public String getName() {
@@ -27,7 +27,6 @@ public class PersonalDashboardAction extends Action {
 		public String perform(HttpServletRequest request) {
 			
 	        HttpSession session = request.getSession();
-	        System.out.println("Checking if caretem passed as "+session.getAttribute("careteam"));
 	        JSONObject responseObj = new JSONObject();
 	        JSONObject responseObj_invite = new JSONObject();
 	        List<String> errors = new ArrayList<String>();
@@ -164,7 +163,7 @@ public class PersonalDashboardAction extends Action {
 						    JSONObject rec = recs.getJSONObject(i);
 						    String response = rec.getString("circleName");
 						    careteam.add(response);
-						}    
+						}   
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
