@@ -36,7 +36,7 @@ public class CaregiverLandingAction extends Action {
 				request.getSession().setAttribute("getGuide", true);
 				System.out.println(request.getSession().getAttribute("getGuide"));
 			}
-			return "registerEducation.do";
+			return "register.do";
 		}
 		return "caregiverLanding.jsp";
 	}
