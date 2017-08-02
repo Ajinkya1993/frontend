@@ -5,6 +5,7 @@
 <jsp:include page="header.jsp"/>
 <div class="container main-container">
 	<h2 class="main-heading1">Your Plan</h2>
+	<a href="personalDashboard.do" class="btn btn-info text-uppercase pull-right">go to dashboard</a>
 	<h3 class="main-heading2">With CURANTIS</h3>
 	<ul class="list-unstyled list-style-1">
 		<li><a href="#" data-toggle="collapse" data-target="#Step1">Step1: Creat a Caregiver Team</a></li>
