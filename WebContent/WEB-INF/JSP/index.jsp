@@ -1,22 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="header.jsp"/>
-	<!-- Slider Section Starts -->
-		<section class="slider clearfix">
-			<div  class="col-sm-1 col-xs-12">
+    <div id = "gototop"> </div>
+    <div  class="col-sm-2 col-xs-12">
+			<div class="box">
+			<div style = "position: fixed; top: 100px; left: 30px">
+				<b>&nbsp &nbsp &nbsp &nbsp Easy Access</b>
+				<ul>
+				<li><a href = "#gototop">Go to top</a></li>
+				<li><a href = "#services">Services Offered</a></li>
+				<li><a href = "#whoweare">Who we are</a></li>
+				<li><a href = "#caretypes">Types of caregivers</a></li>
+				<li><a href = "#eldernews">Latest news and tips</a></li>
+				<li><a href = "#concierge">Concierge Service</a></li>				
+				</ul>
 			</div>
-			<div  class="col-sm-10 col-xs-12">
+			</div>	
+	</div>
+	<div  class="col-sm-10 col-xs-12">
+	</div>
+<jsp:include page="header.jsp"/>
+	 
+	 
+	<!-- Slider Section Starts -->
+		<section class="slider clearfix" >
+			<div  class="col-sm-2 col-xs-12">
+				
+			</div>
+			<div  class="col-sm-8 col-xs-12">
 			<div id="camera_wrap_1" class="camera_wrap camera_white_skin">
 			<!-- Slide #1 Starts -->
 				<div data-src="images/homepage/homeimage2.jpg">
-					
 					<div class="camera_caption fadeFromLeft hidden-sm hidden-xs">
 						<h2>One Stop Solution</h2>
 						<h2>For All <span>Caregiving Needs</span></h2>
 						<p>
 							No matter the level of care, we'll help connect you with a skilled, compassionate provider for a better quality of life for you or your loved one.
 						</p>
-						<a href="services.html" class="btn btn-secondary">View Services</a>
+						
 					</div>
 					
 				</div>
@@ -30,7 +50,7 @@
 						<p>
 							No matter the level of care, we'll help connect you with a skilled, compassionate provider for a better quality of life for you or your loved one.
 						</p>
-						<a href="#" class="btn btn-secondary">View Services</a>
+						
 					</div>
 					
 				</div>
@@ -43,7 +63,7 @@
 						<p>
 							No matter the level of care, we'll help connect you with a skilled, compassionate provider for a better quality of life for you or your loved one.
 						</p>
-						<a href="services.html" class="btn btn-secondary">View Services</a>
+						
 					</div>
 				</div>
 			<!-- Slide #3 Ends -->
@@ -53,7 +73,7 @@
 	<!-- Slider Section Ends -->
 	<!-- Main Container Starts -->
 		<br><br>
-		<h3 class="main-heading1"><center>Services Offered</center></h3>					
+		<h3 class="main-heading1" id = "services"><center>Services Offered</center></h3>					
 	
 							
 	</div>
@@ -165,7 +185,7 @@
 			</div>
 		<!-- Notification Boxes Ends -->
 		<!-- Welcome Section Starts -->
-			<section class="welcome-area">
+			<section class="welcome-area" id = "whoweare">
 				<div class="row">
 					<div class="col-md-6 col-xs-12">
 						<h2 class="main-heading1 lite">We are</h2>
@@ -189,10 +209,11 @@ At Curantis, you are our focus--so we look out for your best interests. We do no
 		</div>
 	<!-- Main Container Ends -->
 	<!-- Meet Our Doctors Section Starts -->
+		<div id = "caretypes"> </div>
 		<jsp:include page="caregiverTypes.jsp"/>
 	<!-- Meet Our Doctors Section Ends -->
 	<!-- Main Container Starts -->
-		<div class="container main-container">
+		<div class="container main-container" id = "eldernews">
 		<!-- Medical Services Section Ends -->
 		<!-- Content Starts -->
 			<div class="row">
@@ -346,7 +367,7 @@ At Curantis, you are our focus--so we look out for your best interests. We do no
 			</div>
 		<!-- Content Ends -->
 		<!-- Book Appointment Box Starts -->
-			<div class="book-appointment-box">
+			<div class="book-appointment-box" id = "concierge">
 				<div class="row">
 					<div class="col-md-5 col-xs-12 text-center-sm text-center-xs">
 						<h4>Contact our Concierge Service for help</h4>
