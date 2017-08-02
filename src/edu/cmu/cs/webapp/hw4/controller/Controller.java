@@ -13,7 +13,7 @@ public class Controller extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    public void init() throws ServletException {
+    public void init() throws ServletException {    
         //Model model = new Model(getServletConfig());
     	/*
         Action.add(new AddAction(model));
@@ -21,7 +21,7 @@ public class Controller extends HttpServlet {
         Action.add(new DeleteAction(model));
         Action.add(new LoginAction(model));
         Action.add(new LogoutAction(model));
-        Action.add(new NavigateAction(model));
+        Action.add(new NavigateAction(model));  
         Action.add(new RegisterAction(model));
         Action.add(new ToDoListAction(model));
         Action.add(new UpdateAction(model));

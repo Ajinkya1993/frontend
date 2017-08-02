@@ -31,7 +31,7 @@
 						<p>Caregiver Type: ${caregiverType}</p>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat rutrum eros amet sollicitudin interdum. Suspendisse pulvinar, velit nec pharetra interdum, ante tellus ornare mi, et mollis tellus neque vitae elit. Mauris adipiscing mauris fringilla turpis interdum sed pulvinar nisi malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						</p>
+						</p> 
 						<p>
 							Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Mauris sit amet neque nec nunc gravida. 
 						</p>
@@ -86,6 +86,8 @@
 									<div class="form-group">
 
 										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" id="guide" name="getGuide" value="" onclick="myFunction()">I need a comprehensive guide to the Caregiving process</label>
+
+										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" name="getGuide" value="">I need a comprehensive guide to the Caregiving process</label>
 
 									</div>
 								</div>

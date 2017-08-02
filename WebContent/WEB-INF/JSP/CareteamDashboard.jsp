@@ -243,7 +243,7 @@ tbody tr td {
 													<td style="padding-right: 15px">joy@gmail.com</td>
 													<td style="padding-right: 15px">3124563232</td>
 												</tr>
-												<tr>* : Primary Caregiver</tr>
+												<tr>* : Primary Caregiver &nbsp;&nbsp;</tr>
 
 								<input type="button" allign="right" value="Invite new member to this team" 
 									   onclick='javascript:window.open("invite.do", "inviteWindow", 
@@ -278,16 +278,16 @@ tbody tr td {
 												<table>
 													<tr>
 														<td><a href="https://www.google.com" class="icons">
-																<img src="images/ServiceIcons/senior-housing.png"
-																width="160">
+																<img src="images/ancillary.png"
+																width="190">
 														</a></td>
 														<td><a href="https://www.google.com" class="icons">
-																<img src="images/ServiceIcons/in-home-care.png"
-																width="160">
+																<img src="images/Housingservices.png"
+																width="190">
 														</a></td>
 														<td><a href="https://www.google.com" class="icons">
-																<img src="images/ServiceIcons/vendor-service.png"
-																width="160">
+																<img src="images/vendor_mgmt.png"
+																width="190">
 														</a></td>
 													</tr>
 												</table>
