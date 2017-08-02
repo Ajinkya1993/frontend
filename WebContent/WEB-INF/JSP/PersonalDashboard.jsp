@@ -65,12 +65,7 @@
                         <p>My Dashboard</p>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="pe-7s-user"></i>
-                        <p>CareTeams</p>
-                    </a>
-                </li>
+            
                 <li>
                     <a href="table.html">
                         <i class="pe-7s-note2"></i>
@@ -89,7 +84,12 @@
                         <p>Education</p>
                     </a>
                 </li>
-                
+                <li>
+                    <a href="#">
+                        <i class="pe-7s-user"></i>
+                        <p>Services</p>
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>
@@ -250,129 +250,7 @@
                         </div>
                     </div>
                     </div>
-                    
-                  
-			<h3 class="main-heading1"><center>Services Offered</center></h3>					
-				
-				
-				<div class="container main-container">
-		<!-- Notification Boxes Starts -->
-		
-			<div class="notification-boxes row">
-			<!-- Box #1 Starts -->
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="box">
-						
-						<img src="images/ServiceIcons/senior-housing.png" alt="Senior housing" height="70" width="70">
-						
-						<h4>Senior Housing</h4>
-						<p>
-							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
-						</p>
-						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
-					</div>
-				</div>
-			<!-- Box #1 Ends -->
-			<!-- Box #2 Starts -->
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="box">
-						<img src="images/ServiceIcons/in-home-care.png" alt="In home care" height="70" width="70">
-						<h4>In-Home Care</h4>
-						<p>
-							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
-						</p>
-						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
-					</div>
-				</div>
-			<!-- Box #2 Ends -->
-			<!-- Box #3 Starts -->
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="box">
-						<img src="images/ServiceIcons/vendor-service.png" alt="Vendor service" height="70" width="70">
-						<h4>Vendor Service</h4>
-						<p>
-							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
-						</p>
-						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
-					</div>
-				</div>
-			<!-- Box #3 Ends -->
-			<!-- Box #4 Starts -->
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="box">
-						<img src="images/ServiceIcons/legal.png" alt="Legal" height="70" width="70">
-						<h4>Legal</h4>
-						<p>
-							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
-						</p>
-						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
-					</div>
-				</div>
-			<!-- Box #4 Ends -->
-			</div>
-			<div class="notification-boxes row">
-			<!-- Box #1 Starts -->
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="box">
-						<img src="images/ServiceIcons/taxation.png" alt="Smiley face" height="70" width="70">
-						<h4>Taxation</h4>
-						<p>
-							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
-						</p>
-						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
-					</div>
-				</div>
-			<!-- Box #1 Ends -->
-			<!-- Box #2 Starts -->
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="box">
-						<img src="images/ServiceIcons/financial-planning.png" alt="Smiley face" height="70" width="70">
-						<h4>Financial Planning</h4>
-						<p>
-							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
-						</p>
-						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
-					</div>
-				</div>
-			<!-- Box #2 Ends -->
-			<!-- Box #3 Starts -->
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="box">
-						<img src="images/ServiceIcons/insurance.png" alt="Smiley face" height="70" width="70">
-						<h4>Insurance</h4>
-						<p>
-							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
-						</p>
-						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
-					</div>
-				</div>
-			<!-- Box #3 Ends -->
-			<!-- Box #4 Starts -->
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<div class="box">
-						<img src="images/ServiceIcons/estate-planning.png" alt="Smiley face" height="70" width="70">
-						<h4>Estate Planning</h4>
-						<p>
-							We offer the best service in this department. We would gladly assist you with any help you need for your loved one.
-						</p>
-						<a href="#" class="btn btn-transparent" style="color:white">Read More</a>
-					</div>
-				</div>
-			<!-- Box #4 Ends -->
-			</div>
-		<!-- Notification Boxes Ends -->
-		</div>
-	
-				
-                
-                    
-
- 
-                   
-                   
-                    
-                    
-                    
+            
                     
 				</div>
 				</div>
