@@ -9,25 +9,22 @@
 <title>Add to team</title>
 </head>
 <body>
-	<h3 class="main-heading1"><center> Add a new member to the team! </center></h3>
+	<h3 class="main-heading1"><center> Invite a new member to the team! </center></h3>
 	<form action="invite.do" method="POST">
 		 <table align="center">
 		 <tr>
-		 	<td>Member Email</td>
+		 	<td>Email:</td>
 	      	<td><input type="text" name="email" required></td>
 		 </tr>
 	     <tr>
-	     	<td>Member Name</td>
-	      	<td><input type="text" name="name" required><td>
-	     </tr>
-	     <tr>
+	     <td></td>
 	     <td>
-	     	<button type="submit">Add to Team</button>
+	     	<button type="submit">Send Invitation</button>
 	      </td>
 	      </tr>
     	</table>
     	<p class="alert alert-info" align="center">
-       		 	We'll send invitation to the member's email when you click on Add to Team!
+       		 	We'll send an invitation with a link to this member's email!
       	</p>
     </form>
 

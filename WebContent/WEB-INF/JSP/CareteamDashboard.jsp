@@ -244,6 +244,9 @@ tbody tr td {
 													<td style="padding-right: 15px">3124563232</td>
 												</tr>
 												<tr>* : Primary Caregiver</tr>
+								<input type="button" allign="right" value="Invite new member to this team" 
+									   onclick='javascript:window.open("invite.do", "inviteWindow", 
+									   "scrollbars=1,resizable=1,height=300,width=450");' title='Invite Popup'/>
 											</table>
 										</div>
 									</div>

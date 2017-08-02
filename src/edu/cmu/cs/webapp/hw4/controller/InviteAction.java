@@ -107,7 +107,7 @@ public class InviteAction extends Action{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                return "personalDashboard.do";
+                return "careteamDashboard.do";
             } else {
                 return "invitePopup.jsp";
             }
