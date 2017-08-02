@@ -260,7 +260,7 @@
         <td style="padding-right: 15px"><a href><c:out value="${inelement}"/> Care Team</a></td>
          <td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton" button onclick="window.location.href='infoCareteamAction.do?careteam=${inelement}'"></td>
          <td style="padding-right: 15px"><input type="submit" value="Accept" class = "myButton" button onclick="window.location.href='addCareteamAction.do?careteam=${inelement}'"></td>    
-        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton"  button onclick= "window.location.href='delCareteamAction.do?careteam=${inelement}'""></td>
+        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton"  button onclick= "window.location.href='deleteCareteamAction.do?careteam=${inelement}'""></td>
     </tr>
     </c:forEach>
     <tr class="spaceUnder">
