@@ -202,31 +202,8 @@
         </td>
         <td style="padding-right: 30px"><a href="careteamDashboard.do"><c:out value="${element}"/> Care Team</a></td>
     </tr>
-    <tr>
    </c:forEach>
-        <td style="padding-right: 15px">
-            <img src="images/default-avatar.png" alt="" width="30" />
-        </td>
-        <td style="padding-right: 30px"><a href="careteamDashboard.do">John Weinstein Care Team</a></td>
-    </tr>
-    <tr>
-        <td>
-            <img src="images/default-avatar.png" alt="" width="30" />
-        </td>
-        <td style="padding-right: 15px"><a href="careteamDashboard.do">Hannah Montana Care Team</a></td>
-    </tr>
-    <tr>
-        <td>
-            <img src="images/default-avatar.png" alt="" width="30" />
-        </td>
-        <td style="padding-right: 15px"><a href="careteamDashboard.do">Harvey Spectre Care Team</a></td>
-    </tr>
-    <tr>
-        <td>
-            <img src="images/default-avatar.png" alt="" width="30" />
-        </td>
-        <td style="padding-right: 15px"><a href="careteamDashboard.do">Vincent Chase Care Team</a></td>
-    </tr>
+        
     </c:otherwise>
      </c:choose>
 </table>
@@ -263,34 +240,6 @@
         <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton"  button onclick= "window.location.href='deleteCareteamAction.do?careteam=${inelement}'""></td>
     </tr>
     </c:forEach>
-    <tr class="spaceUnder">
-        <td style="padding-right: 15px">
-            <img src="images/default-avatar.png" alt="" width="30" />
-        </td>
-        <td style="padding-right: 15px"><a href>Michael Jordan Care Team</a></td>
-         <td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton" button onclick="window.location.href='welcome.do'"></td>
-         <td style="padding-right: 15px;"><input type="submit" value="Accept" class = "myButton" ></td>	
-        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton" ></td>
-    
-    </tr>
-    <tr class="spaceUnder">
-        <td>
-            <img src="images/default-avatar.png" alt="" width="30" />
-        </td>
-        <td style="padding-right: 15px"><a href>Stephen Curry Care Team</a></td>
-         <td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
-         <td style="padding-right: 15px;"><input type="submit" value="Accept" class = "myButton"></td>	
-        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton"></td>
-    </tr>
-    <tr class="spaceUnder">
-        <td>
-            <img src="images/default-avatar.png" alt="" width="30" />
-        </td>
-        <td style="padding-right: 15px"><a href>Lebron James Care Team</a></td>
-         <td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
-         <td style="padding-right: 15px;"><input type="submit" value="Accept" class = "myButton"></td>	
-        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton"></td>
-    </tr>
    </c:otherwise>
      </c:choose>
 </table>
