@@ -200,7 +200,7 @@
         <td style="padding-right: 15px">
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
-        <td style="padding-right: 30px"><a href="careteamDashboard.do"><c:out value="${element}"/></a></td>
+        <td style="padding-right: 30px"><a href="careteamDashboard.do"><c:out value="${element}"/> Care Team</a></td>
     </tr>
     <tr>
    </c:forEach>
@@ -245,6 +245,26 @@
                             </div>
                             <div class="content">
                                 <table>
+                                <c:choose>
+    <c:when test="${!empty errors_invite}">
+    <tr>
+    <td style="padding-right: 30px; color:red; style:italic;"> You have no careteams at present.
+    Please create a careteam!</td>
+    </tr>
+    </c:when>
+    <c:otherwise>
+    <c:forEach items="${invite}" var="inelement"> 
+    <tr class="spaceUnder">
+        <td style="padding-right: 15px">
+            <img src="images/default-avatar.png" alt="" width="30" />
+        </td>
+        <td style="padding-right: 15px"><a href><c:out value="${inelement}"/> Care Team</a></td>
+         <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Accept" id="Accept">Accept</label></td>	
+        <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Decline" id="Decline">Decline</label></td>
+		<td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
+		<td style="padding-right: 15px"><input type="submit" value="Submit" class = "myButton"></td>
+    </tr>
+    </c:forEach>
     <tr class="spaceUnder">
         <td style="padding-right: 15px">
             <img src="images/default-avatar.png" alt="" width="30" />
@@ -275,7 +295,8 @@
 		<td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
 		<td style="padding-right: 15px"><input type="submit" value="Submit" class = "myButton"></td>
     </tr>
-   
+   </c:otherwise>
+     </c:choose>
 </table>
                             </div>
                         </div>
