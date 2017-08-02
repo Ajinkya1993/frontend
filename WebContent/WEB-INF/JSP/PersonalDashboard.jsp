@@ -246,10 +246,9 @@
                             <div class="content">
                                 <table>
                                 <c:choose>
-    <c:when test="${!empty errors_invite}">
+    <c:when test="${not empty errorsinvite}">
     <tr>
-    <td style="padding-right: 30px; color:red; style:italic;"> You have no careteams at present.
-    Please create a careteam!</td>
+    <td style="padding-right: 30px; color:red; style:italic;"> You have no careteams at present.Please create a careteam!</td>
     </tr>
     </c:when>
     <c:otherwise>
@@ -259,9 +258,9 @@
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
         <td style="padding-right: 15px"><a href><c:out value="${inelement}"/> Care Team</a></td>
-         <td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton" button onclick="window.location.href='welcome.do'"></td>
-         <td style="padding-right: 15px;"><input type="submit" value="Accept" class = "myButton" button onclick= <% String nm = (String)pageContext.getAttribute("inelement"); session.setAttribute("careteam",nm);%>"window.location.href='addCareteamAction.do'"></td>	
-        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton"  button onclick= <% String nam = (String)pageContext.getAttribute("inelement"); session.setAttribute("careteam",nam);%>"window.location.href='personalDashboard.do'"></td>
+         <td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton" button onclick="window.location.href='infoCareteamAction.do?careteam=${inelement}'"></td>
+         <td style="padding-right: 15px"><input type="submit" value="Accept" class = "myButton" button onclick="window.location.href='addCareteamAction.do?careteam=${inelement}'"></td>    
+        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton"  button onclick= "window.location.href='delCareteamAction.do?careteam=${inelement}'""></td>
     </tr>
     </c:forEach>
     <tr class="spaceUnder">
@@ -269,9 +268,10 @@
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
         <td style="padding-right: 15px"><a href>Michael Jordan Care Team</a></td>
-         <td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
-         <td style="padding-right: 15px;"><input type="submit" value="Accept" class = "myButton"></td>	
-        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton"></td>
+         <td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton" button onclick="window.location.href='welcome.do'"></td>
+         <td style="padding-right: 15px;"><input type="submit" value="Accept" class = "myButton" ></td>	
+        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton" ></td>
+    
     </tr>
     <tr class="spaceUnder">
         <td>

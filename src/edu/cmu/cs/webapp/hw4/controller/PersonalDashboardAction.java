@@ -31,8 +31,10 @@ public class PersonalDashboardAction extends Action {
 	        JSONObject responseObj = new JSONObject();
 	        JSONObject responseObj_invite = new JSONObject();
 	        List<String> errors = new ArrayList<String>();
-	        List<String> errors_invite = new ArrayList<String>();
+	        List<String> errorsinvite = new ArrayList<String>();
 	        request.setAttribute("errors", errors);
+	        request.setAttribute("errorsinvite", errorsinvite);
+	        String email = new String();
 	      //getting the careteams
 	        try { 
 	          	  String query = "http://localhost:8080/CurantisBackendService/curantis/getcirclesofauser";
@@ -40,7 +42,7 @@ public class PersonalDashboardAction extends Action {
 		        	  JSONObject json = new JSONObject();
 		              try {
 		            	  System.out.println("Here");
-		            	  String email = "c@gmail.com";
+		            	   email = "c@gmail.com";
 		            	  json.put("email", email);
 					} catch (JSONException e1) {
 						e1.printStackTrace();
@@ -129,10 +131,11 @@ public class PersonalDashboardAction extends Action {
 								String message = responseObj_invite.getString("message");
 								if(success != true) {
 									if(message.equals("Missing Email!")) {
-										errors_invite.add("The email is missing. Please login again.");
+										errorsinvite.add("The email is missing. Please login again.");
 										return "login.jsp";
 									} else if(message.equals("No invitation for this caregiver!")) {
-										errors_invite.add("You do not have any invitations!");
+										errorsinvite.add("You do not have any invitations!");
+										System.out.println("There is an error in the invitaitons!!!!!!test!!");
 										//return "PersonalDashboard.jsp";
 									}
 								}
@@ -172,9 +175,9 @@ public class PersonalDashboardAction extends Action {
 	              }
 	              
 	              //getting the invitees
-	              if(errors_invite == null || errors_invite.size() <= 0) {
+	              if(errorsinvite == null || errorsinvite.size() <= 0) {
 		              List<String> invite = new ArrayList<String>();
-						try {  
+						try {            
 							JSONArray recs = responseObj_invite.getJSONArray("list");
 							for (int i = 0; i < recs.length(); ++i) {
 							    JSONObject rec = recs.getJSONObject(i);
@@ -184,9 +187,13 @@ public class PersonalDashboardAction extends Action {
 						} catch (JSONException e) {
 							e.printStackTrace();
 						}
+						//invite.add("testingvarun");
 						session.setAttribute("invite", invite);
 		              }
 	              
+	              session.setAttribute("email", email);
+	              System.out.println("Size of error invite is "+errorsinvite.size());
+	              System.out.println("Size of normal error is "+errors.size());
 	          return "PersonalDashboard.jsp";
 	        }catch (Exception e) {
 	            errors.add(e.getMessage());
