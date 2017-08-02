@@ -13,6 +13,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -98,16 +99,20 @@ public class PersonalDashboardAction extends Action {
 		                e.printStackTrace();
 		
 		             }
-	              String email = "varunp@andrew.cmu.edu";
-	             // if(success) {
-	             // String email = new String();
-				//	try {
-						//email = responseObj.getString("email");
-				//	} catch (JSONException e) {
-				//		e.printStackTrace();
-				//	}
-				//session.setAttribute("email", email);
-	            //  }
+	              if(errors == null || errors.size() <= 0) {
+	              List<String> careteam = new ArrayList<String>();
+					try {
+						JSONArray recs = responseObj.getJSONArray("list");
+						for (int i = 0; i < recs.length(); ++i) {
+						    JSONObject rec = recs.getJSONObject(i);
+						    String response = rec.getString("circleName");
+						    careteam.add(response);
+						}
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+					session.setAttribute("careteamName", careteam);
+	              }
 	          return "PersonalDashboard.jsp";
 	        }catch (Exception e) {
 	            errors.add(e.getMessage());

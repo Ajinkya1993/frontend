@@ -194,7 +194,16 @@
     </tr>
     </c:when>
     <c:otherwise>
+    
+    <c:forEach items="${careteamName}" var="element">    
     <tr>
+        <td style="padding-right: 15px">
+            <img src="images/default-avatar.png" alt="" width="30" />
+        </td>
+        <td style="padding-right: 30px"><a href="careteamDashboard.do"><c:out value="${element}"/></a></td>
+    </tr>
+    <tr>
+   </c:forEach>
         <td style="padding-right: 15px">
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
