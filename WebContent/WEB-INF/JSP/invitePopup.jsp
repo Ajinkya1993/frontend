@@ -22,23 +22,6 @@
 	     <td>
 	     	<button type="submit">Send Invitation</button>
 
-	<h3 class="main-heading1"><center> Add a new member to the team! </center></h3>
-	<form action="invite.do" method="POST">
-		 <table align="center">
-		 <tr>
-		 	<td>Member Email</td>
-	      	<td><input type="text" name="email" required></td>
-		 </tr>
-	     <tr>
-	     	<td>Member Name</td>
-	      	<td><input type="text" name="name" required><td>
-	     </tr>
-	     <tr>
-	     <td>
-	     	<button type="submit">Add to Team</button>
-	      </td>
-	      </tr>
-    	</table>
     	<p class="alert alert-info" align="center">
 
        		 	We'll send an invitation with a link to this member's email!
