@@ -26,12 +26,6 @@ public class CaregiverLandingAction extends Action {
 			}
 			request.getSession().setAttribute("services", servicesStr.toString());
 			System.out.println(request.getSession().getAttribute("services"));
-
-			request.getSession().setAttribute("services", services);
-			for (String service : (String[]) request.getSession().getAttribute("services")) {
-				System.out.println(service);
-			}
-
 			// Set 'email' session attribute
 			request.getSession().setAttribute("email", request.getParameter("email"));
 			System.out.println(request.getSession().getAttribute("email"));
