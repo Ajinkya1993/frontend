@@ -35,6 +35,7 @@ public class Controller extends HttpServlet {
         Action.add(new PersonalDashboardAction());
         Action.add(new CreateTeamAction());
         Action.add(new RegisterEducationAction());
+        Action.add(new InviteAction());
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
