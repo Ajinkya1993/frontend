@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
     <div id = "gototop"> </div>
     <div  class="col-sm-2 col-xs-12">
 			<div class="box">
@@ -33,13 +34,29 @@
 			<div id="camera_wrap_1" class="camera_wrap camera_white_skin">
 			<!-- Slide #1 Starts -->
 				<div data-src="images/homepage/homeimage2.jpg">
+
+<jsp:include page="header.jsp"/>
+	<!-- Slider Section Starts -->
+		<section class="slider clearfix">
+			<div  class="col-sm-1 col-xs-12">
+			</div>
+			<div  class="col-sm-10 col-xs-12">
+			<div id="camera_wrap_1" class="camera_wrap camera_white_skin">
+			<!-- Slide #1 Starts -->
+				<div data-src="images/homepage/homeimage2.jpg">
+					
+
 					<div class="camera_caption fadeFromLeft hidden-sm hidden-xs">
 						<h2>One Stop Solution</h2>
 						<h2>For All <span>Caregiving Needs</span></h2>
 						<p>
 							No matter the level of care, we'll help connect you with a skilled, compassionate provider for a better quality of life for you or your loved one.
 						</p>
+
 						
+
+						<a href="services.html" class="btn btn-secondary">View Services</a>
+
 					</div>
 					
 				</div>
@@ -52,8 +69,15 @@
 						<h2>For All <span>Caregiving Needs</span></h2>
 						<p>
 							No matter the level of care, we'll help connect you with a skilled, compassionate provider for a better quality of life for you or your loved one.
+
 						</p>					
 					</div>				
+
+						</p>
+						<a href="#" class="btn btn-secondary">View Services</a>
+					</div>
+					
+
 				</div>
 			<!-- Slide #2 Ends -->
             <!-- Slide #3 Starts -->
@@ -64,7 +88,11 @@
 						<p>
 							No matter the level of care, we'll help connect you with a skilled, compassionate provider for a better quality of life for you or your loved one.
 						</p>
+
 						
+
+						<a href="services.html" class="btn btn-secondary">View Services</a>
+
 					</div>
 				</div>
 			<!-- Slide #3 Ends -->
@@ -72,11 +100,21 @@
 			</div>
 		</section>
 	<!-- Slider Section Ends -->
+
 	
 	
 	<!-- Main Container Starts -->
 		<br><br>
 		<h3 class="main-heading1" id = "services"><center>Services Offered</center></h3>			
+
+	<!-- Main Container Starts -->
+		<br><br>
+		<h3 class="main-heading1"><center>Services Offered</center></h3>					
+	
+							
+	</div>
+		
+
 		<div class="container main-container">
 		<!-- Notification Boxes Starts -->
 		
@@ -184,7 +222,11 @@
 			</div>
 		<!-- Notification Boxes Ends -->
 		<!-- Welcome Section Starts -->
+
 			<section class="welcome-area" id = "whoweare">
+
+			<section class="welcome-area">
+
 				<div class="row">
 					<div class="col-md-6 col-xs-12">
 						<h2 class="main-heading1 lite">We are</h2>
@@ -207,6 +249,7 @@ At Curantis, you are our focus--so we look out for your best interests. We do no
 		<!-- Welcome Section Ends -->
 		</div>
 	<!-- Main Container Ends -->
+
 	
 	
 	<!-- Meet Our Doctors Section Starts -->
@@ -217,6 +260,15 @@ At Curantis, you are our focus--so we look out for your best interests. We do no
 		<div class="container main-container" id = "eldernews">
 	<!-- Medical Services Section Ends -->
 	<!-- Content Starts -->
+
+	<!-- Meet Our Doctors Section Starts -->
+		<jsp:include page="caregiverTypes.jsp"/>
+	<!-- Meet Our Doctors Section Ends -->
+	<!-- Main Container Starts -->
+		<div class="container main-container">
+		<!-- Medical Services Section Ends -->
+		<!-- Content Starts -->
+
 			<div class="row">
 			<!-- Latest News Section Starts -->
 				<section class="col-md-12 col-xs-12">
@@ -367,6 +419,7 @@ At Curantis, you are our focus--so we look out for your best interests. We do no
 			
 			</div>
 		<!-- Content Ends -->
+
 	</div>
 		
 		
@@ -375,6 +428,10 @@ At Curantis, you are our focus--so we look out for your best interests. We do no
 		
 		<!-- Book Appointment Box Starts -->
 			<div class="book-appointment-box" id = "concierge">
+
+		<!-- Book Appointment Box Starts -->
+			<div class="book-appointment-box">
+
 				<div class="row">
 					<div class="col-md-5 col-xs-12 text-center-sm text-center-xs">
 						<h4>Contact our Concierge Service for help</h4>
@@ -393,8 +450,5 @@ At Curantis, you are our focus--so we look out for your best interests. We do no
 		<!-- Book Appointment Box Ends -->
 		</div>
 	<!-- Main Container Ends -->
-	
-	
-	
-	
+
 <jsp:include page="footer.jsp"/>

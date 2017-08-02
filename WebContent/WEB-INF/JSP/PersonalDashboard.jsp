@@ -1,3 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -183,30 +187,27 @@
                             </div>
                             <div class="content">
                                 <table>
+                                <c:choose>
+    <c:when test="${!empty errors}">
+    <tr>
+    <td style="padding-right: 30px; color:red; style:italic;"> You have no careteams at present.
+    Please create a careteam!</td>
+    </tr>
+    </c:when>
+    <c:otherwise>
+    
+    <c:forEach items="${careteamName}" var="element">    
     <tr>
         <td style="padding-right: 15px">
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
-        <td style="padding-right: 30px"><a href="careteamDashboard.do">John Weinstein Care Team</a></td>
+        <td style="padding-right: 30px"><a href="careteamDashboard.do"><c:out value="${element}"/> Care Team</a></td>
     </tr>
-    <tr>
-        <td>
-            <img src="images/default-avatar.png" alt="" width="30" />
-        </td>
-        <td style="padding-right: 15px"><a href="careteamDashboard.do">Hannah Montana Care Team</a></td>
-    </tr>
-    <tr>
-        <td>
-            <img src="images/default-avatar.png" alt="" width="30" />
-        </td>
-        <td style="padding-right: 15px"><a href="careteamDashboard.do">Harvey Spectre Care Team</a></td>
-    </tr>
-    <tr>
-        <td>
-            <img src="images/default-avatar.png" alt="" width="30" />
-        </td>
-        <td style="padding-right: 15px"><a href="careteamDashboard.do">Vincent Chase Care Team</a></td>
-    </tr>
+   </c:forEach>
+        
+    </c:otherwise>
+     </c:choose>
+
 </table>
                             </div>
                         </div>
@@ -223,37 +224,27 @@
                             </div>
                             <div class="content">
                                 <table>
+
+                                <c:choose>
+    <c:when test="${not empty errorsinvite}">
+    <tr>
+    <td style="padding-right: 30px; color:red; style:italic;"> You have no careteams at present.Please create a careteam!</td>
+    </tr>
+    </c:when>
+    <c:otherwise>
+    <c:forEach items="${invite}" var="inelement"> 
     <tr class="spaceUnder">
         <td style="padding-right: 15px">
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
-        <td style="padding-right: 15px"><a href>Michael Jordan Care Team</a></td>
-         <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Accept" id="Accept">Accept</label></td>	
-        <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Decline" id="Decline">Decline</label></td>
-		<td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
-		<td style="padding-right: 15px"><input type="submit" value="Submit" class = "myButton"></td>
+        <td style="padding-right: 15px"><a href><c:out value="${inelement}"/> Care Team</a></td>
+         <td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton" button onclick="window.location.href='infoCareteamAction.do?careteam=${inelement}'"></td>
+         <td style="padding-right: 15px"><input type="submit" value="Accept" class = "myButton" button onclick="window.location.href='addCareteamAction.do?careteam=${inelement}'"></td>    
+        <td style="padding-right: 15px;"><input type="submit"  value="Decline"  class = "myButton"  button onclick= "window.location.href='deleteCareteamAction.do?careteam=${inelement}'""></td>
     </tr>
-    <tr class="spaceUnder">
-        <td>
-            <img src="images/default-avatar.png" alt="" width="30" />
-        </td>
-        <td style="padding-right: 15px"><a href>Stephen Curry Care Team</a></td>
-         <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Accept" id="Accept">Accept</label></td>	
-        <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Decline" id="Decline">Decline</label></td>
-		<td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
-		<td style="padding-right: 15px"><input type="submit" value="Submit" class = "myButton"></td>
-    </tr>
-    <tr class="spaceUnder">
-        <td>
-            <img src="images/default-avatar.png" alt="" width="30" />
-        </td>
-        <td style="padding-right: 15px"><a href>Lebron James Care Team</a></td>
-         <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Accept" id="Accept">Accept</label></td>	
-        <td style="padding-right: 15px"><label><input type="radio" name="Accept" value="Decline" id="Decline">Decline</label></td>
-		<td style="padding-right: 15px"><input type="submit" value="Information" class = "myButton"></td>
-		<td style="padding-right: 15px"><input type="submit" value="Submit" class = "myButton"></td>
-    </tr>
-   
+    </c:forEach>
+   </c:otherwise>
+     </c:choose>
 </table>
                             </div>
                         </div>

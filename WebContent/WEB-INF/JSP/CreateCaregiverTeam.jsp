@@ -124,6 +124,9 @@
 			<div id="parent">
 			<div class="container-fluid">
 			<div class="row">
+
+			<br></br>
+
 			<h3 class="main-heading1"><center><b/>Create My CareTeam</center></h3>
 			<c:forEach var="error" items="${errors}">
 				<h5 style="color:red" align="center"> ${error} </h5>
@@ -176,6 +179,48 @@
             			</div>
 					</div>
 				
+
+		
+			<form action="createteam.do" method="POST">
+				<script type= "text/javascript" src = "js/countries.js"></script>
+		    	<table align="center">
+		        <tr>
+		            <td style="font-size: large">CareTeam Name:</td>
+		            <td>
+		                <input type="text" name="teamname" value="${form.teamname}" autofocus />
+		            </td>
+		        </tr>
+		      
+		        <tr><td><br/><h5><b>Please Input Your Loved One's Profile:</h5><br/></td></tr>
+		        <tr>
+		            <td style="font-size: large">Name:</td>
+		            <td><input type="text" name="lovename" value="${form.lovename}"/></td>
+		        </tr>
+		        <tr>
+		            <td style="font-size: large">Address:</td>
+		            <td><input type="text" name="loveaddress" value="${form.loveaddress}"/></td>
+		        </tr>
+		        <tr>
+		            <td style="font-size: large">Relationship:</td>
+		            <td><input type="text" name="relation" value="${form.relation}"/></td>
+		        </tr>
+		        <tr>
+		            <td style="font-size: large">Geo Relation:</td>
+		            <td><input type="text" name="georelation" value="${form.georelation}"/></td>
+		        </tr>
+		        <tr>
+		            <td style="font-size: large">Trigger Event:</td>
+		            <td><input type="text" name="event" value="${form.event}"/></td>
+		        </tr>
+		        <br/>
+		        <tr>
+		            <td colspan="2" align="center">
+		                <input type="submit" name="action" class="btn btn-secondary" value="Create CareTeam" />
+		            </td>
+		        </tr>
+		     	</table>
+		    </form>
+
 		    </div>
 		    </div>
 			</div>
