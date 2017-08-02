@@ -17,7 +17,13 @@ public class CaregiverLandingAction extends Action {
 		if (request.getParameter("register") != null) {
 			// Set 'services' session attribute
 			String[] services = request.getParameterValues("services");
-			request.getSession().setAttribute("services", services);
+			StringBuilder servicesStr = new StringBuilder();
+			if (services != null) {
+				for (String service : services) {
+					servicesStr.append(service + ",");
+				}
+			}
+			request.getSession().setAttribute("services", servicesStr.toString());
 			System.out.println(request.getSession().getAttribute("services"));
 			// Set 'email' session attribute
 			request.getSession().setAttribute("email", request.getParameter("email"));
@@ -30,7 +36,7 @@ public class CaregiverLandingAction extends Action {
 				request.getSession().setAttribute("getGuide", true);
 				System.out.println(request.getSession().getAttribute("getGuide"));
 			}
-			return "register.do";
+			return "registerEducation.do";
 		}
 		return "caregiverLanding.jsp";
 	}
