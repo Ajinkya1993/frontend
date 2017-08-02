@@ -3,7 +3,7 @@
     <div id = "gototop"> </div>
     <div  class="col-sm-2 col-xs-12">
 			<div class="box">
-			<div style = "position: fixed; top: 100px; left: 30px">
+			<div style = "position: fixed; top: 100px; left: 30px; z-index: 1; background-color:white; opacity:0.7">
 				<b>&nbsp &nbsp &nbsp &nbsp Easy Access</b>
 				<ul>
 				<li><a href = "#gototop">Go to top</a></li>
@@ -16,15 +16,18 @@
 			</div>
 			</div>	
 	</div>
+	
+		<div class="col-md-8">
+		</div>
 	<div  class="col-sm-10 col-xs-12">
 	</div>
+	
 <jsp:include page="header.jsp"/>
 	 
-	 
+
 	<!-- Slider Section Starts -->
 		<section class="slider clearfix" >
 			<div  class="col-sm-2 col-xs-12">
-				
 			</div>
 			<div  class="col-sm-8 col-xs-12">
 			<div id="camera_wrap_1" class="camera_wrap camera_white_skin">
@@ -49,10 +52,8 @@
 						<h2>For All <span>Caregiving Needs</span></h2>
 						<p>
 							No matter the level of care, we'll help connect you with a skilled, compassionate provider for a better quality of life for you or your loved one.
-						</p>
-						
-					</div>
-					
+						</p>					
+					</div>				
 				</div>
 			<!-- Slide #2 Ends -->
             <!-- Slide #3 Starts -->
@@ -71,13 +72,11 @@
 			</div>
 		</section>
 	<!-- Slider Section Ends -->
+	
+	
 	<!-- Main Container Starts -->
 		<br><br>
-		<h3 class="main-heading1" id = "services"><center>Services Offered</center></h3>					
-	
-							
-	</div>
-		
+		<h3 class="main-heading1" id = "services"><center>Services Offered</center></h3>			
 		<div class="container main-container">
 		<!-- Notification Boxes Starts -->
 		
@@ -208,14 +207,16 @@ At Curantis, you are our focus--so we look out for your best interests. We do no
 		<!-- Welcome Section Ends -->
 		</div>
 	<!-- Main Container Ends -->
+	
+	
 	<!-- Meet Our Doctors Section Starts -->
 		<div id = "caretypes"> </div>
 		<jsp:include page="caregiverTypes.jsp"/>
 	<!-- Meet Our Doctors Section Ends -->
 	<!-- Main Container Starts -->
 		<div class="container main-container" id = "eldernews">
-		<!-- Medical Services Section Ends -->
-		<!-- Content Starts -->
+	<!-- Medical Services Section Ends -->
+	<!-- Content Starts -->
 			<div class="row">
 			<!-- Latest News Section Starts -->
 				<section class="col-md-12 col-xs-12">
@@ -366,6 +367,12 @@ At Curantis, you are our focus--so we look out for your best interests. We do no
 			
 			</div>
 		<!-- Content Ends -->
+	</div>
+		
+		
+		
+		
+		
 		<!-- Book Appointment Box Starts -->
 			<div class="book-appointment-box" id = "concierge">
 				<div class="row">
@@ -386,4 +393,8 @@ At Curantis, you are our focus--so we look out for your best interests. We do no
 		<!-- Book Appointment Box Ends -->
 		</div>
 	<!-- Main Container Ends -->
+	
+	
+	
+	
 <jsp:include page="footer.jsp"/>
