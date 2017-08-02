@@ -3,6 +3,7 @@
 
     <div id = "gototop"> </div>
     <div  class="col-sm-2 col-xs-12">
+    <!--
 			<div class="box">
 			<div style = "position: fixed; top: 100px; left: 30px; z-index: 1; background-color:white; opacity:0.7">
 				<b>&nbsp &nbsp &nbsp &nbsp Easy Access</b>
@@ -15,7 +16,8 @@
 				<li><a href = "#concierge">Concierge Service</a></li>				
 				</ul>
 			</div>
-			</div>	
+			</div>
+	-->	
 	</div>
 	
 		<div class="col-md-8">
@@ -52,11 +54,6 @@
 						<p>
 							No matter the level of care, we'll help connect you with a skilled, compassionate provider for a better quality of life for you or your loved one.
 						</p>
-
-						
-
-						<a href="services.html" class="btn btn-secondary">View Services</a>
-
 					</div>
 					
 				</div>
@@ -100,12 +97,6 @@
 			</div>
 		</section>
 	<!-- Slider Section Ends -->
-
-	
-	
-	<!-- Main Container Starts -->
-		<br><br>
-		<h3 class="main-heading1" id = "services"><center>Services Offered</center></h3>			
 
 	<!-- Main Container Starts -->
 		<br><br>
