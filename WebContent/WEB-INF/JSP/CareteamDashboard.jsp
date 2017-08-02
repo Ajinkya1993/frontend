@@ -270,8 +270,8 @@ tbody tr td {
 											<div class="photo">
 												<style>
 												.photo img {
-												width: 100px;
-												height: 100px;
+												width: 135px;
+												height: 150px;
 												background-color: grey;
 												}
 												</style>
@@ -279,15 +279,15 @@ tbody tr td {
 													<tr>
 														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ancillary.png"
-																width="190">
+																width="220">
 														</a></td>
-														<td><a href="https://www.google.com" class="icons">
+														<td><a href="https://www.google.com" >
 																<img src="images/Housingservices.png"
-																width="190">
+																width="220">
 														</a></td>
 														<td><a href="https://www.google.com" class="icons">
 																<img src="images/vendor_mgmt.png"
-																width="190">
+																width="220" height="100">
 														</a></td>
 													</tr>
 												</table>
