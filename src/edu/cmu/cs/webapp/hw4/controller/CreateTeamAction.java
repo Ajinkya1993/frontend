@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
+import edu.cmu.cs.webapp.hw4.databean.SessionBean;
 import edu.cmu.cs.webapp.hw4.formbean.CreateCircleForm;
 import edu.cmu.cs.webapp.hw4.model.Model;
 import edu.cmu.cs.webapp.hw4.model.UserDAO;
@@ -29,42 +30,39 @@ public class CreateTeamAction extends Action {
 	public String getName() {
 		return "createteam.do";
 	}
-
-	public String perform(HttpServletRequest request) {
 	
+	@Override
+	public String perform(HttpServletRequest request) {
+		
 		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("email");
+		
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
 		JSONObject responseObj = new JSONObject();
-
 		try {
 			CreateCircleForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);
-
-			// If no params were passed, return with no errors so that the form
-			// will be
-			// presented (we assume for the first time).
 			if (!form.isPresent()) {
 				return "CreateCaregiverTeam.jsp";
 			}
 
-			// Any validation errors?
 			errors.addAll(form.getValidationErrors());
 			if (errors.size() != 0) {
 				return "CreateCaregiverTeam.jsp";
 			}
 
-			if (form.getAction().equals("CreateCaregiverTeam")) {
+			if (form.getAction().equals("Create Team")) {
 				String query = "http://localhost:8080/CurantisBackendService/curantis/createcircle";
 				JSONObject json = new JSONObject();
 				try {
-					//?????
-					json.put("teamname", form.getTeamname());
-					json.put("lovename", form.getLovename());
-					json.put("loveaddress", form.getLoveaddress());
-					json.put("relation", form.getRelation());
-					json.put("georelation", form.getGeorelation());
-					json.put("event", form.getEvent());
+					json.put("email",email);
+					json.put("circleName", form.getTeamname());
+					//json.put("lovename", form.getLovename());
+					//json.put("loveaddress", form.getLoveaddress());
+					json.put("natureOfRel", form.getRelation());
+					json.put("geoRel", form.getGeorelation());
+					json.put("triggerEvent", form.getEvent());
 				} catch (JSONException e1) {
 					e1.printStackTrace();
 				}
@@ -85,10 +83,8 @@ public class CreateTeamAction extends Action {
 					}
 
 					BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
-
 					String output;
 					System.out.println("Output from Server .... \n");
-
 					while ((output = br.readLine()) != null) {
 						try {
 							responseObj = new JSONObject(output);
@@ -115,20 +111,16 @@ public class CreateTeamAction extends Action {
 
 					conn.disconnect();
 
-				} catch (MalformedURLException e) {
-
-					e.printStackTrace();
-
-				} catch (IOException e) {
+				} catch (Exception e) {
 
 					e.printStackTrace();
 
 				}
 				String teamname = new String();
-				Long circleId = new Long(50);
+				int circleId = 0;
 				try {
 					teamname = responseObj.getString("teamname");
-					circleId = responseObj.getLong("circleId");
+					circleId = responseObj.getInt("circleId");
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}

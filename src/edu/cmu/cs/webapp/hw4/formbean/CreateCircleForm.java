@@ -13,6 +13,13 @@ public class CreateCircleForm extends FormBean {
     private String event;
     private String action;
     
+    public boolean isPresent() {
+    	if (action == null) {
+    		return false;
+    	}
+    	return action.equals("Create Team");
+    }
+    
     public String getTeamname() {
 		return teamname;
 	}
@@ -64,7 +71,7 @@ public class CreateCircleForm extends FormBean {
 
         if (errors.size() > 0) return errors;
 
-        if (!action.equals("Create CareTeam")) {
+        if (!action.equals("Create Team")) {
         	errors.add("Invalid button");
         }
 		
