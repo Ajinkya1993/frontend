@@ -34,7 +34,7 @@ public class Controller extends HttpServlet {
         Action.add(new CareteamDashboardAction());
         Action.add(new PersonalDashboardAction());
         Action.add(new CreateTeamAction());
-
+        Action.add(new PaymentAction());
         Action.add(new RegisterEducationAction());
         Action.add(new InviteAction());
 

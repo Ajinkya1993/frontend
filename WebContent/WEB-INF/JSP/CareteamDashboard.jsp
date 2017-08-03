@@ -322,12 +322,53 @@ tbody tr td {
 				</p>
 			</div>
 		</footer>
-
+ <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                About
+                            </a>
+                        </li>
+                        <li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										Services &#9662;
+									</a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#">Vendor Management</a></li>
+										<li><a href="#">Senior Housing</a></li>
+										<li><a href="#">Ancillary Services</a></li>
+										<li><a href="#">Estate Management</a></li>
+									</ul>
+								</li>
+                        
+                        
+                        <li>
+                        
+                        <li>
+                            <a href="#">
+                               SignOut
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright pull-right">
+                    &copy; 2017 <a href=#>Curantis Solution</a>
+                </p>
+            </div>
+        </footer>
 	</div>
 	</div>
 
 
 </body>
+
 <!--   Core JS Files   -->
 <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
@@ -368,4 +409,4 @@ tbody tr td {
 	});
 </script>
 
-</html>
+        </html>
