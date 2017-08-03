@@ -1,3 +1,5 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -43,6 +45,36 @@
 	rel='stylesheet' type='text/css'>
 <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
+<!--   Core JS Files   -->
+<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Checkbox, Radio & Switch Plugins -->
+<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
+
+<!--  Charts Plugin -->
+<script src="assets/js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="assets/js/bootstrap-notify.js"></script>
+
+<!--  Google Maps Plugin    -->
+<script type="text/javascript"
+	src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="assets/js/light-bootstrap-dashboard.js"></script>
+
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+<script src="assets/js/demo.js"></script>
+
+<c:if test="${noPreference}">
+	<script type="text/javascript">
+			$(window).load(function(){        
+		   		$('#myModal').modal('show');
+		    });
+	</script>
+</c:if>
 </head>
 <body>
 
@@ -122,50 +154,43 @@
 
 
 <!-- *********Starts Here************ -->
-			<p>${ preference }</p>
+			<div style="margin-left:50px; margin-right:50px">
+				<h1>My Preferences</h1>
+				<ul class="list-group">
+				  <li class="list-group-item"><label>Price: </label><br>${ price }</li>
+				  <li class="list-group-item"><label>Location: </label><br>${ location }</li>
+				</ul>
+			</div>
+	</div>
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Fill Out This Questionnaire to Set Up Your Preferences</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form action="addSeniorHousingPrf.do" method="post">
+	        	<div class="form-group">
+			    	<label for="email">Preferred Price:</label>
+			    	<input type="email" class="form-control" id="email">
+			    </div>
+			    <div class="form-group">
+			    	<label for="pwd">Preferred Location:</label>
+			    	<input type="password" class="form-control" id="pwd">
+			    </div>
+			    <button type="submit" class="btn btn-default">Submit</button>
+	        </form>
+	      </div>
+	    </div>
+	
+	  </div>
+	</div>
 <!-- *********Ends Here************ -->
 
 
 
 
 </body>
-<!--   Core JS Files   -->
-<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-
-<!--  Checkbox, Radio & Switch Plugins -->
-<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
-
-<!--  Charts Plugin -->
-<script src="assets/js/chartist.min.js"></script>
-
-<!--  Notifications Plugin    -->
-<script src="assets/js/bootstrap-notify.js"></script>
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-
-<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="assets/js/light-bootstrap-dashboard.js"></script>
-
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="assets/js/demo.js"></script>
-
-<script type="text/javascript">
-    	$(document).ready(function(){
-
-        	demo.initChartist();
-
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "<b>Michael Phelps</b> - Welcome to your dashboard!"
-
-            },{
-                type: 'info',
-                timer: 4000
-            });
-
-    	});
-	</script>
 </html>
