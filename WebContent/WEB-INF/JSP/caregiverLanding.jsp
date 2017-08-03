@@ -28,7 +28,7 @@
 						<h3 class="main-heading2">
 							What You Need &amp; Can Do with CURANTIS
 						</h3>
-						<p>Caregiver Type: ${caregiverType}</p>
+						<p>Caregiver Type: ${session.caregiverType}</p>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat rutrum eros amet sollicitudin interdum. Suspendisse pulvinar, velit nec pharetra interdum, ante tellus ornare mi, et mollis tellus neque vitae elit. Mauris adipiscing mauris fringilla turpis interdum sed pulvinar nisi malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						</p>  
@@ -86,8 +86,6 @@
 									<div class="form-group">
 
 										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" id="guide" name="getGuide" value="" onclick="myFunction()">I need a comprehensive guide to the Caregiving process</label>
-
-										<label style="margin-bottom:5px;font-weight:500;text-transform:uppercase" class="checkbox-inline"><input type="checkbox" name="getGuide" value="">I need a comprehensive guide to the Caregiving process</label>
 
 									</div>
 								</div>

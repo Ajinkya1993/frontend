@@ -5,7 +5,7 @@
 <jsp:include page="header.jsp"/>
 <div class="container main-container">
 	<h2 class="main-heading1">Your Plan</h2>
-	<a href="personalDashboard.do" class="btn btn-info text-uppercase pull-right">go to dashboard</a>
+	<!-- <a href="personalDashboard.do" class="btn btn-info text-uppercase pull-right">go to dashboard</a> -->
 	<h3 class="main-heading2">With CURANTIS</h3>
 	<ul class="list-unstyled list-style-1">
 		<li><a href="#" data-toggle="collapse" data-target="#Step1">Step1: Creat a Caregiver Team</a></li>
@@ -37,31 +37,34 @@
 		    <p>
 				Services we recommended for you:
 			</p>
-			<c:if test="${fn:contains(services, 'senior housing') || getGuide}">
+			<c:if test="${fn:contains(session.serviceChosen, 'senior housing') || session.getGuide}">
 				<h5>Senior Housing</h5>
 			</c:if>
-			<c:if test="${fn:contains(services, 'in-home care') || getGuide}">
+			<c:if test="${fn:contains(session.serviceChosen, 'in-home care') || session.getGuide}">
 				<h5>In-home Care</h5>
 			</c:if>
-			<c:if test="${fn:contains(services, 'vendor management') || getGuide}">
+			<c:if test="${fn:contains(session.serviceChosen, 'vendor management') || session.getGuide}">
 				<h5>Vendor Management</h5>
 			</c:if>
-			<c:if test="${fn:contains(services, 'legal') || getGuide}">
+			<c:if test="${fn:contains(session.serviceChosen, 'legal') || session.getGuide}">
 				<h5>Legal</h5>
 			</c:if>
-			<c:if test="${fn:contains(services, 'estate planning') || getGuide}">
+			<c:if test="${fn:contains(session.serviceChosen, 'estate planning') || session.getGuide}">
 				<h5>Estate Planning</h5>
 			</c:if>
-			<c:if test="${fn:contains(services, 'taxation') || getGuide}">
+			<c:if test="${fn:contains(session.serviceChosen, 'taxation') || session.getGuide}">
 				<h5>Taxation</h5>
 			</c:if>
-			<c:if test="${fn:contains(services, 'financial planning') || getGuide}">
+			<c:if test="${fn:contains(session.serviceChosen, 'financial planning') || session.getGuide}">
 				<h5>Financial Planning</h5>
 			</c:if>
-			<c:if test="${fn:contains(services, 'insurance') || getGuide}">
+			<c:if test="${fn:contains(session.serviceChosen, 'insurance') || session.getGuide}">
 				<h5>Insurance</h5>
 			</c:if>
 		</div>
 	</ul>
+	<form action="personalDashboard.do">
+		<input type="submit" name="action" class="btn btn-lg btn-info" value="GO TO DASHBOARD" />
+	</form>
 </div>
 <jsp:include page="footer.jsp"/>
