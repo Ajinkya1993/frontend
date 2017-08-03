@@ -39,4 +39,24 @@ public class ManageServices {
 		return result;
 		
 	}
+	
+	public String ListtoString (List<String> services) {
+		if (services == null || services.size() == 0) {
+			return null;
+		}
+		Set<String> set = new HashSet<String>();
+		StringBuffer result = new StringBuffer();
+		for (String s: services) {
+			if (!set.contains(s) && allowedServices.contains(s)) {
+				result.append(s);
+				result.append("->");
+				set.add(s);
+			}
+		}
+		if (result.length() > 0 && result.charAt(result.length()-1) == '>') {
+			result.delete(result.length()-2, result.length());
+		}
+		return result.toString();
+		
+	}
 }
