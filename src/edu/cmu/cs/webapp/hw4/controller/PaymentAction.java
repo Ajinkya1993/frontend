@@ -9,15 +9,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
-
+import edu.cmu.cs.webapp.hw4.databean.SessionBean;
 import edu.cmu.cs.webapp.hw4.formbean.PaymentForm;
 
 public class PaymentAction extends Action {
@@ -32,10 +29,21 @@ public class PaymentAction extends Action {
     }
     
     public String perform(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
+        /*
+        //Taking CircleId and Email from session bean
+        SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+        Integer circleId;
+        String email;
+        if (sessionBean != null) {
+        	circleId = sessionBean.getCircleId();
+        	email = sessionBean.getEmail();
+        }else {
+        	errors.add("Circle Does Not Exist or You Are Not in the Circle!");
+        	return "payment.jsp";
+        }
+        */
         JSONObject responseObj = new JSONObject();
 
         try {
@@ -59,10 +67,13 @@ public class PaymentAction extends Action {
 	        	  JSONObject json = new JSONObject();
 	        	  
 	              try {
+	            	  //json.put("email", email);
+	            	  //json.put("circleId", circleId);
 		              json.put("firstName", form.getFirstName());
 		              json.put("middleName",form.getMiddleName());
 		              json.put("lastName", form.getLastName());
 		              json.put("cardNumber", form.getCardNumber());
+		              json.put("cardType", form.getCardType());
 		              json.put("cardExpiry", form.getCardExpiry());
 		              json.put("cardCVC", form.getCardCVC());
 				} catch (JSONException e1) {
@@ -101,6 +112,9 @@ public class PaymentAction extends Action {
 									errors.add("The Care Team you are subscribing for, does not exist!");
 									return "payment.jsp";
 									
+								} else {
+									errors.add(responseObj.getString("message"));
+									return "payment.jsp";
 								}
 							}
 							
@@ -121,19 +135,11 @@ public class PaymentAction extends Action {
 	                e.printStackTrace();
 	
 	             }
-                String firstName = new String();
-                String lastName = new String();
-				try {
-					firstName = responseObj.getString("firstName");
-					lastName = responseObj.getString("lastName");
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-				session.setAttribute("user", firstName+" "+lastName);
                 return "careteamDashboard.do";
-            } else {
-            	return "payment.jsp";
+            } else if (form.getAction().equals("Continue to PayPal")){
+            	System.out.print("PayPal");
             }
+            return "payment.jsp";
         } catch (FormBeanException e) {
             errors.add(e.getMessage());
             return "payment.jsp";

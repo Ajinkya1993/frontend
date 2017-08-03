@@ -72,7 +72,7 @@
 											  <div class="modal-content">
 											    <span class="close">&times;</span>
 											    <p><b>Click Continue to PayPal to log in and confirm your purchase.</b></p>
-											    <form action="https://www.paypal.com/signin?country.x=US&locale.x=en_US" > 
+											    <form action="https://www.paypal.com/signin?country.x=US&locale.x=en_US"> 
 											  		<input type="submit" name="action" class="btn btn-lg btn-info" value="Continue to PayPal" />
 												</form> 
 											  </div>

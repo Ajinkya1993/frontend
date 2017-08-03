@@ -31,7 +31,7 @@ public class PaymentForm extends FormBean {
 	
 	    if (errors.size() > 0) return errors;
 	
-	    if (!action.equals("Subscribe"))
+	    if (!(action.equals("Subscribe") || action.equals("Continue to PayPal")) )
 			errors.add("Invalid button");
 		
 	    return errors;
@@ -77,5 +77,11 @@ public class PaymentForm extends FormBean {
 	}
 	public void setAction(String action) {
 		this.action = action;
+	}
+	public String getCardType() {
+		return cardType;
+	}
+	public void setCardType(String cardType) {
+		this.cardType = cardType;
 	}
 }
