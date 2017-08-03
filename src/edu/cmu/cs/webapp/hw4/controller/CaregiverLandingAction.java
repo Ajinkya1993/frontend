@@ -2,6 +2,8 @@ package edu.cmu.cs.webapp.hw4.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import edu.cmu.cs.webapp.hw4.databean.SessionBean;
+
 public class CaregiverLandingAction extends Action {
 
 	@Override
@@ -13,9 +15,18 @@ public class CaregiverLandingAction extends Action {
 	@Override
 	public String perform(HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		request.getSession().setAttribute("caregiverType", request.getParameter("caregiverType"));
+		SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+		if (sessionBean == null) {
+			sessionBean = new SessionBean();
+		}
+		
+		// Set 'caregiverType' session attribute
+		String type = request.getParameter("caregiverType");
+		if (type != null) {
+			sessionBean.setCaregiverType(Integer.parseInt(type));
+		}
 		if (request.getParameter("register") != null) {
-			// Set 'services' session attribute
+			// Set 'serviceChosen' session attribute
 			String[] services = request.getParameterValues("services");
 
 			StringBuilder servicesStr = new StringBuilder();
@@ -24,21 +35,17 @@ public class CaregiverLandingAction extends Action {
 					servicesStr.append(service + ",");
 				}
 			}
-			request.getSession().setAttribute("services", servicesStr.toString());
-			System.out.println(request.getSession().getAttribute("services"));
-			// Set 'email' session attribute
-			request.getSession().setAttribute("email", request.getParameter("email"));
-			System.out.println(request.getSession().getAttribute("email"));
+			sessionBean.setServiceChosen(servicesStr.toString());
 			// Set 'getGuide' session attribute
 			if (request.getParameter("getGuide") == null) {
-				request.getSession().setAttribute("getGuide", false);
-				System.out.println(request.getSession().getAttribute("getGuide"));
+				sessionBean.setGetGuide(false);
 			} else {
-				request.getSession().setAttribute("getGuide", true);
-				System.out.println(request.getSession().getAttribute("getGuide"));
+				sessionBean.setGetGuide(true);
 			}
+			request.getSession().setAttribute("session", sessionBean);
 			return "register.do";
 		}
+		request.getSession().setAttribute("session", sessionBean);
 		return "caregiverLanding.jsp";
 	}
 
