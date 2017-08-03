@@ -25,7 +25,7 @@ public class ManageSeniorHousing extends Action {
 		String query = "http://localhost:8080/CurantisBackendService/curantis/seniorhousing/getPreference";
   	    JSONObject json = new JSONObject();
   	    try {
-			json.put("circleId", 1);
+			json.put("circleId", 2);
 			URL url = new URL(query);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setConnectTimeout(5000);
@@ -45,7 +45,18 @@ public class ManageSeniorHousing extends Action {
             BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
             String output = null;
             if ((output = br.readLine()) != null) {
-            	request.setAttribute("preference", output);
+            	JSONObject responseObj = new JSONObject(output);
+            	boolean success = responseObj.getBoolean("success");
+            	
+            	if (success) {
+            		String preference = responseObj.getString("preference");
+            		JSONObject preferenceObj = new JSONObject(preference);
+                	request.setAttribute("price", preferenceObj.getString("price"));
+                	request.setAttribute("location", preferenceObj.getString("location"));
+            		request.setAttribute("noPreference", false);
+            	} else {
+            		request.setAttribute("noPreference", true);
+            	}
             }
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
