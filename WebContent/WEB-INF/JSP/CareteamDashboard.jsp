@@ -33,6 +33,11 @@
 	rel='stylesheet' type='text/css'>
 <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
+<!--  JavaScript for popup -->
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
 </head>
 <body>
 
@@ -245,11 +250,28 @@ tbody tr td {
 												</tr>
 												<tr>* : Primary Caregiver &nbsp;&nbsp;</tr>
 
-								<input type="button" allign="right" value="Invite new member to this team" 
+								<!--  input type="button" allign="right" value="Invite new member to this team" 
 									   onclick='javascript:window.open("invite.do", "inviteWindow", 
-									   "scrollbars=1,resizable=1,height=300,width=450");' title='Invite Popup'/>
+									   "scrollbars=1,resizable=1,height=300,width=450");' title='Invite Popup'/ -->
+  
+ 
 
 											</table>
+  <div data-role="main" class="ui-content">
+    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left" 
+    	style="float:right">Invite a new member</a>
+
+    <div data-role="popup" id="myPopup" class="ui-content" style="min-width:500px;">
+      <form method="post" action="careteamDashboard.do">
+        <div>
+          <h3>Invite a new member by email</h3>
+          <label for="email" class="ui-hidden-accessible">Email:</label>
+          <input type="text" name="emailToAdd" id="email" placeholder="Enter Email...">
+          <input type="submit" data-inline="true" value="Send Invitation">
+        </div>
+      </form>
+    </div>
+  </div>
 										</div>
 									</div>
 								</div>
