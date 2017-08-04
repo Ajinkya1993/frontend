@@ -3,8 +3,6 @@
 <section class="featured-doctors"  style="background-color:white">
 <!-- Nested Container Starts -->
 	<div class="container">
-				
-				
 		<h2> <font color='#009bdb'>Get started here! <span class="lite"></font><font color='black'>Click one of the caregiving situations below.</span> </h2>
 		<p>
 			</font>	<font color='black'>Making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident.
