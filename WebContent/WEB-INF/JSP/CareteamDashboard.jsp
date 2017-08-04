@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -33,11 +36,6 @@
 	rel='stylesheet' type='text/css'>
 <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
-<!--  JavaScript for popup -->
-<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
 </head>
 <body>
 
@@ -46,10 +44,8 @@
 			data-image="assets/img/sidebar-5.jpg">
 
 			<!--
-
         Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
         Tip 2: you can also add an image using data-image tag
-
     -->
 
 			<div class="sidebar-wrapper">
@@ -145,11 +141,10 @@
 												<img src="images/lovedone.jpg" alt="John"
 													style="width: 100%">
 												<div class="container">
-													<h1>John Doe</h1>
-													<p>Address: 5000 Forbes Avenue</p>
-													<p>Relationship: Father</p>
-													<p>Georelationship: Pittsburgh, PA</p>
-													<p>Trigger Event: Heart Attack</p>
+												
+													<h1>${lovedone_firstName} &nbsp; ${lovedone_LastName}</h1>
+													<p>Address: ${lovedoneaddr}</p>
+													<p>Trigger Event: ${triggerEvent}</p>
 													<p>
 														<button>Edit Information</button>
 													</p>
@@ -179,12 +174,10 @@
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
 table {
 	border-collapse: separate;
 	background: #fff;
 }
-
 tbody tr td {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
@@ -193,11 +186,9 @@ tbody tr td {
 	padding: 20px 20px 20px 20px;
 	border-bottom: 1px solid #e0e0e0;
 }
-
 .new tbody tr:nth-child(2n) {
 	background: #f0f3f5;
 }
-
 .new tbody tr:last-child td {
 	border-bottom: none;
 	&:
@@ -206,12 +197,10 @@ tbody tr td {
 	@include
 	border-bottom-left-radius(5px);
 }
-
 &
 :last-child { @include border-bottom-right-radius(5px);
 	
 }
-
 }
 .new tbody:hover>tr:hover td { @include text-shadow(none);
 	color: #2d2d2d;
@@ -220,58 +209,28 @@ tbody tr td {
 	opacity(1.0);
 }
 </style>
-												<tr>
+<c:choose>
+    <c:when test="${!empty errorsct}">
+    <tr>
+    <td style="padding-right: 30px; color:red; style:italic;"> No caregiver in this circle! Please create a circle!</td>
+    </tr>
+    </c:when>
+    <c:otherwise>
+        <c:forEach items="${careteammembers}" var="element">    
+    <tr>
 													<td style="padding-right: 15px"><img
 														src="images/default-avatar.png" alt="" width="30" /></td>
-													<td style="padding-right: 15px">Jane Smith</td>
-													<td style="padding-right: 15px">janesmith@gmail.com</td>
-													<td style="padding-right: 15px">4126261234</td>
+														<c:set var="elemParts" value="${fn:split(element, '|')}" />
+													<td style="padding-right: 15px">${elemParts[0]}</td>
+													<td style="padding-right: 15px">${elemParts[1]}</td>
+													<td style="padding-right: 15px">${elemParts[2]}</td>
 												</tr>
-												<tr>
-													<td><img src="images/default-avatar.png" alt=""
-														width="30" /></td>
-													<td style="padding-right: 15px">John Smith</td>
-													<td style="padding-right: 15px">johnsmith@gmail.com</td>
-													<td style="padding-right: 15px">4126261243</td>
-												</tr>
-												<tr>
-													<td><img src="images/default-avatar.png" alt=""
-														width="30" /></td>
-													<td style="padding-right: 15px">Troy Smith *</td>
-													<td style="padding-right: 15px">troysmith@gmail.com</td>
-													<td style="padding-right: px">4126264321</td>
-												</tr>
-												<tr>
-													<td><img src="images/default-avatar.png" alt=""
-														width="30" /></td>
-													<td style="padding-right: 15px">Joy Smith</td>
-													<td style="padding-right: 15px">joy@gmail.com</td>
-													<td style="padding-right: 15px">3124563232</td>
-												</tr>
-												<tr>* : Primary Caregiver &nbsp;&nbsp;</tr>
-
-								<!--  input type="button" allign="right" value="Invite new member to this team" 
-									   onclick='javascript:window.open("invite.do", "inviteWindow", 
-									   "scrollbars=1,resizable=1,height=300,width=450");' title='Invite Popup'/ -->
+												</c:forEach>
+												</c:otherwise>
+												</c:choose>
   
- 
-
+												<tr>* : Primary Caregiver</tr>
 											</table>
-  <div data-role="main" class="ui-content">
-    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left" 
-    	style="float:right">Invite a new member</a>
-
-    <div data-role="popup" id="myPopup" class="ui-content" style="min-width:500px;">
-      <form method="post" action="careteamDashboard.do">
-        <div>
-          <h3>Invite a new member by email</h3>
-          <label for="email" class="ui-hidden-accessible">Email:</label>
-          <input type="text" name="emailToAdd" id="email" placeholder="Enter Email...">
-          <input type="submit" data-inline="true" value="Send Invitation">
-        </div>
-      </form>
-    </div>
-  </div>
 										</div>
 									</div>
 								</div>
@@ -292,25 +251,43 @@ tbody tr td {
 											<div class="photo">
 												<style>
 												.photo img {
-												width: 135px;
-												height: 150px;
+												width: 100px;
+												height: 100px;
 												background-color: grey;
 												}
 												</style>
 												<table>
 													<tr>
+													<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Housing')}">
+													
 														<td><a href="https://www.google.com" class="icons">
-																<img src="images/ancillary.png"
-																width="220">
+																<img src="images/ServiceIcons/senior-housing.png"
+																width="160">
 														</a></td>
-														<td><a href="https://www.google.com" >
-																<img src="images/Housingservices.png"
-																width="220">
-														</a></td>
+														
+														</c:when>
+													
+													</c:choose>
+													
+													<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Ancillary')}">
+														
 														<td><a href="https://www.google.com" class="icons">
-																<img src="images/vendor_mgmt.png"
-																width="220" height="100">
+																<img src="images/ServiceIcons/in-home-care.png"
+																width="160">
 														</a></td>
+														</c:when>
+														</c:choose>
+														
+														<c:choose>
+														<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Vendor')}">
+														<td><a href="https://www.google.com" class="icons">
+																<img src="images/ServiceIcons/vendor-service.png"
+																width="160">
+														</a></td>
+														</c:when>
+														</c:choose>
 													</tr>
 												</table>
 
@@ -344,53 +321,12 @@ tbody tr td {
 				</p>
 			</div>
 		</footer>
- <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                About
-                            </a>
-                        </li>
-                        <li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										Services &#9662;
-									</a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">Vendor Management</a></li>
-										<li><a href="#">Senior Housing</a></li>
-										<li><a href="#">Ancillary Services</a></li>
-										<li><a href="#">Estate Management</a></li>
-									</ul>
-								</li>
-                        
-                        
-                        <li>
-                        
-                        <li>
-                            <a href="#">
-                               SignOut
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; 2017 <a href=#>Curantis Solution</a>
-                </p>
-            </div>
-        </footer>
+
 	</div>
 	</div>
 
 
 </body>
-
 <!--   Core JS Files   -->
 <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
@@ -416,19 +352,15 @@ tbody tr td {
 
 <script type="text/javascript">
 	$(document).ready(function() {
-
 		demo.initChartist();
-
 		$.notify({
 			icon : 'pe-7s-gift',
 			message : "Welcome to <b>John Doe's</b> care team's dashboard"
-
 		}, {
 			type : 'info',
 			timer : 4000
 		});
-
 	});
 </script>
 
-        </html>
+</html>
