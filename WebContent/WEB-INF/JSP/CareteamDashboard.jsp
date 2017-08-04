@@ -39,8 +39,10 @@
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
 </head>
-<body>
-
+<body>	
+		<c:forEach var="error" items="${errors}">
+			<h5 style="color:red" align="center"> ${error} </h5>
+		</c:forEach>
 	<div class="wrapper">
 		<div class="sidebar" data-color="blue"
 			data-image="assets/img/sidebar-5.jpg">
@@ -262,12 +264,12 @@ tbody tr td {
     	style="float:right">Invite a new member</a>
 
     <div data-role="popup" id="myPopup" class="ui-content" style="min-width:500px;">
-      <form method="post" action="careteamDashboard.do">
+      <form method="post" action="invite.do">
         <div>
           <h3>Invite a new member by email</h3>
           <label for="email" class="ui-hidden-accessible">Email:</label>
-          <input type="text" name="emailToAdd" id="email" placeholder="Enter Email...">
-          <input type="submit" data-inline="true" value="Send Invitation">
+          <input type="text" name="emailToAdd" id="emailToAdd" placeholder="Enter Email...">
+          <input type="submit" name="action" data-inline="true" value="Send Invitation">
         </div>
       </form>
     </div>
