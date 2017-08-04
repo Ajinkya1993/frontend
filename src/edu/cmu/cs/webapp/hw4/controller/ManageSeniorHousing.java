@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,6 +24,7 @@ public class ManageSeniorHousing extends Action {
 	@Override
 	public String perform(HttpServletRequest request) {
 		// TODO Auto-generated method stub
+		
 		String query = "http://localhost:8080/CurantisBackendService/curantis/seniorhousing/getPreference";
   	    JSONObject json = new JSONObject();
   	    try {

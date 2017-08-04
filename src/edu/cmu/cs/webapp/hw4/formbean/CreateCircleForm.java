@@ -6,7 +6,9 @@ import org.mybeans.form.FormBean;
 
 public class CreateCircleForm extends FormBean {
 	private String teamname;
-	private String lovename;
+	private String lovefirstname;
+	private String lovelastname;
+	private String lovephoto;
     private String loveaddress;
     private String relation;
     private String georelation;
@@ -26,11 +28,28 @@ public class CreateCircleForm extends FormBean {
     public void setTeamname(String teamname) {
 		this.teamname = teamname;
 	}
-	public String getLovename() {
-		return lovename;
+    public String getLovefirstname() {
+		return lovefirstname;
 	}
-	public void setLovename(String lovename) {
-		this.lovename = lovename;
+
+	public void setLovefirstname(String lovefirstname) {
+		this.lovefirstname = lovefirstname;
+	}
+
+	public String getLovelastname() {
+		return lovelastname;
+	}
+
+	public void setLovelastname(String lovelastname) {
+		this.lovelastname = lovelastname;
+	}
+
+	public String getLovephoto() {
+		return lovephoto;
+	}
+
+	public void setLovephoto(String lovephoto) {
+		this.lovephoto = lovephoto;
 	}
 	public String getLoveaddress() {
 		return loveaddress;

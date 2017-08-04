@@ -139,8 +139,12 @@
 								<input type="text" name="teamname" value="${form.teamname}" class="form-control">
 							</div>
 							<div class="form-group">
-								<label>LovedOne Name:</label>
-								<input type="text" name="lovename" class="form-control">
+								<label>LovedOne First Name:</label>
+								<input type="text" name="lovefirstname" class="form-control">
+							</div>
+							<div class="form-group">
+								<label>LovedOne Last Name:</label>
+								<input type="text" name="lovelastname" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Address:</label>

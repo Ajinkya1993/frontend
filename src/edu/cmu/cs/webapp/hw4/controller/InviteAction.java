@@ -18,7 +18,7 @@ import org.json.JSONObject;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
-
+import edu.cmu.cs.webapp.hw4.databean.SessionBean;
 import edu.cmu.cs.webapp.hw4.formbean.InvitationForm;
 
 public class InviteAction extends Action{
@@ -30,7 +30,11 @@ public class InviteAction extends Action{
 
     @Override
     public String perform(HttpServletRequest request) {
-        HttpSession session = request.getSession();
+        SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+//        if (sessionBean == null) {
+//            return "login.do";
+//        }
+//        
         
         List<String> errors = new ArrayList<>();
         request.setAttribute("errors", errors);
@@ -39,20 +43,21 @@ public class InviteAction extends Action{
         try {
             InvitationForm form = formBeanFactory.create(request);
             request.setAttribute("form", form);
-            
-            if (!form.isPresent()) {
-                return "invitePopup.jsp";
-            }
             errors.addAll(form.getValidationErrors());
             if (errors.size() != 0) {
-                return "invitePopup.jsp";
+                return "error.jsp";
+                //return "CareteamDashboard.jsp";
             }
             if (form.getAction().equals("Send Invitation")) {
                 String query = "http://localhost:8080/CurantisBackendService/curantis/addToCircle";
                 JSONObject obj = new JSONObject();
                
                 try {
-                    obj.put("email", form.getEmail());
+//                    obj.put("email", sessionBean.getEmail());
+//                    obj.put("circleId", sessionBean.getCircleId());
+                    obj.put("email", "junyi@gmail.com");
+                    obj.put("circleId", "1");
+                    obj.put("emailToAdd", form.getEmailToAdd());
                 } catch (JSONException e1) {
                       e1.printStackTrace();
                 }
@@ -67,6 +72,7 @@ public class InviteAction extends Action{
                     conn.setRequestMethod("POST");
                     OutputStream os = conn.getOutputStream();
                     os.write(obj.toString().getBytes("UTF-8"));
+                    System.out.println("Sent request to backend");
                     os.close();
                     
                     // read the response
@@ -88,13 +94,20 @@ public class InviteAction extends Action{
                             if (!success) {
                                 if (message.equals("Missing email or circleId!")) {
                                     errors.add("Missing email or circleId!");
-                                    return "invitePopup.jsp";
+                                    return "error.jsp";
+                                    //return "CareteamDashboard.jsp";
                                 } else if (message.equals("Member already exists in this circle!")) {
                                     errors.add("Member already exists in this circle!");
-                                    return "invitePopup.jsp";
+                                    return "error.jsp";
+                                    //return "CareteamDashboard.jsp";
                                 } else if (message.equals("Adding to circle failed!")) {
                                     errors.add("Invite people failed! Please try again.");
-                                    return "invitePopup.jsp";
+                                    return "error.jsp";
+                                    //return "CareteamDashboard.jsp";
+                                } else if (message.equals("Not primary caregiver for this circle!")) {
+                                    errors.add("Not primary caregiver for this circle!");
+                                    return "error.jsp";
+                                    //return "CareteamDashboard.jsp";
                                 }
                             }
                         } catch (JSONException e) {
@@ -107,14 +120,16 @@ public class InviteAction extends Action{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                return "careteamDashboard.do";
+                errors.add("Invitation is sent to the user's email!");
+                return "error.jsp";
+                //return "careteamDashboard.do";
             } else {
-                return "invitePopup.jsp";
+                return "careteamDashboard.do";
             }
             
         } catch (FormBeanException e) {
             errors.add(e.getMessage());
-            return "invitePopup.jsp";
+            return "error.jsp";
         }
     }
 

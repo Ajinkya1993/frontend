@@ -156,6 +156,11 @@
 <!-- *********Starts Here************ -->
 			<div style="margin-left:50px; margin-right:50px">
 				<h1>My Preferences</h1>
+				<c:forEach var="error" items="${errors}">
+					<div class="alert alert-warning">
+					  <strong>${error}</strong>
+					</div>
+				</c:forEach>
 				<ul class="list-group">
 				  <li class="list-group-item"><label>Price: </label><br>${ price }</li>
 				  <li class="list-group-item"><label>Location: </label><br>${ location }</li>
@@ -174,13 +179,13 @@
 	        <form action="addSeniorHousingPrf.do" method="post">
 	        	<div class="form-group">
 			    	<label for="email">Preferred Price:</label>
-			    	<input type="email" class="form-control" id="email">
+			    	<input type="text" class="form-control" name="price">
 			    </div>
 			    <div class="form-group">
 			    	<label for="pwd">Preferred Location:</label>
-			    	<input type="password" class="form-control" id="pwd">
+			    	<input type="text" class="form-control" name="location">
 			    </div>
-			    <button type="submit" class="btn btn-default">Submit</button>
+			    <input type="submit" name="action" class="btn btn-info" value="Submit" />
 	        </form>
 	      </div>
 	    </div>
