@@ -263,7 +263,7 @@ tbody tr td {
     <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left" 
     	style="float:right">Invite a new member</a>
 
-    <div data-role="popup" id="myPopup" class="ui-content" style="min-width:500px;">
+    <div data-role="popup" id="myPopup" class="ui-content" style="min-width:500px;right:400px;bottom:200px;">
       <form method="post" action="invite.do">
         <div>
           <h3>Invite a new member by email</h3>
