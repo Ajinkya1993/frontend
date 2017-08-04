@@ -28,7 +28,7 @@ public class ManageSeniorHousing extends Action {
 		String query = "http://localhost:8080/CurantisBackendService/curantis/seniorhousing/getPreference";
   	    JSONObject json = new JSONObject();
   	    try {
-			json.put("circleId", 2);
+			json.put("circleId", 4);
 			URL url = new URL(query);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setConnectTimeout(5000);
