@@ -48,18 +48,14 @@ public class CareteamDashboardAction extends Action {
 	          	  String query = "http://localhost:8080/CurantisBackendService/curantis/viewlovedoneinfo";
 	          	String query_mem = "http://localhost:8080/CurantisBackendService/curantis/getusersofacircle";
 		        	  JSONObject json = new JSONObject();
-		        	  String email = "c@gmail.com"; //comment this when email passed in session from login
+		        	  //String email = "c@gmail.com"; //comment this when email passed in session from login
 		        	  
 		        	  SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
 		        	  if(sessionBean == null) {
 		        		  System.out.println("Session bean is null in careteam dashboard");
 		        	  }
 		        	  
-		              String email2;
-		              if (sessionBean != null) {
-		              	email2 = sessionBean.getEmail();
-		              	//sessionBean.setCircleName(circleName);
-		              }
+		           String email = sessionBean.getEmail();
 		        	  //String circleName = "Michael Jordan"; //comment this later
 		        	  String circleName = request.getParameter("cnm");
 		        	  //Long circleId = 3L;
@@ -67,7 +63,7 @@ public class CareteamDashboardAction extends Action {
 		              try {
 		            	  json.put("email", email);
 			              json.put("circleName", circleName);
-			              //json.put("circleId", circleId);
+			              //json.put("circleId", 2);
 					} catch (JSONException e1) {
 						e1.printStackTrace();
 					}
@@ -122,7 +118,7 @@ public class CareteamDashboardAction extends Action {
 							System.out.println("In loop with response obj "+responseObj);
 							circleId = responseObj.getLong("circleId");
 							
-							System.out.println("The circleId is "+circleId);
+							System.out.println("The circleId in careteam dashboard is "+circleId);
 							//setting session ID here
 							if(sessionBean == null) System.out.println("sesiion bean is null");
 							sessionBean.setCircleId(circleId);
@@ -156,12 +152,12 @@ public class CareteamDashboardAction extends Action {
 							if(success != true) {
 								if(message.equals("Missing circleId!")) {
 									errorsct.add("The circleId is missing. Please retry.");
-									return "personalDashboard.jsp";
+									return "CareteamDashboard.jsp";
 								} else if(message.equals("No caregiver in this circle!")) {
 									errorsct.add("No caregiver in this circle! Please create a circle!");
 								}else if(message.equals("User not in caregiver info table!")) {
 									errorsct.add("You are not in the caregiver circle");
-									return "personalDashboard.jsp";
+									return "CareteamDashboard.jsp";
 								}
 							}
 								
@@ -205,6 +201,7 @@ public class CareteamDashboardAction extends Action {
 	              request.setAttribute("lovedoneaddr", lovedoneaddr);
 	              request.setAttribute("lovedoneURL", lovedoneURL);
 	              request.setAttribute("subscribedServices", subscribedServices);
+	              session.setAttribute("circleId", 2);
 	              request.getSession().setAttribute("session", sessionBean);
 	          
 	          return "CareteamDashboard.jsp";
