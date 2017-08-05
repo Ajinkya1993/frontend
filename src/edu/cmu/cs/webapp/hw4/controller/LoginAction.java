@@ -30,12 +30,15 @@ public class LoginAction extends Action {
 
     public String perform(HttpServletRequest request) {
     	SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+    	if (sessionBean == null) {
+			sessionBean = new SessionBean();
+		}
         JSONObject responseObj = new JSONObject();
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
         
         // If user is already logged in, redirect to personal Dashboard
-        if (sessionBean.getEmail() != null) {
+        if (sessionBean != null && sessionBean.getEmail() != null) {
             return "personalDashboard.do";
         }
         
@@ -131,6 +134,7 @@ public class LoginAction extends Action {
               String email = new String();
 				try {
 					firstName = responseObj.getString("firstName");
+					System.out.println(responseObj.toString());
 					 lastName = responseObj.getString("lastName");
 					 email = responseObj.getString("email");
 				} catch (JSONException e) {

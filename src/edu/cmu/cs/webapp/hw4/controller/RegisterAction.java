@@ -31,11 +31,14 @@ public class RegisterAction extends Action {
 
     public String perform(HttpServletRequest request) {
         SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+        if (sessionBean == null) {
+			sessionBean = new SessionBean();
+		}
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
         JSONObject responseObj = new JSONObject();
         // If user is already logged in, redirect to personal Dashboard
-        if (sessionBean.getEmail() != null) {
+        if (sessionBean != null && sessionBean.getEmail() != null) {
             return "personalDashboard.do";
         }
 
