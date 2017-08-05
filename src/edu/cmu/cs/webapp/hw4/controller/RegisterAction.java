@@ -142,12 +142,15 @@ public class RegisterAction extends Action {
 				sessionBean.setFirstName(firstName);
 				sessionBean.setLastName(lastName);
 				sessionBean.setEmail(email);
+				request.getSession().setAttribute("session", sessionBean);
                 return "registerEducation.do";
             } else {
+            	request.getSession().setAttribute("session", sessionBean);
             	return "register.jsp";
             }
         } catch (FormBeanException e) {
             errors.add(e.getMessage());
+            request.getSession().setAttribute("session", sessionBean);
             return "register.jsp";
         }
     }

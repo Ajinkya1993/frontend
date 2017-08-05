@@ -220,6 +220,7 @@ public class PersonalDashboardAction extends Action {
 	              //session.setAttribute("email", email);
 	              System.out.println("Size of error invite is "+errorsinvite.size());
 	              System.out.println("Size of normal error is "+errors.size());
+	              request.getSession().setAttribute("session", sessionBean);
 	          return "PersonalDashboard.jsp";
 	        }catch (Exception e) {
 	            errors.add(e.getMessage());

@@ -148,10 +148,12 @@ public class LoginAction extends Action {
           }
             
             
+          request.getSession().setAttribute("session", sessionBean);
           return "personalDashboard.do";
         }catch (FormBeanException e) {
             errors.add(e.getMessage());
-            return "error.jsp";
+            request.getSession().setAttribute("session", sessionBean);
+            return "login.jsp";
         }
     }
 }

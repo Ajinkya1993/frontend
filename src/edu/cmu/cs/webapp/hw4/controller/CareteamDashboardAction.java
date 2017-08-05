@@ -205,6 +205,7 @@ public class CareteamDashboardAction extends Action {
 	              request.setAttribute("lovedoneaddr", lovedoneaddr);
 	              request.setAttribute("lovedoneURL", lovedoneURL);
 	              request.setAttribute("subscribedServices", subscribedServices);
+	              request.getSession().setAttribute("session", sessionBean);
 	          
 	          return "CareteamDashboard.jsp";
 	        } 		
