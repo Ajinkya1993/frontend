@@ -32,6 +32,7 @@ public class LoginAction extends Action {
     	SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
     	if (sessionBean == null) {
 			sessionBean = new SessionBean();
+	      		  System.out.println("Session bean is null in login dashboard");
 		}
         JSONObject responseObj = new JSONObject();
         List<String> errors = new ArrayList<String>();
@@ -143,7 +144,10 @@ public class LoginAction extends Action {
 			sessionBean.setFirstName(firstName);
 			sessionBean.setLastName(lastName);
 			sessionBean.setEmail(email);
+
           }
+            
+            
           return "personalDashboard.do";
         }catch (FormBeanException e) {
             errors.add(e.getMessage());

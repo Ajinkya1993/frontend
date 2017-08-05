@@ -30,8 +30,12 @@ public class PersonalDashboardAction extends Action {
 		
 		public String perform(HttpServletRequest request) {
 			
-	        HttpSession session = request.getSession();
-	        System.out.println("Checking if caretem passed as "+session.getAttribute("careteam"));
+	        //HttpSession session = request.getSession();
+	        SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+	        if(sessionBean == null) {
+      		  System.out.println("Session bean is null in personal dashboard");
+      	  }
+	        //System.out.println("Checking if caretem passed as "+session.getAttribute("careteam"));
 	        JSONObject responseObj = new JSONObject();
 	        JSONObject responseObj_invite = new JSONObject();
 	        List<String> errors = new ArrayList<String>();
@@ -46,7 +50,8 @@ public class PersonalDashboardAction extends Action {
 		        	  JSONObject json = new JSONObject();
 		              try {
 		            	  System.out.println("Here");
-		            	   email = "c@gmail.com";
+		            	   //email = "c@gmail.com";
+		            	  email = sessionBean.getEmail();
 		            	  json.put("email", email);
 					} catch (JSONException e1) {
 						e1.printStackTrace();
@@ -212,7 +217,7 @@ public class PersonalDashboardAction extends Action {
 						request.setAttribute("invite", invite);
 		              }
 	              
-	              session.setAttribute("email", email);
+	              //session.setAttribute("email", email);
 	              System.out.println("Size of error invite is "+errorsinvite.size());
 	              System.out.println("Size of normal error is "+errors.size());
 	          return "PersonalDashboard.jsp";

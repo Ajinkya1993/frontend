@@ -51,6 +51,9 @@ public class CareteamDashboardAction extends Action {
 		        	  String email = "c@gmail.com"; //comment this when email passed in session from login
 		        	  
 		        	  SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+		        	  if(sessionBean == null) {
+		        		  System.out.println("Session bean is null in careteam dashboard");
+		        	  }
 		        	  
 		              String email2;
 		              if (sessionBean != null) {
