@@ -40,7 +40,7 @@ public class Controller extends HttpServlet {
 
         Action.add(new AddCareteamAction());
         Action.add(new DeleteCareteamAction());
-        
+        Action.add(new UpdateLovedOneInfoAction());
         Action.add(new ManageSeniorHousing());
         Action.add(new AddSeniorHousingPrfAction());
     }

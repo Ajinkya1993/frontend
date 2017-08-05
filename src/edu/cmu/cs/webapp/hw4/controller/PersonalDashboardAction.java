@@ -8,7 +8,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,6 +18,8 @@ import javax.servlet.http.HttpSession;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import edu.cmu.cs.webapp.hw4.databean.SessionBean;
 
 public class PersonalDashboardAction extends Action {
 
@@ -161,17 +165,33 @@ public class PersonalDashboardAction extends Action {
 	              //getting the careteam
 	              if(errors == null || errors.size() <= 0) {
 	              List<String> careteam = new ArrayList<String>();
+	              Map<String, Long> mp = new HashMap<>();
 					try {
 						JSONArray recs = responseObj.getJSONArray("list");
 						for (int i = 0; i < recs.length(); ++i) {
 						    JSONObject rec = recs.getJSONObject(i);
 						    String response = rec.getString("circleName"); 
+						    Long cic_id = rec.getLong("circleId");
+						    System.out.println("Circle Id is " +cic_id);
+						    mp.put(response, cic_id);
 						    careteam.add(response);
 						}    
 					} catch (JSONException e) {
 						e.printStackTrace();
 					}
-					session.setAttribute("careteamName", careteam);
+				/*	SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+			        Integer circleId;
+			        
+			        if (sessionBean != null) {
+			        	circleId = sessionBean.getCircleId();
+			        	email = sessionBean.getEmail();
+			        }*/ 
+					//changed from session
+					request.setAttribute("careteamName", careteam);
+					JSONObject jsonObj = new JSONObject(mp);
+					System.out.println("Json object is "+jsonObj.toString());
+					request.setAttribute("maps", jsonObj.toString());
+					
 	              }
 	              
 	              //getting the invitees
@@ -188,7 +208,8 @@ public class PersonalDashboardAction extends Action {
 							e.printStackTrace();
 						}
 						//invite.add("testingvarun");
-						session.setAttribute("invite", invite);
+						//changed from session
+						request.setAttribute("invite", invite);
 		              }
 	              
 	              session.setAttribute("email", email);

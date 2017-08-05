@@ -18,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.mybeans.form.FormBeanException;
 
+import edu.cmu.cs.webapp.hw4.databean.SessionBean;
 import edu.cmu.cs.webapp.hw4.formbean.LoginForm;
 
 public class CareteamDashboardAction extends Action {
@@ -30,6 +31,7 @@ public class CareteamDashboardAction extends Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
+		System.out.println("The careteam name is "+request.getParameter("cnm"));
 		 HttpSession session = request.getSession();
 	        JSONObject responseObj = new JSONObject();
 	        JSONObject responseObj_mem = new JSONObject();
@@ -46,13 +48,23 @@ public class CareteamDashboardAction extends Action {
 	          	  String query = "http://localhost:8080/CurantisBackendService/curantis/viewlovedoneinfo";
 	          	String query_mem = "http://localhost:8080/CurantisBackendService/curantis/getusersofacircle";
 		        	  JSONObject json = new JSONObject();
-		        	  String email = "c@gmail.com";
-		        	  String circleName = "Michael Jordan";
-		        	  Long circleId = 3L;
+		        	  String email = "c@gmail.com"; //comment this when email passed in session from login
+		        	  
+		        	  SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+		        	  
+		              String email2;
+		              if (sessionBean != null) {
+		              	email2 = sessionBean.getEmail();
+		              	//sessionBean.setCircleName(circleName);
+		              }
+		        	  //String circleName = "Michael Jordan"; //comment this later
+		        	  String circleName = request.getParameter("cnm");
+		        	  //Long circleId = 3L;
+		        	  long circleId;
 		              try {
 		            	  json.put("email", email);
 			              json.put("circleName", circleName);
-			              json.put("circleId", circleId);
+			              //json.put("circleId", circleId);
 					} catch (JSONException e1) {
 						e1.printStackTrace();
 					}
@@ -105,6 +117,12 @@ public class CareteamDashboardAction extends Action {
 		                	try {
 							responseObj = new JSONObject(output);
 							System.out.println("In loop with response obj "+responseObj);
+							circleId = responseObj.getLong("circleId");
+							
+							System.out.println("The circleId is "+circleId);
+							//setting session ID here
+							if(sessionBean == null) System.out.println("sesiion bean is null");
+							sessionBean.setCircleId(circleId);
 							lovedone_firstName =  responseObj.getString("lovedone_firstName");
 							lovedone_LastName =  responseObj.getString("lovedone_LastName");
 							triggerEvent =  responseObj.getString("triggerEvent");
