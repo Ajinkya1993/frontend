@@ -261,7 +261,7 @@ tbody tr td {
 													<c:choose>
 													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Housing')}">
 													
-														<td><a href="https://www.google.com" class="icons">
+														<td><a href="manageSeniorHousing.do" class="icons">
 																<img src="images/ServiceIcons/senior-housing.png"
 																width="160">
 														</a></td>
