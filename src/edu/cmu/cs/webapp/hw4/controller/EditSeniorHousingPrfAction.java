@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
 
+import edu.cmu.cs.webapp.hw4.databean.SessionBean;
 import edu.cmu.cs.webapp.hw4.formbean.SeniorHousingPrfForm;
 
 public class EditSeniorHousingPrfAction extends Action {
@@ -33,6 +34,14 @@ public class EditSeniorHousingPrfAction extends Action {
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
         
+        SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+		if (sessionBean == null || sessionBean.getEmail() == null) {
+			return "login.do";
+		} else if (sessionBean.getCircleId() == 0) {
+			errors.add("Not in a care team!");
+			return "SeniorHousingPreference.jsp";
+		}
+        
         try {
 			SeniorHousingPrfForm form = formBeanFactory.create(request);
 			request.setAttribute("form", form);
@@ -49,7 +58,7 @@ public class EditSeniorHousingPrfAction extends Action {
 	      	    JSONObject prf = new JSONObject();
 	      	    prf.put("location", form.getLocation());
 	      	    prf.put("price", form.getPrice());
-	      	    json.put("circleId", 1);
+	      	    json.put("circleId", sessionBean.getCircleId());
 	      	    json.put("preference", prf.toString());
 	      	    
 	      	    URL url = new URL(query);
