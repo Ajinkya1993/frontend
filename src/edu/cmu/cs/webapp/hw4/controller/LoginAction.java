@@ -144,10 +144,12 @@ public class LoginAction extends Action {
 			sessionBean.setLastName(lastName);
 			sessionBean.setEmail(email);
           }
+          request.getSession().setAttribute("session", sessionBean);
           return "personalDashboard.do";
         }catch (FormBeanException e) {
             errors.add(e.getMessage());
-            return "error.jsp";
+            request.getSession().setAttribute("session", sessionBean);
+            return "login.jsp";
         }
     }
 }
