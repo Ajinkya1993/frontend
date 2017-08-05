@@ -37,10 +37,10 @@ public class Controller extends HttpServlet {
         Action.add(new PaymentAction());
         Action.add(new RegisterEducationAction());
         Action.add(new InviteAction());
-
+        Action.add(new UpdateLovedOneInfoDBAction());
+        Action.add(new UpdateLovedOneInfoAction());
         Action.add(new AddCareteamAction());
         Action.add(new DeleteCareteamAction());
-        Action.add(new UpdateLovedOneInfoAction());
         Action.add(new ManageSeniorHousing());
         Action.add(new AddSeniorHousingPrfAction());
         Action.add(new EditSeniorHousingPrfAction());

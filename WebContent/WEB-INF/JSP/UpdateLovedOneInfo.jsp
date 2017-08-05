@@ -133,7 +133,7 @@
 			</c:forEach>
 			
 			<div class="col-sm-6">
-					<form action="updatelovedoneinfo.do" method="POST">
+					<form action="updatelovedoneinfodb.do" method="POST">
 							<div class="form-group">
 							<div class="form-group">
 								<label>LovedOne First Name:</label>
