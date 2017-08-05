@@ -51,7 +51,7 @@ public class AddSeniorHousingPrfAction extends Action {
       	    JSONObject prf = new JSONObject();
       	    prf.put("location", form.getLocation());
       	    prf.put("price", form.getPrice());
-      	    json.put("circleId", 4);
+      	    json.put("circleId", 1);
       	    json.put("preference", prf.toString());
       	    
       	    URL url = new URL(query);
