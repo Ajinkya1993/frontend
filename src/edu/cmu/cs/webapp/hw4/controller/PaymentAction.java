@@ -67,8 +67,8 @@ public class PaymentAction extends Action {
 	        	  JSONObject json = new JSONObject();
 	        	  
 	              try {
-	            	  //json.put("email", email);
-	            	  //json.put("circleId", circleId);
+	            	  json.put("email", "namitas@andrew.cmu.edu");
+	            	  json.put("circleId", "1");
 		              json.put("firstName", form.getFirstName());
 		              json.put("middleName",form.getMiddleName());
 		              json.put("lastName", form.getLastName());
