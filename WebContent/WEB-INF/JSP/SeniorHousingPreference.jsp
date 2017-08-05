@@ -167,7 +167,7 @@
 				</ul>
 				<form action="editSeniorHousingPrf.do">
 					<input type="hidden" name="price" value="${ price }">
-					<input type="hidden" name="price" value="${ location }">
+					<input type="hidden" name="location" value="${ location }">
 	  				<input type="submit" class="btn btn-info" value="EDIT">
 				</form>
 			</div>
