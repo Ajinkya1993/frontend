@@ -59,9 +59,12 @@
 				</div>
 
 				<ul class="nav">
-					<li class="active"><a href="dashboard.html"> <i
+					<li><a href="user.html"> <i class="pe-7s-user"></i>
+							<p>Careteam Dashboard</p>
+					</a></li>
+					<li class="active"><a href="manageServices.do"> <i
 							class="pe-7s-graph"></i>
-							<p>CareTeam Dashboard</p>
+							<p>Manage Services</p>
 					</a></li>
 					<li><a href="user.html"> <i class="pe-7s-user"></i>
 							<p>Team Members</p>
@@ -130,44 +133,294 @@
 					<div class="container-fluid">
 
 						<div class="row">
-
+							
 							<div class="col-md-6">
+								<div class="card">
+									<div class="header">
+										<h4 class="title">Active Services</h4>
+										<p class="category">List of services active for this team </p>
+										
+									</div>
+									<div class="content">
+										<div class="nav3">
 
-								<div id="narrow">
-									<div class="card">
-										<div class="header">
-											<h4 class="title">Loved One's Profile</h4>
-										</div>
-										<div class="content">
-											<div class="card">
-												<img src="images/lovedone.jpg" alt="John"
-													style="width: 100%">
-												<div class="container">
-												
-													<h1>${lovedone_firstName} &nbsp; ${lovedone_LastName}</h1>
-													<p>Address: ${lovedoneaddr}</p>
-													<p>Trigger Event: ${triggerEvent}</p>
-													<p>
-														<button>Edit Information</button>
-													</p>
-												</div>
+											<div class="photo">
+												<style>
+												.photo img {
+												width: 100px;
+												height: 100px;
+												background-color: grey;
+												}
+												</style>
+												<table>
+													<tr>
+													<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Housing')}">
+													
+														<td><a href="https://www.google.com" class="icons">
+																<img src="images/ServiceIcons/senior-housing.png"
+																width="160">
+														</a></td>
+														
+														</c:when>
+													
+													</c:choose>
+													
+													<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Home')}">
+														
+														<td><a href="https://www.google.com" class="icons">
+																<img src="images/ServiceIcons/in-home-care.png"
+																width="160">
+														</a></td>
+														</c:when>
+														</c:choose>
+														
+														<c:choose>
+														<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Vendor')}">
+														<td><a href="https://www.google.com" class="icons">
+																<img src="images/ServiceIcons/vendor-service.png"
+																width="160">
+														</a></td>
+														</c:when>
+														</c:choose>
+														
+														<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'legal')}">
+													
+														<td><a href="https://www.google.com" class="icons">
+																<img src="images/ServiceIcons/legal.png"
+																width="160">
+														</a></td>
+														
+														</c:when>
+													
+													</c:choose>
+													
+														<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'taxation')}">
+													
+														<td><a href="https://www.google.com" class="icons">
+																<img src="images/ServiceIcons/taxation.png"
+																width="160">
+														</a></td>
+														
+														</c:when>
+													
+													</c:choose>
+													
+														<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'financial')}">
+													
+														<td><a href="https://www.google.com" class="icons">
+																<img src="images/ServiceIcons/financial-planning.png"
+																width="160">
+														</a></td>
+														
+														</c:when>
+													
+													</c:choose>
+														<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'insurance')}">
+													
+														<td><a href="https://www.google.com" class="icons">
+																<img src="images/ServiceIcons/insurance.png"
+																width="160">
+														</a></td>
+														
+														</c:when>
+													
+													</c:choose>
+													</tr>
+														<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'estate')}">
+													
+														<td><a href="https://www.google.com" class="icons">
+																<img src="images/ServiceIcons/estate-planning.png"
+																width="160">
+														</a></td>
+														
+														</c:when>
+													
+													</c:choose>
+												</table>
+
 											</div>
+										</div>
+									</div>
+									<div class="footer">
 
+										<hr>
+										<div class="stats">
+											<i class="fa fa-history"></i> Updated 3 minutes ago
 										</div>
 									</div>
 								</div>
-							</div>
-
-
-
-
-							<div id="wide">
+								<div id="wide">
 								<div class="col-md-6">
 									<div class="card">
 										<div class="header">
-											<h4 class="title">Team Members</h4>
-											<p class="category">The team members are:</p>
+											<h4 class="title">Add Services</h4>
+											<br>
+											<form method="post" action="manageServices.do">
+										        <div>
+										          
+										          
+										          <input type="text" name="serviceToAdd" id="serviceToAdd" placeholder="Enter Service Name">
+										          <input type="submit" name="addAction" data-inline="true" value="Add">
+										          <br>
+										          <br>
+										        </div>
+										      </form>
+											
+											
 										</div>
+									</div>
+								</div>
+						 	</div>
+						 	
+						 	<div id="wide">
+								<div class="col-md-6">
+									<div class="card">
+										<div class="header">
+											<h4 class="title">Unsubscribe Services</h4>
+											<br>
+											<form method="post" action="manageServices.do">
+										        <div>
+										          
+										          
+										          <input type="text" name="serviceToDelete" id="serviceToDelete" placeholder="Enter Service Name">
+										          <input type="submit" name="deleteAction" data-inline="true" value="Delete">
+										          <br>
+										          <br>
+										        </div>
+										      </form>
+											
+											
+										</div>
+									</div>
+								</div>
+						 	</div>
+							</div>
+
+							
+
+
+							
+							<div class="col-md-6">
+								<div class="card">
+									<div class="header">
+										<h4 class="title">Available Services</h4>
+										<p class="category">List of all available services</p>										
+								
+									</div>
+									<div class="content">
+										<div class="nav3">
+
+											<div class="photo">
+												<style>
+												.photo img {
+												width: 100px;
+												height: 100px;
+												background-color: grey;
+												}
+												</style>
+												<table>
+													<tr>
+														
+														<td><a href="#" class="icons">
+																<img src="images/ServiceIcons/senior-housing.png"
+																width="160">
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">Senior Housing</div>
+														
+														</td>
+														
+																							
+														<td><a href="#" class="icons">
+																<img src="images/ServiceIcons/in-home-care.png"
+																width="160">
+																
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center"> In Home Care</div>
+														
+														</td>
+														
+														<td><a href="#" class="icons">
+																<img src="images/ServiceIcons/vendor-service.png"
+																width="160">
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center"> Vendor Service</div>
+														
+														</td>
+														
+														<td><a href="#" class="icons">
+																<img src="images/ServiceIcons/legal.png"
+																width="160">
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">Legal</div>
+														
+														</td>
+														
+														</td>
+													</tr>
+													<tr>
+														<td><a href="#" class="icons">
+																<img src="images/ServiceIcons/taxation.png"
+																width="160">
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">Taxation</div>
+														
+														</td>
+														<td><a href="#" class="icons">
+																<img src="images/ServiceIcons/financial-planning.png"
+																width="160">
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">Financial Planning</div>
+														
+														</td>
+														<td><a href="#" class="icons">
+																<img src="images/ServiceIcons/insurance.png"
+																width="160">
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">Insurance</div>
+														
+														</td>
+														<td><a href="#" class="icons">
+																<img src="images/ServiceIcons/estate-planning.png"
+																width="160">
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">Estate Planning</div>
+														
+														</td>
+														
+															
+													</tr>
+												</table>
+
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+							
 										<div class="content">
 											<table class="new">
 <style>												
@@ -231,24 +484,10 @@ tbody tr td {
 												</c:otherwise>
 												</c:choose>
   
-												<tr>* : Primary Caregiver</tr>
+												
 											</table>
 
-  <div data-role="main" class="ui-content">
-    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left" 
-    	style="float:right">Invite a new member</a>
 
-    <div data-role="popup" id="myPopup" class="ui-content" style="min-width:500px;right:400px;bottom:200px;">
-      <form method="post" action="invite.do">
-        <div>
-          <h3>Invite a new member by email</h3>
-          <label for="email" class="ui-hidden-accessible">Email:</label>
-          <input type="text" name="emailToAdd" id="emailToAdd" placeholder="Enter Email...">
-          <input type="submit" name="action" data-inline="true" value="Send Invitation">
-        </div>
-      </form>
-    </div>
-  </div>
 										</div>
 									</div>
 								</div>
@@ -256,71 +495,7 @@ tbody tr td {
 
 
 
-							<div class="col-md-6">
-								<div class="card">
-									<div class="header">
-										<h4 class="title">Active Services</h4>
-										<p class="category">List of services active for this
-											team</p>
-									</div>
-									<div class="content">
-										<div class="nav3">
 
-											<div class="photo">
-												<style>
-												.photo img {
-												width: 100px;
-												height: 100px;
-												background-color: grey;
-												}
-												</style>
-												<table>
-													<tr>
-													<c:choose>
-													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Housing')}">
-													
-														<td><a href="https://www.google.com" class="icons">
-																<img src="images/ServiceIcons/senior-housing.png"
-																width="160">
-														</a></td>
-														
-														</c:when>
-													
-													</c:choose>
-													
-													<c:choose>
-													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Ancillary')}">
-														
-														<td><a href="https://www.google.com" class="icons">
-																<img src="images/ServiceIcons/in-home-care.png"
-																width="160">
-														</a></td>
-														</c:when>
-														</c:choose>
-														
-														<c:choose>
-														<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Vendor')}">
-														<td><a href="https://www.google.com" class="icons">
-																<img src="images/ServiceIcons/vendor-service.png"
-																width="160">
-														</a></td>
-														</c:when>
-														</c:choose>
-													</tr>
-												</table>
-
-											</div>
-										</div>
-									</div>
-									<div class="footer">
-
-										<hr>
-										<div class="stats">
-											<i class="fa fa-history"></i> Updated 3 minutes ago
-										</div>
-									</div>
-								</div>
-							</div>
 						</div>
 
 
@@ -340,7 +515,7 @@ tbody tr td {
 			</div>
 		</footer>
 
-	</div>
+	</div>	
 	</div>
 
 
