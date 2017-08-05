@@ -37,10 +37,8 @@
 <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
 </head>
-<body>	
-		<c:forEach var="error" items="${errors}">
-			<h5 style="color:red" align="center"> ${error} </h5>
-		</c:forEach>
+<body>
+
 	<div class="wrapper">
 		<div class="sidebar" data-color="blue"
 			data-image="assets/img/sidebar-5.jpg">
@@ -148,7 +146,7 @@
 													<p>Address: ${lovedoneaddr}</p>
 													<p>Trigger Event: ${triggerEvent}</p>
 													<p>
-														<button>Edit Information</button>
+														<button><a href="updatelovedoneinfo.do">Edit Information</a></button>
 													</p>
 												</div>
 											</div>
@@ -233,22 +231,6 @@ tbody tr td {
   
 												<tr>* : Primary Caregiver</tr>
 											</table>
-
-  <div data-role="main" class="ui-content">
-    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left" 
-    	style="float:right">Invite a new member</a>
-
-    <div data-role="popup" id="myPopup" class="ui-content" style="min-width:500px;right:400px;bottom:200px;">
-      <form method="post" action="invite.do">
-        <div>
-          <h3>Invite a new member by email</h3>
-          <label for="email" class="ui-hidden-accessible">Email:</label>
-          <input type="text" name="emailToAdd" id="emailToAdd" placeholder="Enter Email...">
-          <input type="submit" name="action" data-inline="true" value="Send Invitation">
-        </div>
-      </form>
-    </div>
-  </div>
 										</div>
 									</div>
 								</div>

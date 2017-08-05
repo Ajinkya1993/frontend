@@ -6,7 +6,7 @@ public class SessionBean {
 	private String email;
 	private String serviceChosen;
 	private String circleName;
-	private int circleId;
+	private long circleId;
 	private int caregiverType;
 	private boolean getGuide;
 	public String getFirstName() {
@@ -39,10 +39,10 @@ public class SessionBean {
 	public void setCircleName(String circleName) {
 		this.circleName = circleName;
 	}
-	public int getCircleId() {
+	public long getCircleId() {
 		return circleId;
 	}
-	public void setCircleId(int circleId) {
+	public void setCircleId(long circleId) {
 		this.circleId = circleId;
 	}
 	public int getCaregiverType() {

@@ -1,4 +1,3 @@
-// Name: Namita Sibal Date: 12/14/16 Course Number: 08672
 package edu.cmu.cs.webapp.hw4.controller;
 
 import java.io.BufferedReader;
@@ -12,9 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
+
+import edu.cmu.cs.webapp.hw4.databean.SessionBean;
 import edu.cmu.cs.webapp.hw4.formbean.RegisterForm;
 import org.json.*;
 
@@ -30,15 +30,17 @@ public class RegisterAction extends Action {
     }
 
     public String perform(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        
+        SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+        if (sessionBean == null) {
+			sessionBean = new SessionBean();
+		}
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
         JSONObject responseObj = new JSONObject();
-        // If user is already logged in, redirect to todolist.do
-        /*if (session.getAttribute("user") != null) {
-            return "welcome.do";
-        }*/
+        // If user is already logged in, redirect to personal Dashboard
+        if (sessionBean != null && sessionBean.getEmail() != null) {
+            return "personalDashboard.do";
+        }
 
         try {
             RegisterForm form = formBeanFactory.create(request);
@@ -129,19 +131,26 @@ public class RegisterAction extends Action {
 	             }
                 String firstName = new String();
                 String lastName = new String();
+                String email = new String();
 				try {
 					firstName = responseObj.getString("firstName");
 					 lastName = responseObj.getString("lastName");
+					 email = responseObj.getString("email");
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				session.setAttribute("user", firstName+" "+lastName);
+				sessionBean.setFirstName(firstName);
+				sessionBean.setLastName(lastName);
+				sessionBean.setEmail(email);
+				request.getSession().setAttribute("session", sessionBean);
                 return "registerEducation.do";
             } else {
+            	request.getSession().setAttribute("session", sessionBean);
             	return "register.jsp";
             }
         } catch (FormBeanException e) {
             errors.add(e.getMessage());
+            request.getSession().setAttribute("session", sessionBean);
             return "register.jsp";
         }
     }

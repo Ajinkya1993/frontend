@@ -196,12 +196,19 @@
     </c:when>
     <c:otherwise>
     
-    <c:forEach items="${careteamName}" var="element">    
+    <c:forEach items="${careteamName}" var="element">  
     <tr>
         <td style="padding-right: 15px">
             <img src="images/default-avatar.png" alt="" width="30" />
         </td>
-        <td style="padding-right: 30px"><a href="careteamDashboard.do"><c:out value="${element}"/> Care Team</a></td>
+        <td style="padding-right: 30px"><a href="careteamDashboard.do?cnm=${element}" onclick="callMe('${element}')"><c:out value="${element}"/> Care Team</a></td>
+   <script>
+   function callMe(myId) {
+	   var jsAtt = '${maps}';
+	   var jsnew = JSON.parse(jsAtt);
+	   var cicid = jsnew[String(myId)];
+       }
+   </script>
     </tr>
    </c:forEach>
         

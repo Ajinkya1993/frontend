@@ -1,3 +1,4 @@
+// Name: Namita Sibal Date: 12/14/16 Course Number: 08672
 package edu.cmu.cs.webapp.hw4.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,62 +10,38 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
-
-import edu.cmu.cs.webapp.hw4.databean.SessionBean;
 import edu.cmu.cs.webapp.hw4.formbean.LoginForm;
 
 
-public class LoginAction extends Action {
+public class UpdateLovedOneInfoAction extends Action {
     private FormBeanFactory<LoginForm> formBeanFactory = FormBeanFactory.getInstance(LoginForm.class);
 
-    public LoginAction() {
+    public UpdateLovedOneInfoAction() {
     }
 
     public String getName() {
-        return "login.do";
+        return "updatelovedoneinfo.do";
     }
 
     public String perform(HttpServletRequest request) {
-    	SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
-    	if (sessionBean == null) {
-			sessionBean = new SessionBean();
-	      		  System.out.println("Session bean is null in login dashboard");
-		}
+        HttpSession session = request.getSession();
         JSONObject responseObj = new JSONObject();
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
         
-        // If user is already logged in, redirect to personal Dashboard
-        if (sessionBean != null && sessionBean.getEmail() != null) {
-            return "personalDashboard.do";
-        }
-        
+       
         try {
             LoginForm form = formBeanFactory.create(request);
             request.setAttribute("form", form);
 
-            // If no params were passed, return with no errors so that the form will be
-            // presented (we assume for the first time).
-            if (!form.isPresent()) {
-                return "login.jsp";
-            }
-          
-            if (form.getAction().equals("Sign Up")) {
-            	return "register.do";
-            }
+
             
-            // Any validation errors?
-            errors.addAll(form.getValidationErrors());
-            if (errors.size() != 0) {
-                return "login.jsp";
-            }
-            
-            if (form.getAction().equals("Login")) {
-          	  String query = "http://localhost:8080/CurantisBackendService/curantis/login";
+          	  String query = "http://localhost:8080/CurantisBackendService/curantis/updatelovedoneinfo";
 	        	  JSONObject json = new JSONObject();
 	        	  
 	              try {
@@ -132,28 +109,18 @@ public class LoginAction extends Action {
 	             }
               String firstName = new String();
               String lastName = new String();
-              String email = new String();
 				try {
 					firstName = responseObj.getString("firstName");
-					System.out.println(responseObj.toString());
 					 lastName = responseObj.getString("lastName");
-					 email = responseObj.getString("email");
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-			sessionBean.setFirstName(firstName);
-			sessionBean.setLastName(lastName);
-			sessionBean.setEmail(email);
-
-          }
-            
-            
-          request.getSession().setAttribute("session", sessionBean);
+			session.setAttribute("user", firstName+" "+lastName);
+          
           return "personalDashboard.do";
         }catch (FormBeanException e) {
             errors.add(e.getMessage());
-            request.getSession().setAttribute("session", sessionBean);
-            return "login.jsp";
+            return "error.jsp";
         }
     }
 }
