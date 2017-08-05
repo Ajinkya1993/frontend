@@ -139,15 +139,15 @@
 								<input type="text" name="teamname" value="${form.teamname}" class="form-control">
 							</div>
 							<div class="form-group">
-								<label>LovedOne First Name:</label>
+								<label>Loved One First Name:</label>
 								<input type="text" name="lovefirstname" class="form-control">
 							</div>
 							<div class="form-group">
-								<label>LovedOne Last Name:</label>
+								<label>Loved One Last Name:</label>
 								<input type="text" name="lovelastname" class="form-control">
 							</div>
 							<div class="form-group">
-								<label>Address:</label>
+								<label>Loved One Address:</label>
 								<input type="text" name="lovenaddress" class="form-control">
 							</div>
 							<div class="form-group">
