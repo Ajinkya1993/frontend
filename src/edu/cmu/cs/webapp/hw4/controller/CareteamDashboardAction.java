@@ -80,16 +80,7 @@ public class CareteamDashboardAction extends Action {
 		                os.close();
 		                // read the response
 		                
-		                URL url_mem = new URL(query_mem);
-		                HttpURLConnection conn_mem = (HttpURLConnection) url_mem.openConnection();
-		                conn_mem.setConnectTimeout(5000);
-		                conn_mem.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-		                conn_mem.setDoOutput(true);
-		                conn_mem.setDoInput(true);
-		                conn_mem.setRequestMethod("POST");
-		                OutputStream os_mem = conn_mem.getOutputStream();
-		                os_mem.write(json.toString().getBytes("UTF-8"));
-		                os_mem.close();
+		                
 		                
 		                
 		                if (conn.getResponseCode() != 200) {
@@ -97,16 +88,10 @@ public class CareteamDashboardAction extends Action {
 		                        + conn.getResponseCode());
 		                }
 		                
-		             // read the response
-		                if (conn_mem.getResponseCode() != 200) {
-		                    throw new RuntimeException("Failed : HTTP error code : "
-		                        + conn_mem.getResponseCode());
-		                }
-		
+		           
 		                BufferedReader br = new BufferedReader(new InputStreamReader(
 		                        (conn.getInputStream())));
-		                BufferedReader br_mem = new BufferedReader(new InputStreamReader(
-		                        (conn_mem.getInputStream())));
+		               
 		
 		                String output;
 		                System.out.println("Output from Server care team .... \n");
@@ -122,6 +107,7 @@ public class CareteamDashboardAction extends Action {
 							//setting session ID here
 							if(sessionBean == null) System.out.println("sesiion bean is null");
 							sessionBean.setCircleId(circleId);
+							json.put("circleId", circleId);
 							lovedone_firstName =  responseObj.getString("lovedone_firstName");
 							lovedone_LastName =  responseObj.getString("lovedone_LastName");
 							triggerEvent =  responseObj.getString("triggerEvent");
@@ -141,7 +127,27 @@ public class CareteamDashboardAction extends Action {
 
 		                
 		                //team mebers
+		                
 		                String output_mem;
+		                
+		                // read the response
+		                URL url_mem = new URL(query_mem);
+		                HttpURLConnection conn_mem = (HttpURLConnection) url_mem.openConnection();
+		                conn_mem.setConnectTimeout(5000);
+		                conn_mem.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+		                conn_mem.setDoOutput(true);
+		                conn_mem.setDoInput(true);
+		                conn_mem.setRequestMethod("POST");
+		                OutputStream os_mem = conn_mem.getOutputStream();
+		                os_mem.write(json.toString().getBytes("UTF-8"));
+		                os_mem.close();
+		                if (conn_mem.getResponseCode() != 200) {
+		                    throw new RuntimeException("Failed : HTTP error code : "
+		                        + conn_mem.getResponseCode());
+		                }
+		                BufferedReader br_mem = new BufferedReader(new InputStreamReader(
+		                        (conn_mem.getInputStream())));
+		
 		                
 		                while ((output_mem = br_mem.readLine()) != null) {
 		                	try {
@@ -201,7 +207,6 @@ public class CareteamDashboardAction extends Action {
 	              request.setAttribute("lovedoneaddr", lovedoneaddr);
 	              request.setAttribute("lovedoneURL", lovedoneURL);
 	              request.setAttribute("subscribedServices", subscribedServices);
-	              session.setAttribute("circleId", 2);
 	              request.getSession().setAttribute("session", sessionBean);
 	          
 	          return "CareteamDashboard.jsp";
