@@ -18,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.mybeans.form.FormBeanException;
 
+import edu.cmu.cs.webapp.hw4.databean.SessionBean;
 import edu.cmu.cs.webapp.hw4.formbean.LoginForm;
 
 public class DeleteCareteamAction extends Action {
@@ -30,7 +31,11 @@ public class DeleteCareteamAction extends Action {
 		public String perform(HttpServletRequest request) {
 			String careteam = request.getParameter("careteam");
 			HttpSession session = request.getSession();
-			String email = (String)session.getAttribute("email");
+			SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+	      	  if(sessionBean == null) {
+	      		  System.out.println("Session bean is null in careteam dashboard");
+	      	  }
+				String email = sessionBean.getEmail();
 			//System.out.println("Email is "+session.getAttribute("email"));
 			//return "PersonalDashboard.jsp";
 			JSONObject responseObj = new JSONObject();

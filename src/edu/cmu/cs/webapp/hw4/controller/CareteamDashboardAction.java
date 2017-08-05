@@ -107,6 +107,7 @@ public class CareteamDashboardAction extends Action {
 							//setting session ID here
 							if(sessionBean == null) System.out.println("sesiion bean is null");
 							sessionBean.setCircleId(circleId);
+							sessionBean.setCircleName(circleName);
 							json.put("circleId", circleId);
 							lovedone_firstName =  responseObj.getString("lovedone_firstName");
 							lovedone_LastName =  responseObj.getString("lovedone_LastName");

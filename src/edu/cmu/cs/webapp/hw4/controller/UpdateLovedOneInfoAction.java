@@ -15,6 +15,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
+
+import edu.cmu.cs.webapp.hw4.databean.SessionBean;
 import edu.cmu.cs.webapp.hw4.formbean.LoginForm;
 
 
@@ -33,8 +35,22 @@ public class UpdateLovedOneInfoAction extends Action {
         JSONObject responseObj = new JSONObject();
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
-        
-       
+        SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+    	  if(sessionBean == null) {
+    		  System.out.println("Session bean is null in careteam dashboard");
+    	  }
+			String email = sessionBean.getEmail();
+			String circlename = sessionBean.getCircleName();
+			Long circleid = sessionBean.getCircleId();
+			String lovedone_firstName = new String();
+    	  	String lovedone_LastName = new String();
+    	  	String triggerEvent = new String();
+    	  	String lovedoneURL = new String();
+    	  	String lovedoneaddr = new String();
+    	  	Boolean primaryCaregiver = false;
+    	  	String subscribedServices = new String();
+    	  	String georel = new String();
+    	  	String relat = new String();
         try {
             LoginForm form = formBeanFactory.create(request);
             request.setAttribute("form", form);
@@ -45,8 +61,9 @@ public class UpdateLovedOneInfoAction extends Action {
 	        	  JSONObject json = new JSONObject();
 	        	  
 	              try {
-	            	  json.put("email", form.getEmail());
-		              json.put("password", form.getPassword());
+	            	  json.put("email", email);
+	            	  json.put("circleName",circlename);
+	            	  System.out.println("Setting email and circlename as "+email + " " +circlename);
 				} catch (JSONException e1) {
 					e1.printStackTrace();
 				}
@@ -76,18 +93,28 @@ public class UpdateLovedOneInfoAction extends Action {
 	                while ((output = br.readLine()) != null) {
 	                	try {
 						responseObj = new JSONObject(output);
+						System.out.println("Response in updateinfo is "+responseObj);
+						lovedone_firstName =  responseObj.getString("lovedone_firstName");
+						lovedone_LastName =  responseObj.getString("lovedone_LastName");
+						triggerEvent =  responseObj.getString("triggerEvent");
+						lovedoneURL= responseObj.getString("pictureUrl");
+						lovedoneaddr =  responseObj.getString("lovedoneAddress");
+						primaryCaregiver =  responseObj.getBoolean("primaryCaregiver");
+						subscribedServices =  responseObj.getString("subscribedServices");
+						georel = responseObj.getString("georelationship");
+						relat = responseObj.getString("relationshipNature");
+						
 							Boolean success = responseObj.getBoolean("success");
 							String message = responseObj.getString("message");
 							if(success != true) {
-								if(message.equals("Missing email or password!")) {
-									errors.add("Missing email or password!");
-									return "login.jsp";
-								} else if(message.equals("Incorrect password!")) {
-									errors.add("Incorrect password!");
-									return "login.jsp";
-								} else if(message.equals("Account doesn't exist!")) {
-									errors.add("Account doesn't exist!");
-									return "login.jsp";
+								if(message.equals("Missing circleId!")) {
+									errors.add("The circleId is missing. Please retry.");
+									return "CareteamDashboard.jsp";
+								} else if(message.equals("No caregiver in this circle!")) {
+									errors.add("No caregiver in this circle! Please create a circle!");
+								}else if(message.equals("User not in caregiver info table!")) {
+									errors.add("You are not in the caregiver circle");
+									return "CareteamDashboard.jsp";
 								}
 							}
 							
@@ -107,17 +134,17 @@ public class UpdateLovedOneInfoAction extends Action {
 	                e.printStackTrace();
 	
 	             }
-              String firstName = new String();
-              String lastName = new String();
-				try {
-					firstName = responseObj.getString("firstName");
-					 lastName = responseObj.getString("lastName");
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-			session.setAttribute("user", firstName+" "+lastName);
-          
-          return "personalDashboard.do";
+              request.setAttribute("lovedone_firstName", lovedone_firstName);
+              request.setAttribute("lovedone_LastName", lovedone_LastName);
+              request.setAttribute("triggerEvent", triggerEvent);
+              request.setAttribute("lovedoneURL", lovedoneURL);
+              request.setAttribute("lovedoneaddr", lovedoneaddr);
+              request.setAttribute("lovedoneURL", lovedoneURL);
+              request.setAttribute("subscribedServices", subscribedServices);
+              request.setAttribute("georelationship", georel);
+              request.setAttribute("relationship", relat);
+              request.getSession().setAttribute("session", sessionBean);
+          return "UpdateLovedOneInfo.jsp";
         }catch (FormBeanException e) {
             errors.add(e.getMessage());
             return "error.jsp";
