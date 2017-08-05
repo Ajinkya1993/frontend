@@ -1,4 +1,3 @@
-// Name: Namita Sibal Date: 12/14/16 Course Number: 08672
 package edu.cmu.cs.webapp.hw4.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,11 +9,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mybeans.form.FormBeanException;
 import org.mybeans.form.FormBeanFactory;
+
+import edu.cmu.cs.webapp.hw4.databean.SessionBean;
 import edu.cmu.cs.webapp.hw4.formbean.LoginForm;
 
 
@@ -29,15 +29,16 @@ public class LoginAction extends Action {
     }
 
     public String perform(HttpServletRequest request) {
-        HttpSession session = request.getSession();
+    	SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
         JSONObject responseObj = new JSONObject();
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
         
-        // If user is already logged in, redirect to todolist.do
-        /*if (session.getAttribute("user") != null) {
-            return "welcome.do";
-        }*/
+        // If user is already logged in, redirect to personal Dashboard
+        if (sessionBean.getEmail() != null) {
+            return "personalDashboard.do";
+        }
+        
         try {
             LoginForm form = formBeanFactory.create(request);
             request.setAttribute("form", form);
@@ -127,13 +128,17 @@ public class LoginAction extends Action {
 	             }
               String firstName = new String();
               String lastName = new String();
+              String email = new String();
 				try {
 					firstName = responseObj.getString("firstName");
 					 lastName = responseObj.getString("lastName");
+					 email = responseObj.getString("email");
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-			session.setAttribute("user", firstName+" "+lastName);
+			sessionBean.setFirstName(firstName);
+			sessionBean.setLastName(lastName);
+			sessionBean.setEmail(email);
           }
           return "personalDashboard.do";
         }catch (FormBeanException e) {
