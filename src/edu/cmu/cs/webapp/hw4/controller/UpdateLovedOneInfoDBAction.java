@@ -31,6 +31,7 @@ public class UpdateLovedOneInfoDBAction extends Action {
     }
 
     public String perform(HttpServletRequest request) {
+    	System.out.println("In update loved one info db action!!");
         JSONObject responseObj = new JSONObject();
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
@@ -47,12 +48,16 @@ public class UpdateLovedOneInfoDBAction extends Action {
 			String triggerEvent = request.getParameter("triggerEvent");
 			String lovedoneURL = request.getParameter("lovedoneURL");
 			String lovedoneaddr = request.getParameter("lovedoneaddr");
-            String georel = request.getParameter("georelationship");
-            String relat = request.getParameter("relationship");
+            String georel = request.getParameter("geoRel");
+            String relat = request.getParameter("natureOfRel");
+            System.out.println("In Update loved one info db before try: "+lovedone_firstName+" "+lovedone_LastName + " " + triggerEvent + " " +lovedoneURL + " " + lovedoneaddr + " " + georel + " " + relat);
             
         try {
                   String query = "http://localhost:8080/CurantisBackendService/curantis/updatelovedoneinfodb";
 	        	  JSONObject json = new JSONObject();
+	        	  json.put("email", email);
+	        	  json.put("circleName", circlename);
+	        	  json.put("circleId", circleid);
 	        	  json.put("lovedone_firstName", lovedone_firstName);
 	        	  json.put("lovedone_LastName", lovedone_LastName);
 	        	  json.put("triggerEvent", triggerEvent);
@@ -60,7 +65,7 @@ public class UpdateLovedOneInfoDBAction extends Action {
 	        	  json.put("lovedoneAddress", lovedoneaddr);
 	        	  json.put("geoRel", georel);
 	        	  json.put("natureOfRel", relat);
-
+	        	  System.out.println("Inputting in JSON fields " +georel+" "+relat);
               try {
 	                URL url = new URL(query);
 	                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -119,8 +124,9 @@ public class UpdateLovedOneInfoDBAction extends Action {
 	                e.printStackTrace();
 	
 	             }
+              sessionBean.setCircleName(circlename);
               request.getSession().setAttribute("session", sessionBean);
-          return "CareteamDashboard.jsp";
+          return "careteamDashboard.do";
         }catch (Exception e) {
             errors.add(e.getMessage());
             return "error.jsp";
