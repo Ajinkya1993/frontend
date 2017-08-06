@@ -108,7 +108,8 @@ public class CareteamDashboardAction extends Action {
 							responseObj = new JSONObject(output);
 							System.out.println("In loop with response obj "+responseObj);
 							circleId = responseObj.getLong("circleId");
-							
+				            sessionBean.setCircleId(circleId);
+
 							System.out.println("The circleId in careteam dashboard is "+circleId);
 							//setting session ID here
 							if(sessionBean == null) System.out.println("sesiion bean is null");

@@ -61,6 +61,9 @@
 							class="pe-7s-graph"></i>
 							<p>CareTeam Dashboard</p>
 					</a></li>
+					<li><a href="manageServices.do"> <i class="pe-7s-graph"></i>
+							<p>Manage Services</p>
+					</a></li>
 					<li><a href="user.html"> <i class="pe-7s-user"></i>
 							<p>Team Members</p>
 					</a></li>
@@ -255,8 +258,8 @@ tbody tr td {
 											<div class="photo">
 												<style>
 												.photo img {
-												width: 100px;
-												height: 100px;
+												width: 140px;
+												height: 140px;
 												background-color: grey;
 												}
 												</style>
@@ -266,7 +269,7 @@ tbody tr td {
 													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Housing')}">
 													
 														<td><a href="manageSeniorHousing.do" class="icons">
-																<img src="images/ServiceIcons/senior-housing.png"
+																<img src="images/Housingservices.png"
 																width="160">
 														</a></td>
 														
@@ -278,7 +281,7 @@ tbody tr td {
 													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Ancillary')}">
 														
 														<td><a href="https://www.google.com" class="icons">
-																<img src="images/ServiceIcons/in-home-care.png"
+																<img src="images/ancillary.png"
 																width="160">
 														</a></td>
 														</c:when>
@@ -287,7 +290,7 @@ tbody tr td {
 														<c:choose>
 														<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Vendor')}">
 														<td><a href="https://www.google.com" class="icons">
-																<img src="images/ServiceIcons/vendor-service.png"
+																<img src="images/vendor_mgmt.png"
 																width="160">
 														</a></td>
 														</c:when>
@@ -359,7 +362,7 @@ tbody tr td {
 		demo.initChartist();
 		$.notify({
 			icon : 'pe-7s-gift',
-			message : "Welcome to <b>John Doe's</b> care team's dashboard"
+			message : "Welcome to <b>${lovedone_firstName}  ${lovedone_LastName}</b> care team's dashboard"
 		}, {
 			type : 'info',
 			timer : 4000
