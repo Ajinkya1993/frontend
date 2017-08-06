@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import edu.cmu.cs.webapp.hw4.databean.SessionBean;
+
 public class ManageSeniorHousing extends Action {
 
 	@Override
@@ -24,11 +26,21 @@ public class ManageSeniorHousing extends Action {
 	@Override
 	public String perform(HttpServletRequest request) {
 		// TODO Auto-generated method stub
+		List<String> errors = new ArrayList<String>();
+        request.setAttribute("errors", errors);
+        
+		SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+		if (sessionBean == null || sessionBean.getEmail() == null) {
+			return "login.do";
+		} else if (sessionBean.getCircleId() == 0) {
+			errors.add("Not in a care team!");
+			return "SeniorHousingPreference.jsp";
+		}
 		
 		String query = "http://localhost:8080/CurantisBackendService/curantis/seniorhousing/getPreference";
   	    JSONObject json = new JSONObject();
   	    try {
-			json.put("circleId", 4);
+			json.put("circleId", sessionBean.getCircleId());
 			URL url = new URL(query);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setConnectTimeout(5000);

@@ -1,4 +1,8 @@
-<!doctype html>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -41,6 +45,36 @@
 	rel='stylesheet' type='text/css'>
 <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
+<!--   Core JS Files   -->
+<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Checkbox, Radio & Switch Plugins -->
+<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
+
+<!--  Charts Plugin -->
+<script src="assets/js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="assets/js/bootstrap-notify.js"></script>
+
+<!--  Google Maps Plugin    -->
+<script type="text/javascript"
+	src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="assets/js/light-bootstrap-dashboard.js"></script>
+
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+<script src="assets/js/demo.js"></script>
+
+<c:if test="${noPreference}">
+	<script type="text/javascript">
+			$(window).load(function(){        
+		   		$('#myModal').modal('show');
+		    });
+	</script>
+</c:if>
 </head>
 <body>
 
@@ -60,13 +94,13 @@
 				<ul class="nav">
 					<li class="active"><a href="personalDashboard.do"> <i
 							class="pe-7s-graph"></i>
-							<p>My Dashboard</p>
+							<p>My Preference</p>
 					</a></li>
 					<li><a href="user.html"> <i class="pe-7s-user"></i>
-							<p>CareTeams</p>
+							<p>Housing List</p>
 					</a></li>
 					<li><a href="table.html"> <i class="pe-7s-note2"></i>
-							<p>Account</p>
+							<p>Document</p>
 					</a></li>
 					<li><a href="typography.html"> <i class="pe-7s-news-paper"></i>
 							<p>Payment</p>
@@ -116,118 +150,3 @@
 					</div>
 				</div>
 			</nav>
-
-
-
-<!-- *********Starts Here************ -->
-			<div class="content">
-			<div id="parent">
-			<div class="container-fluid">
-			<div class="row">
-
-			<br></br>
-
-			<h3 class="main-heading1"><center><b/>Create My CareTeam</center></h3>
-			<c:forEach var="error" items="${errors}">
-				<h5 style="color:red" align="center"> ${error} </h5>
-			</c:forEach>
-			
-			<div class="col-sm-6">
-					<form action="createteam.do" method="POST">
-							<div class="form-group">
-								<label>Team Name:</label>
-								<input type="text" name="teamname" value="${form.teamname}" class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Loved One First Name:</label>
-								<input type="text" name="lovefirstname" class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Loved One Last Name:</label>
-								<input type="text" name="lovelastname" class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Loved One Address:</label>
-								<input type="text" name="lovenaddress" class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Relation:</label>
-								<input type="text" name="relation" class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Geo-Relation:</label>
-								<input type="text" name="georelation" class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Trigger Event:</label>
-								<input type="text" name="event" class="form-control">
-							</div>
-								<input type="submit" name="action" class="btn btn-lg btn-info" value="Create Team" />			
-					</form>
-					</div>
-		    
-		    
-		    
-		    <div id="wide">
-		    	<div class="col-md-6">
-					<div class="card">
-						<div class="header">
-							<div class="panel-heading"> 
-							<p class="panel-title">Upload your loved one's photo:</p>
-							</div>
-						</div>
-            			<div class="panel-body">
-            			<br/>
-                			<input type="file" csw-file-input file-data="address.file">
-                			<img style=:"width:"250px;" ng-src="{{address.file}}">
-            			</div>
-					</div>
-		    </div>
-		    </div>
-			</div>
-			</div>
-
-
-
-
-</body>
-<!--   Core JS Files   -->
-<script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-
-<!--  Checkbox, Radio & Switch Plugins -->
-<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
-
-<!--  Charts Plugin -->
-<script src="assets/js/chartist.min.js"></script>
-
-<!--  Notifications Plugin    -->
-<script src="assets/js/bootstrap-notify.js"></script>
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript"
-	src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-
-<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="assets/js/light-bootstrap-dashboard.js"></script>
-
-<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="assets/js/demo.js"></script>
-
-<script type="text/javascript">
-    	$(document).ready(function(){
-
-        	demo.initChartist();
-
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "<b>Michael Phelps</b> - Welcome to your dashboard!"
-
-            },{
-                type: 'info',
-                timer: 4000
-            });
-
-    	});
-	</script>
-</html>
