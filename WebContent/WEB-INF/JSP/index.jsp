@@ -243,14 +243,6 @@ At Curantis, you are our focus--so we look out for your best interests. We do no
 
 	
 	
-	<!-- Meet Our Doctors Section Starts -->
-		<div id = "caretypes"> </div>
-		<jsp:include page="caregiverTypes.jsp"/>
-	<!-- Meet Our Doctors Section Ends -->
-	<!-- Main Container Starts -->
-		<div class="container main-container" id = "eldernews">
-	<!-- Medical Services Section Ends -->
-	<!-- Content Starts -->
 
 	<!-- Meet Our Doctors Section Starts -->
 		<jsp:include page="caregiverTypes.jsp"/>
@@ -429,7 +421,7 @@ At Curantis, you are our focus--so we look out for your best interests. We do no
 						<h3><i class="fa fa-phone-square"></i> +1 874 801 8014</h3>
 					</div>
 					<div class="col-md-4 col-xs-12 text-center-sm text-center-xs">
-						<a href="doctor-profile.html" class="btn btn-main text-uppercase">Book your Appointment</a>
+						<a href="#" class="btn btn-main text-uppercase">Book your Appointment</a>
 					</div>
 					<div class="col-md-3 col-xs-12 hidden-sm hidden-xs">
 						<div class="box-img">

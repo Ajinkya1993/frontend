@@ -60,26 +60,26 @@
 				</div>
 
 				<ul class="nav">
-					<li><a href="user.html"> <i class="pe-7s-user"></i>
+					<li><a href="careteamDashboard.do"> <i class="pe-7s-user"></i>
 							<p>Careteam Dashboard</p>
 					</a></li>
 					<li class="active"><a href="manageServices.do"> <i
 							class="pe-7s-graph"></i>
 							<p>Manage Services</p>
 					</a></li>
-					<li><a href="user.html"> <i class="pe-7s-user"></i>
+					<li><a href="#"> <i class="pe-7s-user"></i>
 							<p>Team Members</p>
 					</a></li>
-					<li><a href="table.html"> <i class="pe-7s-note2"></i>
+					<li><a href="#"> <i class="pe-7s-note2"></i>
 							<p>Documents</p>
 					</a></li>
-					<li><a href="typography.html"> <i class="pe-7s-news-paper"></i>
+					<li><a href="#"> <i class="pe-7s-news-paper"></i>
 							<p>Payment</p>
 					</a></li>
-					<li><a href="icons.html"> <i class="pe-7s-science"></i>
+					<li><a href="#"> <i class="pe-7s-science"></i>
 							<p>Education</p>
 					</a></li>
-					<li><a href="maps.html"> <i class="fa fa-heart"></i>
+					<li><a href="#"> <i class="fa fa-heart"></i>
 							<p>Loved One</p>
 					</a></li>
 
@@ -118,7 +118,7 @@
 									<li><a href="#">Estate Management</a></li>
 								</ul></li>
 
-							<li><a href=""JSP/dashboard3.jsp""> My Dashboard </a></li>
+							<li><a href="personalDashboard.do"> My Dashboard </a></li>
 							<li><a href="#"> <i class="fa fa-phone"></i>Concierge
 									Services
 							</a></li>
@@ -779,7 +779,7 @@ tbody tr td {
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="assets/js/demo.js"></script>
-
+<!-- 
 <script type="text/javascript">
 	$(document).ready(function() {
 		demo.initChartist();
@@ -792,5 +792,6 @@ tbody tr td {
 		});
 	});
 </script>
-
+ -->
+ 
 </html>

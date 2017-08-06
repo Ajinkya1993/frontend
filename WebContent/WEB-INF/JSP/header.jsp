@@ -53,9 +53,9 @@
 						</div>
 						<div class="col-sm-8 col-xs-12">
 							<ul class="list-unstyled list-inline">
-								<li><a href="mailto:care@yourhosptialsname.com">
+								<li><a href="mailto:concierge@curantis.com">
 									<i class="fa fa-envelope-o"></i>
-									concierge@curantis.com
+									Email Us
 								</a></li>
 								
 								<li><i class="fa fa-phone"></i> Call Us: 1-800-123-4567</li>
@@ -83,7 +83,7 @@
 							</button>
 						<!-- Collapse Button Ends -->
 						<!-- Logo Starts -->
-							<a href="index.html" class="navbar-brand">
+							<a href="index.jsp" class="navbar-brand">
 								<i class="fa fa-wheelchair"></i>
 								Curantis Solutions
 							</a>
