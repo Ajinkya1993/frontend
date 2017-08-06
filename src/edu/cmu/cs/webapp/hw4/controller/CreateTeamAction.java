@@ -36,8 +36,12 @@ public class CreateTeamAction extends Action {
 	public String perform(HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
-		String email = (String) session.getAttribute("email");
-		
+		//String email = (String) session.getAttribute("email");
+		SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+        if(sessionBean == null) {
+  		  System.out.println("Session bean is null in personal dashboard");
+  	  }
+        String email = sessionBean.getEmail();
 		List<String> errors = new ArrayList<String>();
 		request.setAttribute("errors", errors);
 		JSONObject responseObj = new JSONObject();
@@ -53,7 +57,6 @@ public class CreateTeamAction extends Action {
 				System.out.println(errors.get(0));
 				return "CreateCaregiverTeam.jsp";
 			}
-
 			if (form.getAction().equals("Create Team")) {
 				String query = "http://localhost:8080/CurantisBackendService/curantis/createcircle";
 				JSONObject json = new JSONObject();
@@ -92,18 +95,19 @@ public class CreateTeamAction extends Action {
 					while ((output = br.readLine()) != null) {
 						try {
 							responseObj = new JSONObject(output);
+							System.out.println("Response obj is "+responseObj);
 							Boolean success = responseObj.getBoolean("success");
 							String message = responseObj.getString("message");
 							if (success != true) {
 								if (message.equals("Missing circle name or email!")) {
 									errors.add("Missing circle name or email!");
-									return "CreateCaregiverTeam.jsp";
+									return "personalDashboard.jsp";
 								} else if (message.equals("Circle name exists!")) {
 									errors.add("Circle name exists!");
-									return "CreateCaregiverTeam.jsp";
+									return "personalDashboard.jsp";
 								} else if (message.equals("Creating circle failed!")) {
 									errors.add("Creating circle failed!");
-									return "CreateCaregiverTeam.jsp";
+									return "personalDashboard.jsp";
 								}
 							}
 
@@ -130,13 +134,15 @@ public class CreateTeamAction extends Action {
 				}
 				session.setAttribute("teamname", teamname);
 				session.setAttribute("circleId", circleId);
-				return "careteamDashboard.do";
+	              request.getSession().setAttribute("session", sessionBean);
+
+				return "personalDashboard.do";
 			} else {
-				return "createteam.do";
+				return "personalDashboard.do";
 			}
 		} catch (FormBeanException e) {
 			errors.add(e.getMessage());
-			return "createteam.do";
+			return "personalDashboard.do";
 		}
 	}
 }

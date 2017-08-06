@@ -148,7 +148,7 @@
 							</div>
 							<div class="form-group">
 								<label>Loved One Address:</label>
-								<input type="text" name="lovenaddress" class="form-control">
+								<input type="text" name="loveaddress" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Relation:</label>
