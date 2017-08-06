@@ -30,18 +30,18 @@ public class LoginAction extends Action {
 
     public String perform(HttpServletRequest request) {
     	SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
-    	if (sessionBean == null) {
+    	//if (sessionBean == null) {
 			sessionBean = new SessionBean();
 	      		  System.out.println("Session bean is null in login dashboard");
-		}
+		//}
         JSONObject responseObj = new JSONObject();
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
         
         // If user is already logged in, redirect to personal Dashboard
-        if (sessionBean != null && sessionBean.getEmail() != null) {
+      /*  if (sessionBean != null && sessionBean.getEmail() != null) {
             return "personalDashboard.do";
-        }
+        }*/
         
         try {
             LoginForm form = formBeanFactory.create(request);
@@ -133,17 +133,19 @@ public class LoginAction extends Action {
               String firstName = new String();
               String lastName = new String();
               String email = new String();
-				try {
+				try {					
+					email = responseObj.getString("email");
 					firstName = responseObj.getString("firstName");
 					System.out.println(responseObj.toString());
 					 lastName = responseObj.getString("lastName");
-					 email = responseObj.getString("email");
+					 
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
 			sessionBean.setFirstName(firstName);
 			sessionBean.setLastName(lastName);
 			sessionBean.setEmail(email);
+			System.out.println("Email being set is "+email);
 
           }
             
