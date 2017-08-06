@@ -57,26 +57,26 @@
 				</div>
 
 				<ul class="nav">
-					<li class="active"><a href="dashboard.html"> <i
+					<li class="active"><a href="#"> <i
 							class="pe-7s-graph"></i>
 							<p>CareTeam Dashboard</p>
 					</a></li>
 					<li><a href="manageServices.do"> <i class="pe-7s-graph"></i>
 							<p>Manage Services</p>
 					</a></li>
-					<li><a href="user.html"> <i class="pe-7s-user"></i>
+					<li><a href="#"> <i class="pe-7s-user"></i>
 							<p>Team Members</p>
 					</a></li>
-					<li><a href="table.html"> <i class="pe-7s-note2"></i>
+					<li><a href="#"> <i class="pe-7s-note2"></i>
 							<p>Documents</p>
 					</a></li>
-					<li><a href="typography.html"> <i class="pe-7s-news-paper"></i>
+					<li><a href="#"> <i class="pe-7s-news-paper"></i>
 							<p>Payment</p>
 					</a></li>
-					<li><a href="icons.html"> <i class="pe-7s-science"></i>
+					<li><a href="#"> <i class="pe-7s-science"></i>
 							<p>Education</p>
 					</a></li>
-					<li><a href="maps.html"> <i class="fa fa-heart"></i>
+					<li><a href="#"> <i class="fa fa-heart"></i>
 							<p>Loved One</p>
 					</a></li>
 
@@ -105,7 +105,7 @@
 						</ul>
 
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href=""> Home </a></li>
+							<li><a href="index.jsp"> Home </a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown"> Services &#9662; </a>
 								<ul class="dropdown-menu" role="menu">
@@ -115,7 +115,7 @@
 									<li><a href="#">Estate Management</a></li>
 								</ul></li>
 
-							<li><a href=""JSP/dashboard3.jsp""> My Dashboard </a></li>
+							<li><a href="personalDashboard.do"> My Dashboard </a></li>
 							<li><a href="#"> <i class="fa fa-phone"></i>Concierge
 									Services
 							</a></li>

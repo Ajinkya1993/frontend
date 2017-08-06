@@ -59,10 +59,10 @@ public class CareteamDashboardAction extends Action {
 		           String email = sessionBean.getEmail();
 		           String circleName = new String();
 		        	  //String circleName = "Michael Jordan"; //comment this later
-		           if(sessionBean != null && sessionBean.getCircleName() != null) { //returning frmo update loved one info
-		        	   circleName = sessionBean.getCircleName();
-		           } else {
+		           if(request.getParameter("cnm") != null) { //returning frmo update loved one info
 		        	   circleName = request.getParameter("cnm");
+		           } else {
+		        	   circleName = sessionBean.getCircleName();
 		           }
 		        	  //Long circleId = 3L;
 		        	  long circleId;

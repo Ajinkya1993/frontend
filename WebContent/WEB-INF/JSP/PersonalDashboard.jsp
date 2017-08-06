@@ -67,19 +67,19 @@
                 </li>
             
                 <li>
-                    <a href="table.html">
+                    <a href="#">
                         <i class="pe-7s-note2"></i>
                         <p>Account</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="#">
                         <i class="pe-7s-news-paper"></i>
                         <p>Payment</p>
                     </a>
                 </li>
                 <li>
-                    <a href="icons.html">
+                    <a href="#">
                         <i class="pe-7s-science"></i>
                         <p>Education</p>
                     </a>

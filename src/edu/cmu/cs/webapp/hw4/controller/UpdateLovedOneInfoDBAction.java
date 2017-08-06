@@ -125,6 +125,7 @@ public class UpdateLovedOneInfoDBAction extends Action {
 	
 	             }
               sessionBean.setCircleName(circlename);
+              System.out.println("The circle name here is "+circlename);
               request.getSession().setAttribute("session", sessionBean);
           return "careteamDashboard.do";
         }catch (Exception e) {
