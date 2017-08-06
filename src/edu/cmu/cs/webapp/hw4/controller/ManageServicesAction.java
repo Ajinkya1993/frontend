@@ -41,6 +41,18 @@ public class ManageServicesAction extends Action {
 				request.setAttribute("subscribedServices", subscribedServices);
 				return "manageServices.jsp";
 			}
+			if (request.getParameter("directAdd") != null) {		
+				String subscribedServices = directAdd (request);
+				System.out.println("add has been requested:" + subscribedServices);
+				request.setAttribute("subscribedServices", subscribedServices);
+				return "manageServices.jsp";
+			}
+			if (request.getParameter("directRemove") != null) {							
+				String subscribedServices = directDelete (request);
+				System.out.println("delete has been requested:" + subscribedServices);
+				request.setAttribute("subscribedServices", subscribedServices);				
+				return "manageServices.jsp";
+			}
 			HttpSession session = request.getSession();
 		    JSONObject responseObj = new JSONObject();
 		    String query = "http://localhost:8080/CurantisBackendService/curantis/manageservices/get";
@@ -145,6 +157,61 @@ public class ManageServicesAction extends Action {
 		
 	}
 	
+	public String directAdd (HttpServletRequest request) {
+		String subscribedServices = new String();
+		try {
+			HttpSession session = request.getSession();
+		    JSONObject responseObj = new JSONObject();
+		    String query = "http://localhost:8080/CurantisBackendService/curantis/manageservices/add";
+		    Long circleId = new Long(1);
+		    JSONObject request_json = new JSONObject();
+		    request_json.put("circleId", circleId);
+		    String moreservices = request.getParameter("service");
+		    request_json.put("services", moreservices);
+		    URL url = new URL(query);
+	        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	        conn.setConnectTimeout(5000);
+	        conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+	        conn.setDoOutput(true);
+	        conn.setDoInput(true);
+	        conn.setRequestMethod("POST");
+	        OutputStream os = conn.getOutputStream();
+	        os.write(request_json.toString().getBytes("UTF-8"));
+	        os.close();
+	        
+	        if (conn.getResponseCode() != 200) {
+	            throw new RuntimeException("Failed : HTTP error code : "
+	                + conn.getResponseCode());
+	        }
+			 
+	        BufferedReader br = new BufferedReader(new InputStreamReader(
+	                (conn.getInputStream())));
+	        
+	        String output;
+	        System.out.println("Output from Server care team .... \n");
+	        
+	        while ((output = br.readLine()) != null) {
+	        	try {
+				responseObj = new JSONObject(output);
+				System.out.println("Received response: "+responseObj);
+				subscribedServices =  responseObj.getString("subscribedServices");
+					
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+	            
+	        }
+	        System.out.println("here" + subscribedServices);
+	        request.setAttribute("subscribedServices", subscribedServices);
+	        
+	        conn.disconnect();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return subscribedServices;
+		
+	}
+	
 	public String deleteService (HttpServletRequest request) {
 		String subscribedServices = new String();
 		try {
@@ -155,6 +222,61 @@ public class ManageServicesAction extends Action {
 		    JSONObject request_json = new JSONObject();
 		    request_json.put("circleId", circleId);
 		    String moreservices = request.getParameter("serviceToDelete");
+		    request_json.put("services", moreservices);
+		    URL url = new URL(query);
+	        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	        conn.setConnectTimeout(5000);
+	        conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+	        conn.setDoOutput(true);
+	        conn.setDoInput(true);
+	        conn.setRequestMethod("POST");
+	        OutputStream os = conn.getOutputStream();
+	        os.write(request_json.toString().getBytes("UTF-8"));
+	        os.close();
+	        
+	        if (conn.getResponseCode() != 200) {
+	            throw new RuntimeException("Failed : HTTP error code : "
+	                + conn.getResponseCode());
+	        }
+			 
+	        BufferedReader br = new BufferedReader(new InputStreamReader(
+	                (conn.getInputStream())));
+	        
+	        String output;
+	        System.out.println("Output from Server care team .... \n");
+	        
+	        while ((output = br.readLine()) != null) {
+	        	try {
+				responseObj = new JSONObject(output);
+				System.out.println("Received response: "+responseObj);
+				subscribedServices =  responseObj.getString("subscribedServices");
+					
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+	            
+	        }
+	        System.out.println("here" + subscribedServices);
+	        request.setAttribute("subscribedServices", subscribedServices);
+	        
+	        conn.disconnect();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return subscribedServices;
+		
+	}
+	
+	public String directDelete (HttpServletRequest request) {
+		String subscribedServices = new String();
+		try {
+			HttpSession session = request.getSession();
+		    JSONObject responseObj = new JSONObject();
+		    String query = "http://localhost:8080/CurantisBackendService/curantis/manageservices/delete";
+		    Long circleId = new Long(1);
+		    JSONObject request_json = new JSONObject();
+		    request_json.put("circleId", circleId);
+		    String moreservices = request.getParameter("service");
 		    request_json.put("services", moreservices);
 		    URL url = new URL(query);
 	        HttpURLConnection conn = (HttpURLConnection) url.openConnection();

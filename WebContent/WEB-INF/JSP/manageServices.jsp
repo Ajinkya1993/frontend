@@ -15,6 +15,7 @@
 	name='viewport' />
 <meta name="viewport" content="width=device-width" />
 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <!-- Bootstrap core CSS     -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 <link rel="stylesheet"
@@ -132,7 +133,8 @@
 				<div id="parent">
 					<div class="container-fluid">
 
-						<div class="row">
+						<div class="row">						
+						
 							
 							<div class="col-md-6">
 								<div class="card">
@@ -160,7 +162,20 @@
 														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/senior-housing.png"
 																width="160">
-														</a></td>
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">Senior Housing</div>
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Senior Housing">															
+										          				<input type="submit" name="directRemove" data-inline="true" value="Unsubscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
+														</td>
 														
 														</c:when>
 													
@@ -172,7 +187,20 @@
 														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/in-home-care.png"
 																width="160">
-														</a></td>
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">In Home Care</div>
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="In Home Care">															
+										          				<input type="submit" name="directRemove" data-inline="true" value="Unsubscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
+														</td>
 														</c:when>
 														</c:choose>
 														
@@ -181,7 +209,20 @@
 														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/vendor-service.png"
 																width="160">
-														</a></td>
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">Vendor Service</div>
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Vendor Service">															
+										          				<input type="submit" name="directRemove" data-inline="true" value="Unsubscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
+														</td>
 														</c:when>
 														</c:choose>
 														
@@ -191,7 +232,20 @@
 														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/legal.png"
 																width="160">
-														</a></td>
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">Legal</div>
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Legal">															
+										          				<input type="submit" name="directRemove" data-inline="true" value="Unsubscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
+														</td>
 														
 														</c:when>
 													
@@ -203,7 +257,20 @@
 														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/taxation.png"
 																width="160">
-														</a></td>
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">Taxation</div>
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Taxation">															
+										          				<input type="submit" name="directRemove" data-inline="true" value="Unsubscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
+														</td>
 														
 														</c:when>
 													
@@ -215,8 +282,21 @@
 														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/financial-planning.png"
 																width="160">
-														</a></td>
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">Financial Planning</div>
 														
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Financial Planning">															
+										          				<input type="submit" name="directRemove" data-inline="true" value="Unsubscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
+										      			</td>
 														</c:when>
 													
 													</c:choose>
@@ -226,8 +306,21 @@
 														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/insurance.png"
 																width="160">
-														</a></td>
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">Insurance</div>
 														
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Insurance">															
+										          				<input type="submit" name="directRemove" data-inline="true" value="Unsubscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
+														</td>
 														</c:when>
 													
 													</c:choose>
@@ -238,7 +331,20 @@
 														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/estate-planning.png"
 																width="160">
-														</a></td>
+														</a>
+														<br>
+														<br>
+														<div style = "text-align: center">Estate Planning</div>
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Estate Planning">															
+										          				<input type="submit" name="directRemove" data-inline="true" value="Unsubscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
+														</td>
 														
 														</c:when>
 													
@@ -267,7 +373,7 @@
 										          
 										          
 										          <input type="text" name="serviceToAdd" id="serviceToAdd" placeholder="Enter Service Name">
-										          <input type="submit" name="addAction" data-inline="true" value="Add">
+										          <input type="submit" name="removeAction" data-inline="true" value="Add">
 										          <br>
 										          <br>
 										        </div>
@@ -303,16 +409,12 @@
 						 	</div>
 							</div>
 
-							
-
-
-							
-							<div class="col-md-6">
+														<div class="col-md-6">
 								<div class="card">
 									<div class="header">
-										<h4 class="title">Available Services</h4>
-										<p class="category">List of all available services</p>										
-								
+										<h4 class="title">More Services</h4>
+										<p class="category">List of other services you can subscribe to </p>
+										
 									</div>
 									<div class="content">
 										<div class="nav3">
@@ -327,99 +429,233 @@
 												</style>
 												<table>
 													<tr>
-														
-														<td><a href="#" class="icons">
+													<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Housing')}">
+													</c:when>
+													<c:otherwise>
+														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/senior-housing.png"
 																width="160">
 														</a>
 														<br>
 														<br>
 														<div style = "text-align: center">Senior Housing</div>
-														
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Senior Housing">															
+										          				<input type="submit" name="directAdd" data-inline="true" value="Subscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
 														</td>
 														
-																							
-														<td><a href="#" class="icons">
+														</c:otherwise>
+													
+													</c:choose>
+													
+													<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Home')}">
+													</c:when>
+													<c:otherwise>	
+														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/in-home-care.png"
 																width="160">
-																
 														</a>
 														<br>
 														<br>
-														<div style = "text-align: center"> In Home Care</div>
-														
+														<div style = "text-align: center">In Home Care</div>
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="In Home Care">															
+										          				<input type="submit" name="directAdd" data-inline="true" value="Subscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
 														</td>
+														</c:otherwise>
+														</c:choose>
 														
-														<td><a href="#" class="icons">
+														<c:choose>
+														<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Vendor')}">
+														</c:when>
+													<c:otherwise>	
+														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/vendor-service.png"
 																width="160">
 														</a>
 														<br>
 														<br>
-														<div style = "text-align: center"> Vendor Service</div>
-														
+														<div style = "text-align: center">Vendor Service</div>
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Vendor Service">															
+										          				<input type="submit" name="directAdd" data-inline="true" value="Subscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
 														</td>
+														</c:otherwise>
+														</c:choose>
 														
-														<td><a href="#" class="icons">
+														<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'legal')}">
+													</c:when>
+													<c:otherwise>	
+													
+														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/legal.png"
 																width="160">
 														</a>
 														<br>
 														<br>
 														<div style = "text-align: center">Legal</div>
-														
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Legal">															
+										          				<input type="submit" name="directAdd" data-inline="true" value="Subscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
 														</td>
 														
-														</td>
+														</c:otherwise>
+													
+													</c:choose>
 													</tr>
 													<tr>
-														<td><a href="#" class="icons">
+														<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'taxation')}">
+													</c:when>
+													<c:otherwise>	
+														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/taxation.png"
 																width="160">
 														</a>
 														<br>
 														<br>
 														<div style = "text-align: center">Taxation</div>
-														
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Taxation">															
+										          				<input type="submit" name="directAdd" data-inline="true" value="Subscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
 														</td>
-														<td><a href="#" class="icons">
+														
+														</c:otherwise>
+													
+													</c:choose>
+													
+														<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'financial')}">
+													</c:when>
+													<c:otherwise>	
+													
+														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/financial-planning.png"
 																width="160">
 														</a>
 														<br>
 														<br>
 														<div style = "text-align: center">Financial Planning</div>
-														
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Financial Planning">															
+										          				<input type="submit" name="directAdd" data-inline="true" value="Subscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
 														</td>
-														<td><a href="#" class="icons">
+														
+														</c:otherwise>
+													
+													</c:choose>
+														<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'insurance')}">
+													</c:when>
+													<c:otherwise>	
+													
+														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/insurance.png"
 																width="160">
 														</a>
 														<br>
 														<br>
 														<div style = "text-align: center">Insurance</div>
-														
+														<form method="post" action="manageServices.do">
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Insurance">															
+										          				<input type="submit" name="directAdd" data-inline="true" value="Subscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
 														</td>
-														<td><a href="#" class="icons">
+														
+														</c:otherwise>
+													
+													</c:choose>
+													
+														<c:choose>
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'estate')}">
+													</c:when>
+													<c:otherwise>	
+													
+														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/estate-planning.png"
 																width="160">
 														</a>
 														<br>
 														<br>
 														<div style = "text-align: center">Estate Planning</div>
-														
+														<form method="post" action="manageServices.do" >
+														<br>
+										        			<div style = "text-align: center">	
+										        				<input type="hidden" name="service" value="Estate Planning">															
+										          				<input type="submit" name="directAdd" data-inline="true" value="Subscribe" style = "border-radius: 10%">
+										          				<br>
+										         	 			<br>
+										        			</div>
+										      			</form>
 														</td>
 														
-															
+														</c:otherwise>
+													
+													</c:choose>
 													</tr>
 												</table>
 
 											</div>
 										</div>
 									</div>
-									
+									<div class="footer">
+
+										<hr>
+										<div class="stats">
+											<i class="fa fa-history"></i> Updated 3 minutes ago
+										</div>
+									</div>
 								</div>
+
 							</div>
+
+
+							
+
 							
 										<div class="content">
 											<table class="new">
@@ -520,6 +756,7 @@ tbody tr td {
 
 
 </body>
+
 <!--   Core JS Files   -->
 <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
