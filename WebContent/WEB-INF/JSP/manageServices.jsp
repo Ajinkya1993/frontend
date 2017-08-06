@@ -250,7 +250,8 @@
 														</c:when>
 													
 													</c:choose>
-													
+													</tr>
+													<tr>
 														<c:choose>
 													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'taxation')}">
 													
@@ -324,7 +325,7 @@
 														</c:when>
 													
 													</c:choose>
-													</tr>
+													
 														<c:choose>
 													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'estate')}">
 													
@@ -349,6 +350,7 @@
 														</c:when>
 													
 													</c:choose>
+													</tr>
 												</table>
 
 											</div>
@@ -357,9 +359,7 @@
 									<div class="footer">
 
 										<hr>
-										<div class="stats">
-											<i class="fa fa-history"></i> Updated 3 minutes ago
-										</div>
+										
 									</div>
 								</div>
 								<div id="wide">
@@ -367,7 +367,9 @@
 									<div class="card">
 										<div class="header">
 											<h4 class="title">Add Services</h4>
+											
 											<br>
+											
 											<form method="post" action="manageServices.do">
 										        <div>
 										          
@@ -645,9 +647,7 @@
 									<div class="footer">
 
 										<hr>
-										<div class="stats">
-											<i class="fa fa-history"></i> Updated 3 minutes ago
-										</div>
+										
 									</div>
 								</div>
 

@@ -18,6 +18,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import edu.cmu.cs.webapp.hw4.databean.SessionBean;
+
 public class ManageServicesAction extends Action {
 	@Override
 	public String getName() {
@@ -28,6 +30,12 @@ public class ManageServicesAction extends Action {
 	@Override
 	public String perform(HttpServletRequest request) {
 		
+        SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+        if(sessionBean == null) {
+  		  System.out.println("Session bean is null in personal dashboard");
+  		  return "PersonalDashboard.jsp";
+        }
+        
 		try {
 			if (request.getParameter("addAction") != null) {		
 				String subscribedServices = addService (request);
@@ -56,7 +64,7 @@ public class ManageServicesAction extends Action {
 			HttpSession session = request.getSession();
 		    JSONObject responseObj = new JSONObject();
 		    String query = "http://localhost:8080/CurantisBackendService/curantis/manageservices/get";
-		    Long circleId = new Long(1);
+		    Long circleId = sessionBean.getCircleId();
 		    JSONObject request_json = new JSONObject();
 		    request_json.put("circleId", circleId);
 		    URL url = new URL(query);
@@ -108,7 +116,8 @@ public class ManageServicesAction extends Action {
 			HttpSession session = request.getSession();
 		    JSONObject responseObj = new JSONObject();
 		    String query = "http://localhost:8080/CurantisBackendService/curantis/manageservices/add";
-		    Long circleId = new Long(1);
+		    SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+		    Long circleId = sessionBean.getCircleId();
 		    JSONObject request_json = new JSONObject();
 		    request_json.put("circleId", circleId);
 		    String moreservices = request.getParameter("serviceToAdd");
@@ -163,7 +172,8 @@ public class ManageServicesAction extends Action {
 			HttpSession session = request.getSession();
 		    JSONObject responseObj = new JSONObject();
 		    String query = "http://localhost:8080/CurantisBackendService/curantis/manageservices/add";
-		    Long circleId = new Long(1);
+		    SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+		    Long circleId = sessionBean.getCircleId();
 		    JSONObject request_json = new JSONObject();
 		    request_json.put("circleId", circleId);
 		    String moreservices = request.getParameter("service");
@@ -218,7 +228,8 @@ public class ManageServicesAction extends Action {
 			HttpSession session = request.getSession();
 		    JSONObject responseObj = new JSONObject();
 		    String query = "http://localhost:8080/CurantisBackendService/curantis/manageservices/delete";
-		    Long circleId = new Long(1);
+		    SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+		    Long circleId = sessionBean.getCircleId();
 		    JSONObject request_json = new JSONObject();
 		    request_json.put("circleId", circleId);
 		    String moreservices = request.getParameter("serviceToDelete");
@@ -273,7 +284,8 @@ public class ManageServicesAction extends Action {
 			HttpSession session = request.getSession();
 		    JSONObject responseObj = new JSONObject();
 		    String query = "http://localhost:8080/CurantisBackendService/curantis/manageservices/delete";
-		    Long circleId = new Long(1);
+		    SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+		    Long circleId = sessionBean.getCircleId();
 		    JSONObject request_json = new JSONObject();
 		    request_json.put("circleId", circleId);
 		    String moreservices = request.getParameter("service");
@@ -322,166 +334,4 @@ public class ManageServicesAction extends Action {
 		
 	}
 }
-
-/*
-
-HttpSession session = request.getSession();
-JSONObject responseObj = new JSONObject();
-JSONObject responseObj_mem = new JSONObject();
-List<String> errorsct = new ArrayList<String>();
-List<String> members = new ArrayList<String>();
-request.setAttribute("errorsct", errorsct);
-	String lovedone_firstName = new String();
-	String lovedone_LastName = new String();
-	String triggerEvent = new String();
-	String lovedoneURL = new String();
-	String lovedoneaddr = new String();
-	Boolean primaryCaregiver = false;
-	String subscribedServices = new String();
-  	  String query = "http://localhost:8080/CurantisBackendService/curantis/viewlovedoneinfo";
-  	String query_mem = "http://localhost:8080/CurantisBackendService/curantis/getusersofacircle";
-    	  JSONObject json = new JSONObject();
-    	  String email = "c@gmail.com";
-    	  String circleName = "Michael Jordan";
-    	  Long circleId = 3L;
-          try {
-        	  json.put("email", email);
-              json.put("circleName", circleName);
-              json.put("circleId", circleId);
-		} catch (JSONException e1) {
-			e1.printStackTrace();
-		}
-      try {
-    	  	URL url = new URL(query);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setConnectTimeout(5000);
-            conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-            conn.setDoOutput(true);
-            conn.setDoInput(true);
-            conn.setRequestMethod("POST");
-            OutputStream os = conn.getOutputStream();
-            os.write(json.toString().getBytes("UTF-8"));
-            os.close();
-            // read the response
-            
-            URL url_mem = new URL(query_mem);
-            HttpURLConnection conn_mem = (HttpURLConnection) url_mem.openConnection();
-            conn_mem.setConnectTimeout(5000);
-            conn_mem.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-            conn_mem.setDoOutput(true);
-            conn_mem.setDoInput(true);
-            conn_mem.setRequestMethod("POST");
-            OutputStream os_mem = conn_mem.getOutputStream();
-            os_mem.write(json.toString().getBytes("UTF-8"));
-            os_mem.close();
-            
-            
-            if (conn.getResponseCode() != 200) {
-                throw new RuntimeException("Failed : HTTP error code : "
-                    + conn.getResponseCode());
-            }
-            
-         // read the response
-            if (conn_mem.getResponseCode() != 200) {
-                throw new RuntimeException("Failed : HTTP error code : "
-                    + conn_mem.getResponseCode());
-            }
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    (conn.getInputStream())));
-            BufferedReader br_mem = new BufferedReader(new InputStreamReader(
-                    (conn_mem.getInputStream())));
-
-            String output;
-            System.out.println("Output from Server care team .... \n");
-            
-            //service and loved one info
-            while ((output = br.readLine()) != null) {
-            	try {
-				responseObj = new JSONObject(output);
-				System.out.println("In loop with response obj "+responseObj);
-				lovedone_firstName =  responseObj.getString("lovedone_firstName");
-				lovedone_LastName =  responseObj.getString("lovedone_LastName");
-				triggerEvent =  responseObj.getString("triggerEvent");
-				lovedoneURL= responseObj.getString("pictureUrl");
-				lovedoneaddr =  responseObj.getString("lovedoneAddress");
-				primaryCaregiver =  responseObj.getBoolean("primaryCaregiver");
-				subscribedServices =  responseObj.getString("subscribedServices");
-	              System.out.println("Initital check " + lovedone_firstName + " " + lovedone_LastName+ " " + triggerEvent+ " " + lovedoneURL+ " " + lovedoneURL+ " " +subscribedServices);
-
-					
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-                //System.out.println(output);
-            }
-            conn.disconnect();
-
-            
-            //team mebers
-            String output_mem;
-            
-            while ((output_mem = br_mem.readLine()) != null) {
-            	try {
-				responseObj_mem = new JSONObject(output_mem);
-				System.out.println("In loop with response obj "+responseObj_mem);
-				Boolean success = responseObj_mem.getBoolean("success");
-				String message = responseObj_mem.getString("message");
-				if(success != true) {
-					if(message.equals("Missing circleId!")) {
-						errorsct.add("The circleId is missing. Please retry.");
-						return "personalDashboard.jsp";
-					} else if(message.equals("No caregiver in this circle!")) {
-						errorsct.add("No caregiver in this circle! Please create a circle!");
-					}else if(message.equals("User not in caregiver info table!")) {
-						errorsct.add("You are not in the caregiver circle");
-						return "personalDashboard.jsp";
-					}
-				}
-					
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
-                //System.out.println(output);
-            }
-            conn_mem.disconnect();
-          } catch (MalformedURLException e) {
-
-            e.printStackTrace();
-
-          } catch (IOException e) {
-
-            e.printStackTrace();
-
-         }
-      
-      if(errorsct == null || errorsct.size() <= 0) {
-          List<String> careteammembers = new ArrayList<String>();
-			try {
-				JSONArray recs = responseObj_mem.getJSONArray("list");
-				for (int i = 0; i < recs.length(); ++i) {
-					System.out.println(i);
-				    JSONObject rec = recs.getJSONObject(i);
-				    System.out.println("The object actually is "+rec);
-				    String info = rec.getString("firstName") + " " + rec.getString("lastName") + "|" + rec.getString("email") + "|"  + rec.getString("phoneNumber"); 
-				    careteammembers.add(info);
-				}    
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-			request.setAttribute("careteammembers", careteammembers);
-          }
-      //System.out.println(lovedone_firstName + " " + lovedone_LastName+ " " + triggerEvent+ " " + lovedoneURL+ " " + lovedoneURL+ " " +subscribedServices);
-      request.setAttribute("lovedone_firstName", lovedone_firstName);
-      request.setAttribute("lovedone_LastName", lovedone_LastName);
-      request.setAttribute("triggerEvent", triggerEvent);
-      request.setAttribute("lovedoneURL", lovedoneURL);
-      request.setAttribute("lovedoneaddr", lovedoneaddr);
-      request.setAttribute("lovedoneURL", lovedoneURL);
-      request.setAttribute("subscribedServices", subscribedServices);
-  
-  return "CareteamDashboard.jsp";
-} 		
-}
-*/
 
