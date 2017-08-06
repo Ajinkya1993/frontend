@@ -18,6 +18,7 @@ import edu.cmu.cs.webapp.hw4.databean.SessionBean;
 import edu.cmu.cs.webapp.hw4.formbean.CreateCircleForm;
 import edu.cmu.cs.webapp.hw4.model.Model;
 import edu.cmu.cs.webapp.hw4.model.UserDAO;
+import sun.text.resources.cldr.ar.FormatData_ar_MA;
 
 import org.json.*;
 
@@ -49,6 +50,7 @@ public class CreateTeamAction extends Action {
 
 			errors.addAll(form.getValidationErrors());
 			if (errors.size() != 0) {
+				System.out.println(errors.get(0));
 				return "CreateCaregiverTeam.jsp";
 			}
 
@@ -58,8 +60,10 @@ public class CreateTeamAction extends Action {
 				try {
 					json.put("email",email);
 					json.put("circleName", form.getTeamname());
-					//json.put("lovename", form.getLovename());
-					//json.put("loveaddress", form.getLoveaddress());
+					json.put("lovedone_firstname", form.getLovefirstname());
+					json.put("lovedone_LastName", form.getLovelastname());
+					json.put("lovedoneAddress", form.getLoveaddress());
+					//json.put("pictureUrl", form.getLovephoto());
 					json.put("natureOfRel", form.getRelation());
 					json.put("geoRel", form.getGeorelation());
 					json.put("triggerEvent", form.getEvent());

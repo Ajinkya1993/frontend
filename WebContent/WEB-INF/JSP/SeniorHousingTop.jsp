@@ -92,14 +92,14 @@
 					<h5 class="centered">Marcel Newman</h5>
 				</div>
 				<ul class="nav">
-					<li class="active"><a href="personalDashboard.do"> <i
+					<li class="active"><a href="manageSeniorHousing.do"> <i
 							class="pe-7s-graph"></i>
 							<p>My Preference</p>
 					</a></li>
 					<li><a href="user.html"> <i class="pe-7s-user"></i>
 							<p>Housing List</p>
 					</a></li>
-					<li><a href="table.html"> <i class="pe-7s-note2"></i>
+					<li><a href="seniorHousingDoc.do"> <i class="pe-7s-note2"></i>
 							<p>Document</p>
 					</a></li>
 					<li><a href="typography.html"> <i class="pe-7s-news-paper"></i>

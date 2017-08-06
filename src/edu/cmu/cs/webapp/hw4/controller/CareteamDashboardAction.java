@@ -43,6 +43,7 @@ public class CareteamDashboardAction extends Action {
     	  	String triggerEvent = new String();
     	  	String lovedoneURL = new String();
     	  	String lovedoneaddr = new String();
+
     	  	Boolean primaryCaregiver = false;
     	  	String subscribedServices = new String();
 	          	  String query = "http://localhost:8080/CurantisBackendService/curantis/viewlovedoneinfo";
@@ -56,8 +57,13 @@ public class CareteamDashboardAction extends Action {
 		        	  }
 		        	  
 		           String email = sessionBean.getEmail();
+		           String circleName = new String();
 		        	  //String circleName = "Michael Jordan"; //comment this later
-		        	  String circleName = request.getParameter("cnm");
+		           if(sessionBean != null && sessionBean.getCircleName() != null) { //returning frmo update loved one info
+		        	   circleName = sessionBean.getCircleName();
+		           } else {
+		        	   circleName = request.getParameter("cnm");
+		           }
 		        	  //Long circleId = 3L;
 		        	  long circleId;
 		              try {
@@ -208,6 +214,7 @@ public class CareteamDashboardAction extends Action {
 	              request.setAttribute("lovedoneaddr", lovedoneaddr);
 	              request.setAttribute("lovedoneURL", lovedoneURL);
 	              request.setAttribute("subscribedServices", subscribedServices);
+	              request.setAttribute("primaryCaregiver", primaryCaregiver);
 	              request.getSession().setAttribute("session", sessionBean);
 	          
 	          return "CareteamDashboard.jsp";

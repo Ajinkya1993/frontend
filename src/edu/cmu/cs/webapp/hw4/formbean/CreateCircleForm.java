@@ -89,7 +89,7 @@ public class CreateCircleForm extends FormBean {
         if (action == null) errors.add("Button is required");
 
         if (errors.size() > 0) return errors;
-
+        
         if (!action.equals("Create Team")) {
         	errors.add("Invalid button");
         }

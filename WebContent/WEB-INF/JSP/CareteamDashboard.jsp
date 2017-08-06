@@ -145,9 +145,13 @@
 													<h1>${lovedone_firstName} &nbsp; ${lovedone_LastName}</h1>
 													<p>Address: ${lovedoneaddr}</p>
 													<p>Trigger Event: ${triggerEvent}</p>
+													<c:choose>
+													<c:when test="${primaryCaregiver == true}">
 													<p>
 														<button><a href="updatelovedoneinfo.do">Edit Information</a></button>
 													</p>
+													</c:when>
+													</c:choose>
 												</div>
 											</div>
 

@@ -63,7 +63,7 @@ public class UpdateLovedOneInfoAction extends Action {
 	              try {
 	            	  json.put("email", email);
 	            	  json.put("circleName",circlename);
-	            	  System.out.println("Setting email and circlename as "+email + " " +circlename);
+	            	  System.out.println("Setting email and circlename in updatelovedoneinfo as "+email + " " +circlename);
 				} catch (JSONException e1) {
 					e1.printStackTrace();
 				}
@@ -141,8 +141,8 @@ public class UpdateLovedOneInfoAction extends Action {
               request.setAttribute("lovedoneaddr", lovedoneaddr);
               request.setAttribute("lovedoneURL", lovedoneURL);
               request.setAttribute("subscribedServices", subscribedServices);
-              request.setAttribute("georelationship", georel);
-              request.setAttribute("relationship", relat);
+              request.setAttribute("geoRel", georel);
+              request.setAttribute("natureOfRel", relat);
               request.getSession().setAttribute("session", sessionBean);
           return "UpdateLovedOneInfo.jsp";
         }catch (FormBeanException e) {

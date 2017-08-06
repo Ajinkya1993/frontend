@@ -137,27 +137,27 @@
 							<div class="form-group">
 							<div class="form-group">
 								<label>LovedOne First Name:</label>
-								<input type="text" name="lovefirstname" class="form-control" value="${lovedone_firstName}">
+								<input type="text" name="lovedone_firstName" class="form-control" value="${lovedone_firstName}">
 							</div>
 							<div class="form-group">
 								<label>LovedOne Last Name:</label>
-								<input type="text" name="lovelastname" class="form-control" value="${lovedone_LastName}">
+								<input type="text" name="lovedone_LastName" class="form-control" value="${lovedone_LastName}">
 							</div>
 							<div class="form-group">
 								<label>Address:</label>
-								<input type="text" name="lovenaddress" class="form-control" value="${lovedoneaddr}">
+								<input type="text" name="lovedoneaddr" class="form-control" value="${lovedoneaddr}">
 							</div>
 							<div class="form-group">
 								<label>Relation:</label>
-								<input type="text" name="relation" class="form-control" value="${relationship}">
+								<input type="text" name="natureOfRel" class="form-control" value="${natureOfRel}">
 							</div>
 							<div class="form-group">
 								<label>Geo-Relation:</label>
-								<input type="text" name="georelation" class="form-control" value="${georelationship}">
+								<input type="text" name="geoRel" class="form-control" value="${geoRel}">
 							</div>
 							<div class="form-group">
 								<label>Trigger Event:</label>
-								<input type="text" name="event" class="form-control" value="${triggerEvent}">
+								<input type="text" name="triggerEvent" class="form-control" value="${triggerEvent}">
 							</div>
 							
 		    				</div>
