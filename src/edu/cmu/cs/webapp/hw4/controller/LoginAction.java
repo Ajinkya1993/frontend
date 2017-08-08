@@ -133,7 +133,8 @@ public class LoginAction extends Action {
               String firstName = new String();
               String lastName = new String();
               String email = new String();
-				try {					
+				try {
+					System.out.println("Responsibj in login is "+responseObj);
 					email = responseObj.getString("email");
 					firstName = responseObj.getString("firstName");
 					System.out.println(responseObj.toString());
