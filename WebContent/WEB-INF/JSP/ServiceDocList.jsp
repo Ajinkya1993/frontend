@@ -140,25 +140,49 @@
                               <div class="content all-icons">
                               <div class ="row">
                             
-                            
-                            <div class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
+
+										<c:choose>
+											<c:when
+												test="${fn:containsIgnoreCase(subscribedServices, 'Housing')}">
+												<div
+													class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
+													<div class="font-icon-detail">
+														<i class="pe-7s-folder"></i>
+														<p>Senior Housing</p>
+													</div>
+												</div>
+											</c:when>
+										</c:choose>
+
+										<c:choose>
+											<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Ancillary')}">
+												<div class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
+													<div class="font-icon-detail">
+														<i class="pe-7s-folder"></i>
+														<p>Ancillary Services</p>
+													</div>
+												</div>
+											</c:when>
+										</c:choose>
+
+										<c:choose>
+											<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Vendor')}">
+												<div class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
+													<div class="font-icon-detail">
+														<i class="pe-7s-folder"></i>
+														<p>Vendor Management</p>
+													</div>
+												</div>
+											</c:when>
+										</c:choose>
+										
+							 <div class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
                              <div class="font-icon-detail"><i class="pe-7s-folder"></i>
                                <p> Others</p>
                              </div>
                           	 </div>
-                            
-                      <c:choose>
-					   <c:when test="${fn:containsIgnoreCase(subscribedServices, 'Housing')}">
-													
-					<div class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
-                             <div class="font-icon-detail"><i class="pe-7s-folder"></i>
-                               <p> Senior Housing</p>
-                             </div>
-                          	 </div>
-														
-					</c:when>
-					</c:choose>
-                        </div>
+
+						</div>
                     </div>
                 </div>
             </div>
