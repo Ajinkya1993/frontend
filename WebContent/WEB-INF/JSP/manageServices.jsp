@@ -182,7 +182,7 @@
 													</c:choose>
 													
 													<c:choose>
-													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Home')}">
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Ancillary')}">
 														
 														<td><a href="https://www.google.com" class="icons">
 																<img src="images/ServiceIcons/in-home-care.png"
@@ -190,11 +190,11 @@
 														</a>
 														<br>
 														<br>
-														<div style = "text-align: center">In Home Care</div>
+														<div style = "text-align: center">Ancillary Services</div>
 														<form method="post" action="manageServices.do">
 														<br>
 										        			<div style = "text-align: center">	
-										        				<input type="hidden" name="service" value="In Home Care">															
+										        				<input type="hidden" name="service" value="Ancillary Services">															
 										          				<input type="submit" name="directRemove" data-inline="true" value="Unsubscribe" style = "border-radius: 10%">
 										          				<br>
 										         	 			<br>
@@ -458,7 +458,7 @@
 													</c:choose>
 													
 													<c:choose>
-													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Home')}">
+													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'ancillary')}">
 													</c:when>
 													<c:otherwise>	
 														<td><a href="https://www.google.com" class="icons">
@@ -467,11 +467,11 @@
 														</a>
 														<br>
 														<br>
-														<div style = "text-align: center">In Home Care</div>
+														<div style = "text-align: center">Ancillary Services</div>
 														<form method="post" action="manageServices.do">
 														<br>
 										        			<div style = "text-align: center">	
-										        				<input type="hidden" name="service" value="In Home Care">															
+										        				<input type="hidden" name="service" value="Ancillary Services">															
 										          				<input type="submit" name="directAdd" data-inline="true" value="Subscribe" style = "border-radius: 10%">
 										          				<br>
 										         	 			<br>
