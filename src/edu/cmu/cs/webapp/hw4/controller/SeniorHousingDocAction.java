@@ -32,6 +32,7 @@ public class SeniorHousingDocAction extends Action {
 		// TODO Auto-generated method stub
 		List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
+        request.setAttribute("curTab", "document");
 		List<DocumentBean> docList;
 		
 		SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");

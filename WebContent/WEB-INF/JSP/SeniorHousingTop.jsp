@@ -92,22 +92,76 @@
 					<h5 class="centered">Marcel Newman</h5>
 				</div>
 				<ul class="nav">
-					<li class="active"><a href="manageSeniorHousing.do"> <i
-							class="pe-7s-graph"></i>
-							<p>My Preference</p>
-					</a></li>
-					<li><a href="user.html"> <i class="pe-7s-user"></i>
-							<p>Housing List</p>
-					</a></li>
-					<li><a href="seniorHousingDoc.do"> <i class="pe-7s-note2"></i>
-							<p>Document</p>
-					</a></li>
-					<li><a href="typography.html"> <i class="pe-7s-news-paper"></i>
-							<p>Payment</p>
-					</a></li>
-					<li><a href="icons.html"> <i class="pe-7s-science"></i>
-							<p>Education</p>
-					</a></li>
+					<c:choose>
+						<c:when test="${curTab eq 'preference'}">
+							<li class="active"><a href="manageSeniorHousing.do"> <i
+									class="pe-7s-graph"></i>
+									<p>My Preference</p>
+							</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="manageSeniorHousing.do"> <i
+									class="pe-7s-graph"></i>
+									<p>My Preference</p>
+							</a></li>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${curTab eq 'housings'}">
+							<li class="active"><a href="#"> <i
+									class="pe-7s-graph"></i>
+									<p>Housing List</p>
+							</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="#"> <i
+									class="pe-7s-graph"></i>
+									<p>Housing List</p>
+							</a></li>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${curTab eq 'document'}">
+							<li class="active"><a href="seniorHousingDoc.do"> <i
+									class="pe-7s-graph"></i>
+									<p>Document</p>
+							</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="seniorHousingDoc.do"> <i
+									class="pe-7s-graph"></i>
+									<p>Document</p>
+							</a></li>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${curTab eq 'payment'}">
+							<li class="active"><a href="#"> <i
+									class="pe-7s-graph"></i>
+									<p>Payment</p>
+							</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="#"> <i
+									class="pe-7s-graph"></i>
+									<p>Payment</p>
+							</a></li>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${curTab eq 'education'}">
+							<li class="active"><a href="#"> <i
+									class="pe-7s-graph"></i>
+									<p>Education</p>
+							</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="#"> <i
+									class="pe-7s-graph"></i>
+									<p>Education</p>
+							</a></li>
+						</c:otherwise>
+					</c:choose>
 
 				</ul>
 			</div>
@@ -134,7 +188,7 @@
 						</ul>
 
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href=""> Home </a></li>
+							<li><a href="careteamDashboard.do"> Home </a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown"> Services &#9662; </a>
 								<ul class="dropdown-menu" role="menu">
@@ -143,7 +197,7 @@
 									<li><a href="#">Ancillary Services</a></li>
 									<li><a href="#">Estate Management</a></li>
 							</ul></li>
-							<li><a href="#"> My Dashboard </a></li>
+							<li><a href="personalDashboard.do"> My Dashboard </a></li>
 							<li><a href="#"> <i class="fa fa-phone"></i>Concierge Services </a></li>
 							<li><a href="#"> Log out </a></li>
 						</ul>

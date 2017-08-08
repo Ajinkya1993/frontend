@@ -33,6 +33,7 @@ public class EditSeniorHousingPrfAction extends Action {
         
         List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
+        request.setAttribute("curTab", "preference");
         
         SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
 		if (sessionBean == null || sessionBean.getEmail() == null) {
