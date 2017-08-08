@@ -42,6 +42,7 @@ public class SeniorHousingDocManageAction extends Action {
 		try {
 			String action = request.getParameter("action");
 			String docName = request.getParameter("docName");
+			String docURL = request.getParameter("docURL");
 			System.out.println(action);
 			if (action == null) {
 				return "seniorHousingDoc.do";
@@ -56,6 +57,7 @@ public class SeniorHousingDocManageAction extends Action {
 				
 			} else if (action.equals("MANAGE SHARING")) {
 				request.getSession().setAttribute("documentName", docName);
+				request.getSession().setAttribute("documentURL", docURL);
 				return "manageDocAccess.do";
 			}
 		} catch (Exception e) {
