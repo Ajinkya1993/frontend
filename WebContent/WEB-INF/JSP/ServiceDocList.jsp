@@ -58,7 +58,7 @@
 					<p class="centered">
 						<img src="images/default-avatar.png" class="img-circle" width="30"></a>
 					</p>
-					<h5 class="centered">Marcel Newman</h5>
+					<h5 class="centered"><a href="personalDashboard.do">Marcel Newman</a></h5>
 				</div>
 				<ul class="nav">
 					<li ><a href="careteamDashboard.do"> <i class="pe-7s-graph"></i>
