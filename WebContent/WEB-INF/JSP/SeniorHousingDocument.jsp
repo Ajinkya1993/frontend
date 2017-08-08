@@ -17,13 +17,13 @@
 						<li class="list-group-item">
 							<h3>${doc.name}</h3>
 							<%-- <c:if test="${doc.accessLevel}"> --%>
-								<form action="">
+								<form action="seniorHousingDocManage.do">
 									<input type="hidden" name="docName" value="${doc.name}">
 									<input type="hidden" name="docURL" value="${doc.url}">
-									<input type="submit" class="btn btn-success" value="DOWNLOAD">
+									<input type="submit" name="action" class="btn btn-success" value="DOWNLOAD">
 									<c:if test="${doc.accessLevel}">
-										<input type="submit" class="btn btn-info" value="MANAGE SHARING">
-										<input type="submit" class="btn btn-warning" value="DELETE">
+										<input type="submit" name="action" class="btn btn-info" value="MANAGE SHARING">
+										<input type="submit" name="action" class="btn btn-warning" value="DELETE">
 									</c:if>
 								</form>
 							<%-- </c:if> --%>
