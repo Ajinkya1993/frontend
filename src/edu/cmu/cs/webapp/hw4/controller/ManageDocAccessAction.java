@@ -33,6 +33,7 @@ public class ManageDocAccessAction extends Action{
     public String perform(HttpServletRequest request) {
         List<String> errors = new ArrayList<>();
         SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
+        request.setAttribute("curTab", "document");
 //        if (sessionBean == null) {
 //            errors.add("Session expired. Please log in.");
 //            return "login.jsp";
@@ -43,7 +44,7 @@ public class ManageDocAccessAction extends Action{
         
         try {
             object.put("circleId", "1");
-            object.put("email", "junyi@gmail.com");
+            object.put("email", "c@gmail.com");
             object.put("service", "1");
             object.put("documentName", "doc1");
 //            object.put("circleId", sessionBean.getCircleId());
@@ -94,7 +95,8 @@ public class ManageDocAccessAction extends Action{
                 accessMap.put(obj.getString("email"), obj.getBoolean("accessLevel"));
             }
             //Get members of this circle;
-            List<DocumentPeopleBean> memberList = getCircleMembers(sessionBean.getCircleId(), accessMap);
+            List<DocumentPeopleBean> memberList = getCircleMembers(1, accessMap);
+            //List<DocumentPeopleBean> memberList = getCircleMembers(sessionBean.getCircleId(), accessMap);
             request.setAttribute("documentPeople", memberList);
             conn.disconnect();
                 
