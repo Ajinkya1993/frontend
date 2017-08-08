@@ -67,7 +67,7 @@
 					<li><a href="#"> <i class="pe-7s-user"></i>
 							<p>Team Members</p>
 					</a></li>
-					<li><a href="#"> <i class="pe-7s-note2"></i>
+					<li><a href="ServiceDocList.do"><i class="pe-7s-note2"></i>
 							<p>Documents</p>
 					</a></li>
 					<li><a href="#"> <i class="pe-7s-news-paper"></i>

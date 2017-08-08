@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -58,7 +61,7 @@
 					<h5 class="centered">Marcel Newman</h5>
 				</div>
 				<ul class="nav">
-					<li ><a href="#"> <i class="pe-7s-graph"></i>
+					<li ><a href="careteamDashboard.do"> <i class="pe-7s-graph"></i>
 							<p>CareTeam Dashboard</p>
 					</a></li>
 					<li><a href="manageServices.do"> <i class="pe-7s-graph"></i>
@@ -138,24 +141,23 @@
                               <div class ="row">
                             
                             
-                       <%--  <%
-						String[] services = (String[]) request.getSession().getAttribute("serviceChosen");
-						for (int i = 0; i < services.length; i++) {
-						%>
-  
-                                  <div class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
-                                    <div class="font-icon-detail"><i class="pe-7s-folder"></i>
-                                      <p>$<%= services[i]%></p>
-                                    </div>
-                                  </div>
-                          <% } %> --%>
+                            <div class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
+                             <div class="font-icon-detail"><i class="pe-7s-folder"></i>
+                               <p> Others</p>
+                             </div>
+                          	 </div>
                             
-                                  <div class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
-                                    <div class="font-icon-detail"><i class="pe-7s-folder"></i>
-                                      <p> Others</p>
-                                    </div>
-                                 </div>
-                        
+                      <c:choose>
+					   <c:when test="${fn:containsIgnoreCase(subscribedServices, 'Housing')}">
+													
+					<div class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
+                             <div class="font-icon-detail"><i class="pe-7s-folder"></i>
+                               <p> Senior Housing</p>
+                             </div>
+                          	 </div>
+														
+					</c:when>
+					</c:choose>
                         </div>
                     </div>
                 </div>
