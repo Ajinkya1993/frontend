@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,17 +18,15 @@ import org.json.JSONObject;
 import edu.cmu.cs.webapp.hw4.databean.DocumentBean;
 import edu.cmu.cs.webapp.hw4.databean.SessionBean;
 
-public class SeniorHousingDocAction extends Action {
-
+public class SeniorHousingDocManageAction extends Action {
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
-		return "seniorHousingDoc.do";
+		return "seniorHousingDocManage.do";
 	}
 
 	@Override
 	public String perform(HttpServletRequest request) {
-		// TODO Auto-generated method stub
 		List<String> errors = new ArrayList<String>();
         request.setAttribute("errors", errors);
 		List<DocumentBean> docList;
@@ -43,8 +40,23 @@ public class SeniorHousingDocAction extends Action {
 		}
 		
 		try {
-			docList = getDocs(sessionBean.getEmail(), sessionBean.getCircleId(), 1);
-			request.setAttribute("docList", docList);
+			String action = request.getParameter("action");
+			System.out.println(action);
+			if (action == null) {
+				return "seniorHousingDoc.do";
+			} else if (action.equals("DELETE")) {
+				String docName = request.getParameter("docName");
+				if (docName != null && deleteDoc(sessionBean.getEmail(), sessionBean.getCircleId(), 1, docName)) {
+					return "seniorHousingDoc.do";
+				} else {
+					errors.add("Failed to delete document: " + docName);
+					return "SeniorHousingDocument.jsp";
+				}
+			} else if (action.equals("DOWNLOAD")) {
+				
+			} else if (action.equals("MANAGE SHARING")) {
+				
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -53,15 +65,14 @@ public class SeniorHousingDocAction extends Action {
 		return "SeniorHousingDocument.jsp";
 	}
 	
-	private List<DocumentBean> getDocs(String email, long circleId, int service) throws JSONException, IOException {
-		List<DocumentBean> list = new ArrayList<DocumentBean>();
-		
-		String query = "http://localhost:8080/CurantisBackendService/curantis/listDocuments";
+	private boolean deleteDoc(String email, long circleId, int service, String documentName) throws JSONException, IOException {
+		String query = "http://localhost:8080/CurantisBackendService/curantis/deleteDocument";
   	    JSONObject json = new JSONObject();
 		
   	    json.put("email", email);
   	    json.put("service", service);
   	    json.put("circleId", circleId);
+  	    json.put("documentName", documentName);
 		URL url = new URL(query);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setConnectTimeout(5000);
@@ -85,18 +96,9 @@ public class SeniorHousingDocAction extends Action {
         	boolean success = responseObj.getBoolean("success");
         	
         	if (success) {
-        		JSONArray docs = responseObj.getJSONArray("listofdocs");
-        		for (int i = 0; i < docs.length(); i++) {
-        			JSONObject doc = docs.getJSONObject(i);
-        			DocumentBean docBean = new DocumentBean();
-        			docBean.setName(doc.getString("docname"));
-        			docBean.setUrl(doc.getString("docurl"));
-        			docBean.setAccessLevel(doc.getBoolean("accessLevel"));
-        			list.add(docBean);
-        		}
+        		return true;
         	}
         }
-		
-		return list;
+        return false;
 	}
 }
