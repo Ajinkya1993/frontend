@@ -6,6 +6,25 @@
 <!-- *********Starts Here************ -->
 			<div style="margin-left:50px; margin-right:50px">
 				<h2>Manage Team Members' Access to This Document</h2>
+				<c:forEach var="error" items="${errors}">
+					<div class="alert alert-warning">
+					  <strong>${error}</strong>
+					</div>
+				</c:forEach>
+				<form action="" method="post">
+					<div class="form-group">
+						<c:forEach items="${documentPeople}" var="member">
+							<label for="fname">${member.firstName}</label>
+							<select id="ok" class="form-control" name="accessLevel">
+								<option selected>${member.accessLevel}</option>
+								<option>No Access</option>
+								<option>View and Download</option>
+								<option>Share and Delete</option>
+							</select>
+							
+						</c:forEach>
+					</div>
+				</form>
 			</div>
 <!-- *********Ends Here************ -->
 <jsp:include page="SeniorHousingBottom.jsp"/>

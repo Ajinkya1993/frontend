@@ -33,19 +33,23 @@ public class ManageDocAccessAction extends Action{
     public String perform(HttpServletRequest request) {
         List<String> errors = new ArrayList<>();
         SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
-        if (sessionBean == null) {
-            errors.add("Session expired. Please log in.");
-            return "login.jsp";
-        }
+//        if (sessionBean == null) {
+//            errors.add("Session expired. Please log in.");
+//            return "login.jsp";
+//        }
         
         JSONObject object = new JSONObject();
         JSONObject responseObj = new JSONObject();
         
         try {
-            object.put("circleId", sessionBean.getCircleId());
-            object.put("email", sessionBean.getEmail());
-            object.put("service", sessionBean.getServiceChosen());
-            object.put("documentName", request.getParameter("documentName"));
+            object.put("circleId", "1");
+            object.put("email", "junyi@gmail.com");
+            object.put("service", "1");
+            object.put("documentName", "doc1");
+//            object.put("circleId", sessionBean.getCircleId());
+//            object.put("email", sessionBean.getEmail());
+//            object.put("service", sessionBean.getServiceChosen());
+//            object.put("documentName", request.getParameter("documentName"));
             
             
             String query = "http://localhost:8080/CurantisBackendService/curantis/listpeople";
@@ -150,7 +154,7 @@ public class ManageDocAccessAction extends Action{
                             people.setEmail(email);
                             
                             if (accessMap.containsKey(email)) {
-                                String accessLevel = accessMap.get(email) ? "Share & Delete" : "View & Download";
+                                String accessLevel = accessMap.get(email) ? "Share and Delete" : "View and Download";
                                 people.setAccessLevel(accessLevel);
                             } else {
                                 people.setAccessLevel("No Access");
