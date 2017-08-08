@@ -48,6 +48,7 @@ public class Controller extends HttpServlet {
         Action.add(new ManageServicesAction());
         
         Action.add(new SeniorHousingDocAction());
+        Action.add(new ManageDocAccessAction());
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
