@@ -4,16 +4,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +31,7 @@ public class ManageDocAccessAction extends Action{
     @Override
     public String perform(HttpServletRequest request) {
         List<String> errors = new ArrayList<>();
+        HttpSession session = request.getSession();
         SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
         request.setAttribute("curTab", "document");
 //        if (sessionBean == null) {
@@ -43,14 +43,14 @@ public class ManageDocAccessAction extends Action{
         JSONObject responseObj = new JSONObject();
         
         try {
-            object.put("circleId", "1");
-            object.put("email", "c@gmail.com");
+//            object.put("circleId", "1");
+//            object.put("email", "c@gmail.com");
+//            object.put("service", "1");
+//            object.put("documentName", "doc1");
+            object.put("circleId", sessionBean.getCircleId());
+            object.put("email", sessionBean.getEmail());
             object.put("service", "1");
-            object.put("documentName", "doc1");
-//            object.put("circleId", sessionBean.getCircleId());
-//            object.put("email", sessionBean.getEmail());
-//            object.put("service", sessionBean.getServiceChosen());
-//            object.put("documentName", request.getParameter("documentName"));
+            object.put("documentName", session.getAttribute("documentName"));
             
             
             String query = "http://localhost:8080/CurantisBackendService/curantis/listpeople";
@@ -95,9 +95,14 @@ public class ManageDocAccessAction extends Action{
                 accessMap.put(obj.getString("email"), obj.getBoolean("accessLevel"));
             }
             //Get members of this circle;
-            List<DocumentPeopleBean> memberList = getCircleMembers(1, accessMap);
-            //List<DocumentPeopleBean> memberList = getCircleMembers(sessionBean.getCircleId(), accessMap);
+            //List<DocumentPeopleBean> memberList = getCircleMembers(1, accessMap);
+            List<DocumentPeopleBean> memberList = getCircleMembers(sessionBean.getCircleId(), accessMap);
             request.setAttribute("documentPeople", memberList);
+            request.setAttribute("docUrl", "docUrl");
+            request.setAttribute("documentName", session.getAttribute("documentName"));
+            //request.setAttribute("documentName", "doc1");
+            session.setAttribute("documentPeople", memberList);
+            
             conn.disconnect();
                 
         } catch (JSONException e) {
