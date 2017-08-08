@@ -148,7 +148,7 @@
 													class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
 													<div class="font-icon-detail">
 														<i class="pe-7s-folder"></i>
-														<p>Senior Housing</p>
+														<p><a href="seniorHousingDoc.do">Senior Housing</a></p>
 													</div>
 												</div>
 											</c:when>
@@ -159,7 +159,7 @@
 												<div class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
 													<div class="font-icon-detail">
 														<i class="pe-7s-folder"></i>
-														<p>Ancillary Services</p>
+														<p><a href="#">Ancillary Services</a></p>
 													</div>
 												</div>
 											</c:when>
@@ -170,7 +170,7 @@
 												<div class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
 													<div class="font-icon-detail">
 														<i class="pe-7s-folder"></i>
-														<p>Vendor Management</p>
+														<p><a href="#">Vendor Management</a></p>
 													</div>
 												</div>
 											</c:when>
@@ -178,7 +178,7 @@
 										
 							 <div class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
                              <div class="font-icon-detail"><i class="pe-7s-folder"></i>
-                               <p> Others</p>
+                               <p><a href="#">Others</a></p>
                              </div>
                           	 </div>
 
