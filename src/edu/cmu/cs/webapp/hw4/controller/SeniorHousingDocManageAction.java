@@ -41,11 +41,11 @@ public class SeniorHousingDocManageAction extends Action {
 		
 		try {
 			String action = request.getParameter("action");
+			String docName = request.getParameter("docName");
 			System.out.println(action);
 			if (action == null) {
 				return "seniorHousingDoc.do";
 			} else if (action.equals("DELETE")) {
-				String docName = request.getParameter("docName");
 				if (docName != null && deleteDoc(sessionBean.getEmail(), sessionBean.getCircleId(), 1, docName)) {
 					return "seniorHousingDoc.do";
 				} else {
@@ -55,7 +55,8 @@ public class SeniorHousingDocManageAction extends Action {
 			} else if (action.equals("DOWNLOAD")) {
 				
 			} else if (action.equals("MANAGE SHARING")) {
-				
+				request.getSession().setAttribute("documentName", docName);
+				return "manageDocAccess.do";
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
