@@ -34,19 +34,15 @@ public class ManageDocAccessAction extends Action{
         HttpSession session = request.getSession();
         SessionBean sessionBean = (SessionBean) request.getSession().getAttribute("session");
         request.setAttribute("curTab", "document");
-//        if (sessionBean == null) {
-//            errors.add("Session expired. Please log in.");
-//            return "login.jsp";
-//        }
+        if (sessionBean == null) {
+            errors.add("Session expired. Please log in.");
+            return "login.jsp";
+        }
         
         JSONObject object = new JSONObject();
         JSONObject responseObj = new JSONObject();
         
         try {
-//            object.put("circleId", "1");
-//            object.put("email", "c@gmail.com");
-//            object.put("service", "1");
-//            object.put("documentName", "doc1");
             object.put("circleId", sessionBean.getCircleId());
             object.put("email", sessionBean.getEmail());
             object.put("service", "1");
@@ -95,7 +91,6 @@ public class ManageDocAccessAction extends Action{
                 accessMap.put(obj.getString("email"), obj.getBoolean("accessLevel"));
             }
             //Get members of this circle;
-            //List<DocumentPeopleBean> memberList = getCircleMembers(1, accessMap);
             List<DocumentPeopleBean> memberList = getCircleMembers(sessionBean.getCircleId(), accessMap);
             request.setAttribute("documentPeople", memberList);
             request.setAttribute("docUrl", "docUrl");

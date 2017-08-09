@@ -60,6 +60,7 @@ public class Controller extends HttpServlet {
         Action.add(new ServiceDocListAction());
         
         Action.add(new ManageDocAccessAction());
+        Action.add(new ChangeAccessAction());
 
     }
 

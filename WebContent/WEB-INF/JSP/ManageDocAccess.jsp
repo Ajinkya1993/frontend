@@ -14,10 +14,9 @@
 				<form action="changeAccess.do" method="post">
 					<div class="form-group">
 						<c:forEach items="${documentPeople}" var="member">
-							<label for="fname">${member.firstName}</label>
-							<select id="ok" class="form-control" name="accessLevel">
+							<label for="fname">${member.firstName} ${member.lastName}</label>
+							<select id="ok" class="form-control" name="accessLevel${member.email}" style="right:200px">
 								<option selected>${member.accessLevel}</option>
-								<option>No Access</option>
 								<option>View and Download</option>
 								<option>Share and Delete</option>
 							</select>
