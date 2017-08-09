@@ -317,19 +317,10 @@ tbody tr td {
 					</div>
 				</div>
 			</div>
+			
+			<jsp:include page="DashboardFooter.jsp"/>
+			
 		</div>
-
-
-
-		<footer class="footer">
-			<div class="container-fluid">
-				<p class="copyright pull-right">
-					&copy; 2017 <a href=#>Curantis Solution</a>
-				</p>
-			</div>
-		</footer>
-
-	</div>
 	</div>
 
 

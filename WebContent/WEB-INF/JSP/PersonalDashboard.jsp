@@ -264,10 +264,8 @@
 				
 				
 				</div>
-				        
-        
-        
-       
+				            
+       <jsp:include page="DashboardFooter.jsp"/>
 
     </div>
 </div>

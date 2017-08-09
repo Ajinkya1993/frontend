@@ -183,10 +183,16 @@
 					</div>
 		    </div>
 		    </div>
+		    
+		    </div>
+		    </div>
+		    </div>
+		    </div>
+		    
+		    <jsp:include page="DashboardFooter.jsp"/>
+		    
+		    </div>
 			</div>
-			</div>
-
-
 
 
 </body>
