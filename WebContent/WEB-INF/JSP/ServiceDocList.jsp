@@ -156,7 +156,7 @@
 												<div class="font-icon-list col-lg-2 col-md-3 col-sm-6 col-xs-6 col-xs-6">
 													<div class="font-icon-detail">
 														<i class="pe-7s-folder"></i>
-														<p><a href="#">Ancillary Services</a></p>
+														<p><a href="#">In-Home Care</a></p>
 													</div>
 												</div>
 											</c:when>

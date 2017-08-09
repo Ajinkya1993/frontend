@@ -264,10 +264,11 @@ tbody tr td {
 													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Housing')}">
 													
 														<td><a href="manageSeniorHousing.do" class="icons">
-																<img src="images/Housingservices.png"
+																<img src="images/ServiceIcons/senior-housing.png"
 																width="160">
-														</a></td>
-														
+														</a>
+														<div style = "text-align: center">Senior Housing</div>
+														</td>
 														</c:when>
 													
 													</c:choose>
@@ -276,18 +277,22 @@ tbody tr td {
 													<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Ancillary')}">
 														
 														<td><a href="https://www.google.com" class="icons">
-																<img src="images/ancillary.png"
+																<img src="images/ServiceIcons/in-home-care.png"
 																width="160">
-														</a></td>
+														</a>
+														<div style = "text-align: center">In-Home Care</div>
+														</td>
 														</c:when>
 														</c:choose>
 														
 														<c:choose>
 														<c:when test="${fn:containsIgnoreCase(subscribedServices, 'Vendor')}">
 														<td><a href="vendorDashboard.do" class="icons">
-																<img src="images/vendor_mgmt.png"
+																<img src="images/ServiceIcons/vendor-service.png"
 																width="160">
-														</a></td>
+														</a>
+														<div style = "text-align: center">Vendor Management</div>
+														</td>
 														</c:when>
 														</c:choose>
 													</tr>

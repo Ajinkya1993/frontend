@@ -185,7 +185,7 @@
 														</a>
 														<br>
 														<br>
-														<div style = "text-align: center">Ancillary Services</div>
+														<div style = "text-align: center">In-Home Care</div>
 														<form method="post" action="manageServices.do">
 														<br>
 										        			<div style = "text-align: center">	
