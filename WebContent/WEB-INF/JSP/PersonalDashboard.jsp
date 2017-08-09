@@ -55,7 +55,7 @@
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <p class="centered"><img src="images/default-avatar.png" class="img-circle" width="30"></a></p>
-              	  <h5 class="centered">Marcel Newman</h5>
+              	  <h5 class="centered"><a href="personalDashboard.do">Marcel Newman</a></h5>
             </div>
 
             <ul class="nav">
@@ -68,26 +68,26 @@
             
                 <li>
                     <a href="#">
-                        <i class="pe-7s-note2"></i>
-                        <p>Account</p>
+                        <i class="pe-7s-user"></i>
+                        <p>My Profile</p>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="pe-7s-news-paper"></i>
+                        <i class="pe-7s-credit"></i>
                         <p>Payment</p>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <i class="pe-7s-science"></i>
-                        <p>Education</p>
+                        <p>Services</p>
                     </a>
                 </li>
-                <li>
+                 <li>
                     <a href="#">
-                        <i class="pe-7s-user"></i>
-                        <p>Services</p>
+                        <i class="pe-7s-notebook"></i>
+                        <p>Education</p>
                     </a>
                 </li>
             </ul>
@@ -235,7 +235,7 @@
                                 <c:choose>
     <c:when test="${not empty errorsinvite}">
     <tr>
-    <td style="padding-right: 30px; color:red; style:italic;"> You have no careteams at present.Please create a careteam!</td>
+    <td style="padding-right: 30px; color:red; style:italic;"> You have no invitation.</td>
     </tr>
     </c:when>
     <c:otherwise>

@@ -74,7 +74,7 @@
 					<li><a href="#"> <i class="pe-7s-credit"></i>
 							<p>Payment</p>
 					</a></li>
-					<li><a href="#"> <i class="pe-7s-science"></i>
+					<li><a href="#"> <i class="pe-7s-notebook"></i>
 							<p>Education</p>
 					</a></li>
 

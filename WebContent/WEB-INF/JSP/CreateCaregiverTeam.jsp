@@ -45,38 +45,39 @@
 <body>
 
 	<div class="wrapper">
-		<div class="sidebar" data-color="blue"
-			data-image="assets/img/sidebar-5.jpg">
-			<!--
-			Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-			Tip 2: you can also add an image using data-image tag -->
-			<div class="sidebar-wrapper">
-				<div class="logo">
-					<p class="centered">
-						<img src="images/default-avatar.png" class="img-circle" width="30"></a>
-					</p>
-					<h5 class="centered">Marcel Newman</h5>
-				</div>
-				<ul class="nav">
-					<li class="active"><a href="personalDashboard.do"> <i
-							class="pe-7s-graph"></i>
-							<p>My Dashboard</p>
-					</a></li>
-					<li><a href="user.html"> <i class="pe-7s-user"></i>
-							<p>CareTeams</p>
-					</a></li>
-					<li><a href="table.html"> <i class="pe-7s-note2"></i>
-							<p>Account</p>
-					</a></li>
-					<li><a href="typography.html"> <i class="pe-7s-news-paper"></i>
-							<p>Payment</p>
-					</a></li>
-					<li><a href="icons.html"> <i class="pe-7s-science"></i>
-							<p>Education</p>
-					</a></li>
+		<div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
+		
+		<div class="sidebar-wrapper">
+            <div class="logo">
+                <p class="centered"><img src="images/default-avatar.png" class="img-circle" width="30"></a></p>
+              	  <h5 class="centered"><a href="personalDashboard.do">Marcel Newman</a></h5>
+            </div>
 
-				</ul>
-			</div>
+            <ul class="nav">
+                <li> <a href="personalDashboard.do">
+                	<i class="pe-7s-graph"></i><p>My Dashboard</p></a>
+                </li>
+                <li><a href="#">
+                	<i class="pe-7s-user"></i><p>My Profile</p> </a>
+                </li>
+                <li>
+                    <a href="#"><i class="pe-7s-credit"></i>
+                       <p>Payment</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><i class="pe-7s-science"></i>
+                        <p>Services</p>
+                    </a>
+                </li>
+                 <li>
+                    <a href="#"><i class="pe-7s-notebook"></i>
+                        <p>Education</p>
+                    </a>
+                </li>
+            </ul>
+    	</div>
+			
 		</div>
 
 		<div class="main-panel">
@@ -124,8 +125,6 @@
 			<div id="parent">
 			<div class="container-fluid">
 			<div class="row">
-
-			<br></br>
 
 			<h3 class="main-heading1"><center><b/>Create My CareTeam</center></h3>
 			<c:forEach var="error" items="${errors}">
