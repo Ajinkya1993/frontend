@@ -51,33 +51,28 @@
 			<div class="sidebar-wrapper">
 				<div class="logo">
 					<p class="centered">
-						<img src="images/default-avatar.png" class="img-circle" width="30"></a>
+						<img src="images/default-avatar.png" class="img-circle" width="30">
 					</p>
-					<h5 class="centered">Marcel Newman</h5>
+					<h5 class="centered"><a href="personalDashboard.do">Marcel Newman</a></h5>
 				</div>
-
 				<ul class="nav">
-					<li class="active"><a href="#"> <i
-							class="pe-7s-graph"></i>
+					<li class="active"><a href="careteamDashboard.do"> <i class="pe-7s-graph"></i>
 							<p>CareTeam Dashboard</p>
 					</a></li>
-					<li><a href="manageServices.do"> <i class="pe-7s-graph"></i>
+					<li><a href="manageServices.do"> <i class="pe-7s-note"></i>
 							<p>Manage Services</p>
 					</a></li>
-					<li><a href="#"> <i class="pe-7s-user"></i>
+					<li><a href="#"> <i class="pe-7s-users"></i>
 							<p>Team Members</p>
 					</a></li>
-					<li><a href="ServiceDocList.do"><i class="pe-7s-note2"></i>
+					<li><a href="ServiceDocList.do"> <i class="pe-7s-note2"></i>
 							<p>Documents</p>
 					</a></li>
-					<li><a href="#"> <i class="pe-7s-news-paper"></i>
+					<li><a href="#"> <i class="pe-7s-credit"></i>
 							<p>Payment</p>
 					</a></li>
 					<li><a href="#"> <i class="pe-7s-science"></i>
 							<p>Education</p>
-					</a></li>
-					<li><a href="#"> <i class="fa fa-heart"></i>
-							<p>Loved One</p>
 					</a></li>
 
 				</ul>
@@ -151,7 +146,7 @@
 													<c:choose>
 													<c:when test="${primaryCaregiver == true}">
 													<p>
-														<button><a href="updatelovedoneinfo.do">Edit Information</a></button>
+														<button class="btn btn-info"><a href="updatelovedoneinfo.do">Edit Information</a></button>
 													</p>
 													</c:when>
 													</c:choose>

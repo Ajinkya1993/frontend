@@ -73,14 +73,11 @@
 					<li class="active"><a href="#"> <i class="pe-7s-note2"></i>
 							<p>Documents</p>
 					</a></li>
-					<li><a href="#"> <i class="pe-7s-news-paper"></i>
+					<li><a href="#"> <i class="pe-7s-credit"></i>
 							<p>Payment</p>
 					</a></li>
 					<li><a href="#"> <i class="pe-7s-science"></i>
 							<p>Education</p>
-					</a></li>
-					<li><a href="#"> <i class="fa fa-heart"></i>
-							<p>Loved One</p>
 					</a></li>
 
 				</ul>
